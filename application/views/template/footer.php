@@ -1,35 +1,72 @@
-
-<!-- partial:partials/_footer.html -->
 <footer class="footer">
-  <div class="container-fluid clearfix">
-    <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2018
-      <a href="http://www.bootstrapdash.com/" target="_blank">Bootstrapdash</a>. All rights reserved.</span>
-    <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with
-      <i class="mdi mdi-heart text-danger"></i>
-    </span>
-  </div>
+	<div class="container-fluid">
+		<nav class="float-left">
+			<ul>
+				<li>
+					<a href="https://github.com/mohberliannusantara/warehouse-inventory">
+						Licenses
+					</a>
+				</li>
+			</ul>
+		</nav>
+		<div class="copyright float-right">
+			&copy;
+			<script>
+				document.write(new Date().getFullYear())
+			</script>, made with <i class="material-icons">favorite</i> by
+			<a href="https://github.com/mohberliannusantara/warehouse-inventory" target="_blank" class="text-warning">Libo Tim</a> for PT. PLN Persero
+		</div>
+		<!-- your footer here -->
+	</div>
 </footer>
-<!-- partial -->
 </div>
-<!-- main-panel ends -->
 </div>
-<!-- page-body-wrapper ends -->
-</div>
-<!-- container-scroller -->
+<!--   Core JS Files   -->
+<!-- <script src="<?php //echo base_url('assets/js/core/jquery.min.js') ?>" type="text/javascript"></script> -->
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<!-- <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/dataTables.material.min.js"></script>
+ -->
+<script src="<?php echo base_url('assets/js/core/popper.min.js') ?>" type="text/javascript"></script>
+<script src="<?php echo base_url('assets/js/core/bootstrap-material-design.min.js') ?>" type="text/javascript"></script>
+<script src="<?php echo base_url('assets/js/plugins/perfect-scrollbar.jquery.min.js') ?>"></script>
+<!--  Google Maps Plugin    -->
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+<!-- Chartist JS -->
+<script src="<?php echo base_url('assets/js/plugins/chartist.min.js') ?>"></script>
+<!--  Notifications Plugin    -->
+<script src="<?php echo base_url('assets/js/plugins/bootstrap-notify.js') ?>"></script>
+<!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+<script src="<?php echo base_url('assets/js/material-dashboard.min.js') ?>" type="text/javascript"></script>
 
-<!-- plugins:js -->
-<script src="<?php echo base_url('assets/vendors/js/vendor.bundle.base.js') ?>"></script>
-<script src="<?php echo base_url('assets/vendors/js/vendor.bundle.addons.js') ?>"></script>
-<!-- endinject -->
-<!-- Plugin js for this page-->
-<!-- End plugin js for this page-->
-<!-- inject:js -->
-<script src="<?php echo base_url('assets/js/off-canvas.js') ?>"></script>
-<script src="<?php echo base_url('assets/js/misc.js') ?>"></script>
-<!-- endinject -->
-<!-- Custom js for this page-->
-<script src="<?php echo base_url('assets/js/dashboard.js') ?>"></script>
-<!-- End custom js for this page-->
+<!-- koma otomatis saat input number -->
+<script>
+	$('input.number').keyup(function(event) {
+
+  // skip for arrow keys
+  if(event.which >= 37 && event.which <= 40) return;
+
+	  // format number
+	  $(this).val(function(index, value) {
+	  	return value
+	  	.replace(/\D/g, "")
+	  	.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+	  	;
+	  });
+	});
+
+	$(document).ready(function() {
+		$('#example').DataTable( {
+			columnDefs: [
+			{
+				targets: [ 0, 1, 2 ],
+				className: 'mdl-data-table__cell--non-numeric'
+			}
+			]
+		} );
+	} );
+</script>
+
 </body>
 
 </html>

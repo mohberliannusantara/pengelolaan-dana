@@ -1,89 +1,134 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="utf-8">
-	<title>Welcome to CodeIgniter</title>
-
-	<style type="text/css">
-
-	::selection { background-color: #E13300; color: white; }
-	::-moz-selection { background-color: #E13300; color: white; }
-
-	body {
-		background-color: #fff;
-		margin: 40px;
-		font: 13px/20px normal Helvetica, Arial, sans-serif;
-		color: #4F5155;
-	}
-
-	a {
-		color: #003399;
-		background-color: transparent;
-		font-weight: normal;
-	}
-
-	h1 {
-		color: #444;
-		background-color: transparent;
-		border-bottom: 1px solid #D0D0D0;
-		font-size: 19px;
-		font-weight: normal;
-		margin: 0 0 14px 0;
-		padding: 14px 15px 10px 15px;
-	}
-
-	code {
-		font-family: Consolas, Monaco, Courier New, Courier, monospace;
-		font-size: 12px;
-		background-color: #f9f9f9;
-		border: 1px solid #D0D0D0;
-		color: #002166;
-		display: block;
-		margin: 14px 0 14px 0;
-		padding: 12px 10px 12px 10px;
-	}
-
-	#body {
-		margin: 0 15px 0 15px;
-	}
-
-	p.footer {
-		text-align: right;
-		font-size: 11px;
-		border-top: 1px solid #D0D0D0;
-		line-height: 32px;
-		padding: 0 10px 0 10px;
-		margin: 20px 0 0 0;
-	}
-
-	#container {
-		margin: 10px;
-		border: 1px solid #D0D0D0;
-		box-shadow: 0 0 8px #D0D0D0;
-	}
-	</style>
+	<meta charset="utf-8" />
+	<link rel="apple-touch-icon" sizes="76x76" href="<?php echo base_url() ?>assets/img/logo.png">
+	<link rel="icon" type="image/png" href="<?php echo base_url('assets/img/logo.png') ?>">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<title>
+		Components Documentation - Material Dashboard by Creative Tim
+	</title>
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+	<!--     Fonts and icons     -->
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+	<!-- CSS Files -->
+	<link href="<?php echo base_url() ?>assets/css/material-dashboard.css?v=2.1.0" rel="stylesheet" />
+	<!-- CSS Just for demo purpose, don't include it in your project -->
+	<link href="<?php echo base_url() ?>assets/demo/demo.css" rel="stylesheet" />
 </head>
-<body>
 
-<div id="container">
-	<h1>Welcome to CodeIgniter!</h1>
-
-	<div id="body">
-		<p>The page you are looking at is being generated dynamically by CodeIgniter.</p>
-
-		<p>If you would like to edit this page you'll find it located at:</p>
-		<code>application/views/welcome_message.php</code>
-
-		<p>The corresponding controller for this page is found at:</p>
-		<code>application/controllers/Welcome.php</code>
-
-		<p>If you are exploring CodeIgniter for the very first time, you should start by reading the <a href="user_guide/">User Guide</a>.</p>
+<body class="offline-doc">
+	<!-- Navbar -->
+	<nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+		<div class="container-fluid">
+			<div class="navbar-wrapper">
+				<a class="navbar-brand" href="#pablo">DINAS PENDIDIKAN</a>
+			</div>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="navbar-toggler-icon icon-bar"></span>
+				<span class="navbar-toggler-icon icon-bar"></span>
+				<span class="navbar-toggler-icon icon-bar"></span>
+			</button>
+			<div class="collapse navbar-collapse justify-content-end">
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a class="nav-link" href="http://disdik.batukota.go.id/disdik/" target="_blank">
+							Tentang Dinas Pendidikan
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<!-- End Navbar -->
+	<div class="page-header clear-filter">
+		<div class="page-header-image" style="background-image: url('<?php echo base_url('assets/img/background.jpg') ?>');"></div>
+		<div class="content-center">
+			<div class="col-md-10 ml-auto mr-auto">
+				<div class="brand">
+					<h1 class="title">Pengelolaan Dana</h1>
+					<h3 class="description">memantau pengelolaan dana dengan lebih mudah dan cepat</h3>
+					<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#exampleModalCenter">
+						Kelola Dana
+					</button>
+				</div>
+			</div>
+		</div>
 	</div>
 
-	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds. <?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?></p>
-</div>
+	<!-- Modal -->
+	<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLongTitle">Silahkan Masuk</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<?php //echo form_open('Autentikasi/login')?>
+				<div class="modal-body">
+					<div class="form-group">
+						<label for="" class="label">Email</label>
+						<input type="text" name="email" class="form-control" id="recipient-name" autofocus>
+					</div>
+					<div class="form-group">
+						<label for="" class="label">Password</label>
+						<input type="password" name="password" class="form-control" id="recipient-name">
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+					<button type="submit" class="btn btn-warning">Masuk</button>
+				</div>
+				<?php //echo form_close()?>
+			</div>
+		</div>
+	</div>
 
+	<footer class="footer">
+		<div class="container-fluid">
+			<nav class="float-left">
+				<ul>
+					<li>
+						<a href="https://creative-tim.com/presentation">
+							About Us
+						</a>
+					</li>
+					<li>
+						<a href="https://github.com/mohberliannusantara/pengelolaan-dana">
+							Licenses
+						</a>
+					</li>
+				</ul>
+			</nav>
+			<div class="copyright float-right">
+				&copy;
+				<script>
+				document.write(new Date().getFullYear())
+				</script>, made with <i class="material-icons">favorite</i> by
+				<a href="https://github.com/mohberliannusantara/pengelolaan-dana" target="_blank">Creative Tim</a> for a better web.
+			</div>
+		</div>
+	</footer>
+	<!--   Core JS Files   -->
+	<script src="<?php echo base_url() ?>assets/js/core/jquery.min.js" type="text/javascript"></script>
+	<script src="<?php echo base_url() ?>assets/js/core/popper.min.js" type="text/javascript"></script>
+	<script src="<?php echo base_url() ?>assets/js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
+	<script src="<?php echo base_url() ?>assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+	<!--  Google Maps Plugin    -->
+	<!-- <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script> -->
+	<!-- Chartist JS -->
+	<script src="<?php echo base_url() ?>assets/js/plugins/chartist.min.js"></script>
+	<!--  Notifications Plugin    -->
+	<script src="<?php echo base_url() ?>assets/js/plugins/bootstrap-notify.js"></script>
+	<!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+	<script src="<?php echo base_url() ?>assets/js/material-dashboard.min.js?v=2.1.0" type="text/javascript"></script>
+	<!-- Material Dashboard DEMO methods, don't include it in your project! -->
+	<script src="<?php echo base_url() ?>assets/demo/demo.js"></script>
 </body>
+
 </html>
