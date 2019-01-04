@@ -50,7 +50,7 @@
 			<div class="col-md-10 ml-auto mr-auto">
 				<div class="brand">
 					<h1 class="title">Pengelolaan Dana</h1>
-					<h3 class="description">memantau pengelolaan dana dengan lebih mudah dan cepat</h3>
+					<h3 class="description">Memantau pengelolaan dana dengan lebih mudah dan cepat</h3>
 					<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#exampleModalCenter">
 						Kelola Dana
 					</button>
@@ -69,8 +69,8 @@
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
-				<?php //echo form_open('Autentikasi/login')?>
 				<div class="modal-body">
+					<form action="<?php echo base_url().'autentikasi/login'?>" method='post'>
 					<div class="form-group">
 						<label for="" class="label">Email</label>
 						<input type="text" name="email" class="form-control" id="recipient-name" autofocus>
@@ -84,7 +84,7 @@
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
 					<button type="submit" class="btn btn-warning">Masuk</button>
 				</div>
-				<?php //echo form_close()?>
+				</form>
 			</div>
 		</div>
 	</div>

@@ -12,7 +12,11 @@ class Autentikasi extends CI_Controller {
 	function login()
 	{
 		$email = $this->input->post('email');
-		$password = $this->input->post('password');
+		$password = md5($this->input->post('password'));
+		// print_r($email);
+		// print_r($password);
+		// die();
+
 		$cek = $this->Autentikasi_model->login($email,$password);
 		if ($cek->num_rows() == 1) {
 
@@ -22,8 +26,8 @@ class Autentikasi extends CI_Controller {
 				'nama_pengguna' => $value->nama_pengguna,
 				'email' => $value->email,
 				'id_pengguna' => $value->id_pengguna,
-				'nama_sekolah' => $value->nama_sekolah,
-				'nama_jenis_pengguna' => $value->nama_jenis_pengguna,
+				// 'nama_sekolah' => $value->nama_sekolah,
+				// 'nama_jenis_pengguna' => $value->nama_jenis_pengguna,
 				'logged_in' => TRUE
 			);
 			$this->session->set_userdata($userdata);
