@@ -40,6 +40,8 @@
 <script src="<?php echo base_url('assets/js/material-dashboard.min.js') ?>" type="text/javascript"></script>
 
 <!-- koma otomatis saat input number -->
+<!-- MDBootstrap Datatables  -->
+<script type="text/javascript" src="<?php echo base_url('assets/js/addons/datatables.min.js') ?>"></script>
 <script>
 	$('input.number').keyup(function(event) {
 
@@ -65,8 +67,11 @@
 			]
 		} );
 	} );
-</script>
-
+	$(document).ready(function () {
+	$('#dtBasicExample').DataTable();
+	$('.dataTables_length').addClass('bs-select');
+	});
+	</script>
 </body>
 
 </html>

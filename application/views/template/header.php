@@ -3,9 +3,9 @@
 
 <head>
   <meta charset="utf-8" />
-  <link rel="apple-touch-icon" sizes="76x76" href="<?php echo base_url('assets/images/logo.png') ?>">
+  <link rel="apple-touch-icon" sizes="76x76" href="<?php echo base_url() ?>assets/img/logo.png">
+	<link rel="icon" type="image/png" href="<?php echo base_url('assets/img/logo.png') ?>">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <link rel="icon" type="image/png" href="<?php echo base_url('assets/images/logo.png') ?>">
   <title>
     Pengelolaan Dana | Dinas Pendidikan Kota Batu
   </title>
@@ -14,17 +14,21 @@
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <!-- CSS Files -->
-
   <!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.1.0/material.min.css">
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.material.min.css"> -->
   <link href="<?php echo base_url('assets/css/material-dashboard.css'); ?>" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="<?php echo base_url('assets/demo/demo.css'); ?>" rel="stylesheet" />
+
+  <!-- MDBootstrap Datatables  -->
+  <link href="<?php echo base_url('assets/css/addons/datatables.min.css'); ?>" rel="stylesheet">
+
+
 </head>
 
 <body class="">
   <div class="wrapper ">
-    <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
+    <div class="sidebar" data-color="purple" data-background-color="white" data-image="<?php echo base_url('assets/img/sidebar-1.jpg') ?>">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
@@ -37,10 +41,10 @@
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="nav-item active  ">
-            <a class="nav-link" href="./dashboard.html">
+          <li class="nav-item <?php echo ($this->uri->segment(1) == 'beranda') ? 'active':''; ?>">
+            <a class="nav-link" href="<?php echo site_url('beranda') ?>">
               <i class="material-icons">dashboard</i>
-              <p>Dashboard</p>
+              <p>Beranda</p>
             </a>
           </li>
           <li class="nav-item ">
@@ -73,10 +77,10 @@
               <p>Maps</p>
             </a>
           </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./notifications.html">
-              <i class="material-icons">notifications</i>
-              <p>Notifications</p>
+          <li class="nav-item <?php echo ($this->uri->segment(1) == 'sekolah') ? 'active':''; ?> ">
+            <a class="nav-link" href="<?php echo site_url('sekolah')?>">
+              <i class="material-icons">person</i>
+              <p>Sekolah</p>
             </a>
           </li>
           <!-- <li class="nav-item active-pro ">
@@ -93,7 +97,7 @@
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="#pablo">Dashboard</a>
+            <a class="navbar-brand" href="#pablo"><?php echo $page ?></a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>

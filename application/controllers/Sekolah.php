@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Beranda extends CI_Controller {
+class Sekolah extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -20,9 +20,9 @@ class Beranda extends CI_Controller {
 	 */
 	public function index()
 	{
-		$data['page'] = 'Beranda';
+		$data['page'] = 'Sekolah';
 		$this->load->view('template/header', $data);
-		$this->load->view('beranda/index');
+		$this->load->view('sekolah/index');
 		$this->load->view('template/footer');
 	}
 }
