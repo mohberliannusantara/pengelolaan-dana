@@ -31,17 +31,17 @@ class Autentikasi extends CI_Controller {
 				'logged_in' => TRUE
 			);
 			$this->session->set_userdata($userdata);
-			redirect('Beranda','refresh');
+			redirect('beranda','refresh');
 		} else {
-			redirect('Welcome');
+			redirect('welcome');
 		}
 	}
 
 	function logout()
 	{
-		$userdata = array('rayon','logged_in');
+		$userdata = array('email','logged_in');
 		$this->session->unset_userdata($userdata);
-		redirect('Welcome','refresh');
+		redirect('welcome','refresh');
 	}
 }
 

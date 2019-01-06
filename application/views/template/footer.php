@@ -14,7 +14,7 @@
 			<script>
 				document.write(new Date().getFullYear())
 			</script>, made with <i class="material-icons">favorite</i> by
-			<a href="https://github.com/mohberliannusantara/warehouse-inventory" target="_blank" class="text-warning">Libo Tim</a> for PT. PLN Persero
+			<a href="https://github.com/mohberliannusantara/warehouse-inventory" target="_blank" class="text-primary">Libo Tim</a> for PT. PLN Persero
 		</div>
 		<!-- your footer here -->
 	</div>
