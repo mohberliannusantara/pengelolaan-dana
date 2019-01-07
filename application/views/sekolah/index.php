@@ -8,6 +8,7 @@
         </div>
         <div class="card-body">
           <div class="table-responsive">
+            <button type="button" class="btn btn-info">Tambah</button>
             <table id="dtBasicExample" class="table table-striped table-bordered" cellspacing="0" width="100%">
               <thead class="text-primary">
                 <tr>
