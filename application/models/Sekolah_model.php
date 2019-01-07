@@ -27,5 +27,9 @@ class Sekolah_model extends CI_Model {
 }
 
 
+
+
+
+
 /* End of file Sekolah_model.php */
 /* Location: ./application/models/Sekolah_model.php */
