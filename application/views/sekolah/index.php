@@ -13,7 +13,7 @@
                 <tr>
                   <th class="th-sm">No
                   </th>
-                  <th class="th-sm">NPSP
+                  <th class="th-sm">NPSN
                   </th>
                   <th class="th-sm">Nama Sekolah
                   </th>
@@ -29,10 +29,10 @@
                 <?php foreach ($sekolah as $key => $value): ?>
                 <tr>
                   <td><?php echo $key+1 ?></td>
-                  <td><?php echo $value->npsp ?></td>
+                  <td><?php echo $value->npsn ?></td>
                   <td><?php echo $value->nama_sekolah ?></td>
-                  <td><?php echo $value->jenis_sekolah ?></td>
-                  <td><?php echo $value->status_sekolah ?></td>
+                  <td><?php echo $value->nama_jenis_sekolah ?></td>
+                  <td><?php echo $value->nama_status_sekolah ?></td>
                   <td>
                     <a href="#" onclick="openModal(<?php echo $value->id_sekolah; ?>)" rel="tooltip" title="Lihat" class="btn btn-sm btn-success">
                       <i class="material-icons">zoom_out_map</i>
@@ -48,7 +48,7 @@
                 <tr>
                   <th>No
                   </th>
-                  <th>NPSP
+                  <th>NPSN
                   </th>
                   <th>Nama Sekolah
                   </th>

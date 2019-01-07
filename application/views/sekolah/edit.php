@@ -10,9 +10,9 @@
           <div class="card-body">
             <form action="<?php base_url('sekolah/update') ?>" method="post" enctype="multipart/form-data">
               <div class="form-group">
-                <label for="npsp">NPSP</label>
-                <input type="text" class="form-control" name="npsp" value="<?php echo $sekolah->npsp ?>" required autofocus>
-                <div class="invalid-feedback">Masukkan nomor npsp.</div>
+                <label for="npsp">NPSN</label>
+                <input type="text" class="form-control" name="npsn" value="<?php echo $sekolah->npsn ?>" required autofocus>
+                <div class="invalid-feedback">Masukkan nomor npsn.</div>
               </div>
 
               <div class="form-group">
@@ -22,39 +22,35 @@
               </div>
 
               <div class="form-group">
-                <label for="lokasi"></label>
-                <input type="text" class="form-control" name="lokasi" value="<?php echo $sekolah->lokasi ?>" required>
+                <label for="nama_jenis_sekolah">Jenis Sekolah</label>
+                <input type="" class="form-control" name="lokasi" value="<?php echo $sekolah->nama_jenis_sekolah ?>" required>
                 <div class="invalid-feedback">Masukkan lokasi atau alamat.</div>
               </div>
 
+              <div class="dropdown">
+              <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               <?php echo $sekolah->nama_jenis_sekolah ?>
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" value="SD">Sekolah Dasar</a>
+                <a class="dropdown-item" value="SMP">Sekolah Menengah Pertama</a>
+              </div>
+            </div>
+
               <div class="form-group">
-                <label for="harga">Harga</label>
-                <input min="1000" class="form-control number" name="harga" value="<?php echo $sekolah->harga ?>" required >
-                <div class="invalid-feedback">Masukkan Harga properti.</div>
+                <label for="nama_status_sekolah">Status Sekolah</label>
+                <input min="1000" class="form-control number" name="harga" value="<?php echo $sekolah->nama_status_sekolah ?>" required >
+                <div class="invalid-feedback">Masukkan Status Sekolah</div>
               </div>
 
               <div class="form-group">
-                <label for="keterangan">Keterangan</label>
-                <textarea class="form-control number" name="keterangan" rows="3" required><?php echo $sekolah->keterangan ?></textarea>
-                <div class="invalid-feedback">Isi keterangan properti</div>
+                <label for="alamat">Alamat</label>
+                <textarea class="form-control number" name="alamat" rows="3" required><?php echo $sekolah->alamat ?></textarea>
+                <div class="invalid-feedback">Isi Alamat Sekolah</div>
               </div>
 
-              <div class="form-group">
-                  <label for="gambar">Foto Properti</label>
-                  <br>
-                  <?php if( $sekolah->gambar ) : ?>
-                    <img style="width: 100px;height: 100%" src="<?php echo base_url('assets/uploads/properti/').$sekolah->gambar?>">
-                    <?php ; else : ?>
-                      <img src="https://via.placeholder.com/350x250" alt="" style="width:25%;">
-                    <?php endif; ?>
-                </div>
-
-                <label class="file">
-                  <input type="file" class="form-control-file" name="gambar">
-                  <span class="file-custom"></span>
-                </label>
                 <div class="form-group">
-                  <input class="btn btn-danger" type="submit" value="Pindah">
+                  <input class="btn btn-warning" type="submit" value="Simpan">
                 </div>
               </form>
             </div>
