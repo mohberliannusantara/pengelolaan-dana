@@ -3,14 +3,22 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-header card-header-primary">
-          <h4 class="card-title">Daftar Sekolah</h4>
-          <p class="card-category">menampilkan daftar sekolah yang ada</p>
+          <div class="row">
+            <div class="col-md-9">
+              <h4 class="card-title">Daftar Sekolah</h4>
+              <p class="card-category">menampilkan daftar sekolah yang ada</p>
+            </div>
+            <div class="col-md-3">
+              <a href="<?php echo base_url('sekolah/create/') ?>" rel="tooltip" title="Tambah" class="btn btn-info">
+                <i class="material-icons">add</i>
+              </a>
+              <a href="<?php echo base_url('Cetak/printPdf/').$this->uri->segment(1) ?>" rel="tooltip" title="Cetak Laporan" class="btn btn-danger">
+                <i class="material-icons">print</i>
+              </a>
+            </div>
+          </div>
         </div>
         <div class="card-body">
-          <a href="<?php echo base_url('sekolah/create/') ?>" rel="tooltip" title="Tambah" class="btn btn-info">
-            <i class="material-icons">add</i> Tambah
-                      
-                    </a>
           <div class="table-responsive">
             <table id="dtBasicExample" class="table table-striped table-bordered" cellspacing="0" width="100%">
               <thead class="text-primary">
@@ -31,22 +39,22 @@
               </thead>
               <tbody>
                 <?php foreach ($sekolah as $key => $value): ?>
-                <tr>
-                  <td><?php echo $key+1 ?></td>
-                  <td><?php echo $value->npsn ?></td>
-                  <td><?php echo $value->nama_sekolah ?></td>
-                  <td><?php echo $value->nama_jenis_sekolah ?></td>
-                  <td><?php echo $value->nama_status_sekolah ?></td>
-                  <td>
-                    <a href="#" onclick="openModal(<?php echo $value->id_sekolah; ?>)" rel="tooltip" title="Lihat" class="btn btn-sm btn-success">
-                      <i class="material-icons">zoom_out_map</i>
-                    </a>
-                    <a href="<?php echo base_url('sekolah/edit/') . $value->id_sekolah ?>" rel="tooltip" title="Ubah" class="btn btn-sm btn-warning">
-                      <i class="material-icons">edit</i>
-                    </a>
-                  </td>
-                </tr>
-              <?php endforeach; ?>
+                  <tr>
+                    <td><?php echo $key+1 ?></td>
+                    <td><?php echo $value->npsn ?></td>
+                    <td><?php echo $value->nama_sekolah ?></td>
+                    <td><?php echo $value->nama_jenis_sekolah ?></td>
+                    <td><?php echo $value->nama_status_sekolah ?></td>
+                    <td>
+                      <a href="#" onclick="openModal(<?php echo $value->id_sekolah; ?>)" rel="tooltip" title="Lihat" class="btn btn-sm btn-success">
+                        <i class="material-icons">zoom_out_map</i>
+                      </a>
+                      <a href="<?php echo base_url('sekolah/edit/') . $value->id_sekolah ?>" rel="tooltip" title="Ubah" class="btn btn-sm btn-warning">
+                        <i class="material-icons">edit</i>
+                      </a>
+                    </td>
+                  </tr>
+                <?php endforeach; ?>
               </tbody>
               <tfoot class="text-primary">
                 <tr>
