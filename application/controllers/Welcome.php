@@ -22,9 +22,9 @@ class Welcome extends CI_Controller {
 	function __construct()
 	{
 		parent::__construct();
-		if ($this->session->logged_in == TRUE) {
-			redirect('beranda','refresh');
-		}
+		// if ($this->session->logged_in == TRUE) {
+		// 	redirect('beranda','refresh');
+		// }
 	}
 	public function index()
 	{

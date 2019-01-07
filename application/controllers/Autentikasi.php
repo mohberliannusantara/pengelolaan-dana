@@ -16,6 +16,9 @@ class Autentikasi extends CI_Controller {
 		// print_r($email);
 		// print_r($password);
 		// die();
+		$this->load->library('form_validation');
+        $this->form_validation->set_rules('email', 'Email', 'trim|required');
+        $this->form_validation->set_rules('password', 'Password', 'trim|required');
 
 		$cek = $this->Autentikasi_model->login($email,$password);
 		if ($cek->num_rows() == 1) {
@@ -27,13 +30,31 @@ class Autentikasi extends CI_Controller {
 				'email' => $value->email,
 				'id_pengguna' => $value->id_pengguna,
 				// 'nama_sekolah' => $value->nama_sekolah,
-				// 'nama_jenis_pengguna' => $value->nama_jenis_pengguna,
-				'logged_in' => TRUE
+				'nama_jenis_pengguna' => $value->nama_jenis_pengguna,
+				// 'logged_in' => TRUE
 			);
-			$this->session->set_userdata($userdata);
-			redirect('beranda','refresh');
+			// print_r($userdata);
+			// die();
+
+			$this->session->set_userdata('logged_in', $userdata);
+		}
+
+		if ($this->form_validation->run() == FALSE) {
+			echo validation_errors();
 		} else {
-			redirect('welcome');
+				$session_data = $this->session->userdata('logged_in');
+                $userdata['email'] = $session_data['email'];
+                $userdata['nama_jenis_pengguna'] = $session_data['nama_jenis_pengguna'];
+
+                // print_r($userdata);
+                // die();
+
+                if ($userdata['nama_jenis_pengguna']=='bendahara_sekolah') {
+                    redirect('HomeBendahara','refresh');
+                }else{
+                	redirect('beranda','refresh');
+                }
+			
 		}
 	}
 

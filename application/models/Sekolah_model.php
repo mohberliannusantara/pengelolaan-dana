@@ -24,11 +24,36 @@ class Sekolah_model extends CI_Model {
     $query = $this->db->get();
     return $query->row();
   }
+
+  public function edit($id)
+  {
+    $data = array(
+            'npsn'          => $this->input->post('npsn'),
+            'nama_sekolah'   => $this->input->post('nama_sekolah'),
+            'id_jenis_sekolah'          => $this->input->post('id_jenis_sekolah'),
+            'id_status_sekolah'          => $this->input->post('id_status_sekolah'),
+            'alamat'          => $this->input->post('alamat'),
+            'kecamatan'          => $this->input->post('kecamatan'),
+            
+        );
+         $this->db->where('id_sekolah', $id);
+        $this->db->update('sekolah', $data);
+  }
+
+  public function create()
+  {
+    $data = array(
+            'npsn'          => $this->input->post('npsn'),
+            'nama_sekolah'   => $this->input->post('nama_sekolah'),
+            'id_jenis_sekolah'          => $this->input->post('id_jenis_sekolah'),
+            'id_status_sekolah'          => $this->input->post('id_status_sekolah'),
+            'alamat'          => $this->input->post('alamat'),
+            'kecamatan'          => $this->input->post('kecamatan'),
+            
+        );
+        $this->db->insert('sekolah', $data);   
+  }
 }
-
-
-
-
 
 
 /* End of file Sekolah_model.php */
