@@ -7,8 +7,11 @@
           <p class="card-category">menampilkan daftar sekolah yang ada</p>
         </div>
         <div class="card-body">
+          <a href="<?php echo base_url('sekolah/create/') ?>" rel="tooltip" title="Tambah" class="btn btn-info">
+            <i class="material-icons">add</i> Tambah
+                      
+                    </a>
           <div class="table-responsive">
-            <button type="button" class="btn btn-info">Tambah</button>
             <table id="dtBasicExample" class="table table-striped table-bordered" cellspacing="0" width="100%">
               <thead class="text-primary">
                 <tr>
@@ -27,7 +30,6 @@
                 </tr>
               </thead>
               <tbody>
-                <?php echo '<pre>' ,  var_dump($sekolah) , '</pre>'; ?>
                 <?php foreach ($sekolah as $key => $value): ?>
                 <tr>
                   <td><?php echo $key+1 ?></td>

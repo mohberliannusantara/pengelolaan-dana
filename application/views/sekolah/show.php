@@ -9,5 +9,5 @@
   <p><?php echo $sekolah->nama_jenis_sekolah; ?> <?php echo $sekolah->nama_status_sekolah; ?></p>
   <hr>
   <h5>Alamat</h5>
-  <p><?php echo $sekolah->alamat ?></p>
+  <p><?php echo $sekolah->alamat ?>, kec <?php echo $sekolah->kecamatan  ?></p>
 </div>

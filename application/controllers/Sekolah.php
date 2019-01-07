@@ -42,8 +42,24 @@ class Sekolah extends CI_Controller {
 	public function create()
 	{
 		$data['page'] = 'Sekolah';
+
+		$this->form_validation->set_rules('npsn', 'NPSN', 'trim|required');
+		$this->form_validation->set_rules('nama_sekolah', 'Nama Sekolah', 'trim|required');
+		$this->form_validation->set_rules('id_jenis_sekolah', 'Jenis Sekolah', 'trim|required');
+		$this->form_validation->set_rules('id_status_sekolah', 'Status Sekolah', 'trim|required');
+		$this->form_validation->set_rules('alamat', 'Alamat', 'trim|required');
+		$this->form_validation->set_rules('kecamatan', 'Kecamatan', 'trim|required');
+
+		if ($this->form_validation->run()==FALSE){
+			echo validation_errors();
+		}else{
+			$this->sekolah_model->create();
+			echo "<script>alert('Successfully Added'); </script>";
+			redirect('sekolah','refresh');
+		}
+
 		$this->load->view('template/header', $data);
-		$this->load->view('sekolah/index');
+		$this->load->view('sekolah/create');
 		$this->load->view('template/footer');
 	}
 
@@ -57,6 +73,22 @@ class Sekolah extends CI_Controller {
 	{
 		$data['page'] = 'Sekolah';
 		$data['sekolah'] = $this->sekolah_model->get_by_id($id);
+
+		$this->form_validation->set_rules('npsn', 'NPSN', 'trim|required');
+		$this->form_validation->set_rules('nama_sekolah', 'Nama Sekolah', 'trim|required');
+		$this->form_validation->set_rules('id_jenis_sekolah', 'Jenis Sekolah', 'trim|required');
+		$this->form_validation->set_rules('id_status_sekolah', 'Status Sekolah', 'trim|required');
+		$this->form_validation->set_rules('alamat', 'Alamat', 'trim|required');
+		$this->form_validation->set_rules('kecamatan', 'Kecamatan', 'trim|required');
+
+
+		if ($this->form_validation->run()==FALSE){
+			echo validation_errors();
+		}else{
+			$this->sekolah_model->edit($id);
+			echo "<script>alert('Successfully Updated'); </script>";
+			redirect('sekolah','refresh');
+		}
 
 		$this->load->view('template/header', $data);
 		$this->load->view('sekolah/edit', $data);
