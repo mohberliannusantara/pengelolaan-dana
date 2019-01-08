@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class HomeBendahara extends CI_Controller {
+class HomeAdmin extends CI_Controller {
 
 	function __construct()
 	{
@@ -18,18 +18,14 @@ class HomeBendahara extends CI_Controller {
 		$data['page'] = 'Sekolah';
         $data['nama_pengguna'] = $session_data['nama_pengguna'];
         $data['nama_jenis_pengguna'] = $session_data['nama_jenis_pengguna'];
-        $data['id_sekolah'] = $session_data['id_sekolah'];
-        $data['email'] = $session_data['email'];
 
-        $this->load->model('sekolah_model');
-		$userdata['sekolah'] = $this->sekolah_model->get_by_id($session_data['id_sekolah']);
-		
+        $userdata['email'] = $session_data['email'];
+        $userdata['nama_jenis_pengguna'] = $session_data['nama_jenis_pengguna'];
+        $userdata['nama_sekolah'] = $session_data['nama_sekolah'];
 
-		// print_r($userdata['data']);
-		// die();
 		$this->load->view('template/header', $data);
-		$this->load->view('bendahara/index', array_merge($userdata, $data));
+		$this->load->view('admin/index', $userdata);
 		$this->load->view('template/footer');
-	}
 
+	}
 }

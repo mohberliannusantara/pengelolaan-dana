@@ -27,11 +27,15 @@ class Sekolah extends CI_Controller {
 		if (!$this->session->logged_in == TRUE) {
 			redirect('Welcome','refresh');
 		}
+		
 	}
 
 	public function index()
 	{
+		$session_data = $this->session->userdata('logged_in');
 		$data['page'] = 'Sekolah';
+        $data['nama_jenis_pengguna'] = $session_data['nama_jenis_pengguna'];
+        $data['nama_pengguna'] = $session_data['nama_pengguna'];
 		$data['sekolah'] = $this->sekolah_model->get();
 
 		$this->load->view('template/header', $data);
@@ -65,13 +69,17 @@ class Sekolah extends CI_Controller {
 
 	public function get($id)
   {
-    $data['sekolah'] = $this->sekolah_model->get_by_id($id);
+    	$data['sekolah'] = $this->sekolah_model->get_by_id($id);
 		$this->load->view('sekolah/show', $data);
   }
 
 	public function edit($id = null)
 	{
+		$session_data = $this->session->userdata('logged_in');
 		$data['page'] = 'Sekolah';
+        $data['nama_pengguna'] = $session_data['nama_pengguna'];
+        $data['id_sekolah'] = $session_data['id_sekolah'];
+        $data['nama_jenis_pengguna'] = $session_data['nama_jenis_pengguna'];
 		$data['sekolah'] = $this->sekolah_model->get_by_id($id);
 
 		$this->form_validation->set_rules('npsn', 'NPSN', 'trim|required');
@@ -87,7 +95,11 @@ class Sekolah extends CI_Controller {
 		}else{
 			$this->sekolah_model->edit($id);
 			echo "<script>alert('Successfully Updated'); </script>";
-			redirect('sekolah','refresh');
+			if ($data['nama_jenis_pengguna'] == 'bendahara_sekolah') {
+				redirect('HomeBendahara','refresh');
+			}else{
+				redirect('Sekolah','refresh');
+			}
 		}
 
 		$this->load->view('template/header', $data);

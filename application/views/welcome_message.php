@@ -72,12 +72,12 @@
 				<div class="modal-body">
 					<form action="<?php echo base_url().'autentikasi/login'?>" method='post'>
 					<div class="form-group">
-						<label for="" class="label">Email</label>
-						<input type="text" name="email" class="form-control" id="recipient-name" autofocus>
+						<label for="" class="label">Username</label>
+						<input type="text" name="username" class="form-control" id="recipient-name" autofocus required>
 					</div>
 					<div class="form-group">
 						<label for="" class="label">Password</label>
-						<input type="password" name="password" class="form-control" id="recipient-name">
+						<input type="password" name="password" class="form-control" id="recipient-name" required>
 					</div>
 				</div>
 				<div class="modal-footer">

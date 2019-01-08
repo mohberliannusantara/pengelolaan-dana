@@ -37,13 +37,18 @@
     -->
       <div class="logo">
         <a href="#" class="simple-text logo-normal">
-          Creative Tim
+          <?php echo $nama_pengguna ?>
         </a>
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="nav-item <?php echo ($this->uri->segment(1) == 'beranda') ? 'active':''; ?>">
-            <a class="nav-link" href="<?php echo site_url('beranda') ?>">
+          <li class="nav-item">
+            <?php if ($nama_jenis_pengguna == "bendahara_sekolah") { ?>
+              <a class="nav-link" href="<?php echo site_url('HomeBendahara') ?>">  
+            <?php } else { ?>
+              <a class="nav-link" href="<?php echo site_url('HomeAdmin') ?>">  
+            <?php } ?> 
+            
               <i class="material-icons">dashboard</i>
               <p>Beranda</p>
             </a>
@@ -60,8 +65,13 @@
               <p>Profil</p>
             </a>
           </li>
-          <li class="nav-item <?php echo ($this->uri->segment(1) == 'sekolah') ? 'active':''; ?> ">
-            <a class="nav-link" href="<?php echo site_url('sekolah')?>">
+          <li class="nav-item ">
+            <?php if ($nama_jenis_pengguna == "bendahara_sekolah") { ?>
+              <a class="nav-link" href="<?php echo site_url('sekolah/edit/'.$id_sekolah) ?>">  
+            <?php } else { ?>
+              <a class="nav-link" href="<?php echo site_url('sekolah')?>">
+            <?php } ?> 
+            
               <i class="material-icons">person</i>
               <p>Sekolah</p>
             </a>
