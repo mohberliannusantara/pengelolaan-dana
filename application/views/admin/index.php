@@ -10,20 +10,10 @@
           </div>
 
           <div class="card-body">
-            <h5>NPSN : <?php echo $sekolah->npsn; ?> </h5>            
-            <hr>
-            <h5>Nama Sekolah : <?php echo $sekolah->nama_sekolah; ?> </h5>            
-            <hr>
-            <h5>Jenjang Sekolah : <?php echo $sekolah->nama_jenis_sekolah; ?> </h5>            
-            <hr>
-            <h5>Status Sekolah : <?php echo $sekolah->nama_status_sekolah; ?> </h5>            
-            <hr>
-            <h5>Alamat : <?php echo $sekolah->alamat.', '. $sekolah->kecamatan; ?> </h5>            
-            <hr>
-            <h5>Email : <?php echo $email; ?> </h5>            
-            <hr>
-            
-            
+              Nama Pengguna: <?php echo $nama_pengguna; ?> <br>
+              Email: <?php echo $email; ?> <br>
+              Nama Instansi: <?php echo $nama_sekolah; ?> <br>
+
           </div>
           
         </div>
@@ -99,4 +89,5 @@
     </div>
   </div>
 
+  })
   </script>

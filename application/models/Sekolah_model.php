@@ -54,6 +54,20 @@ class Sekolah_model extends CI_Model {
         );
         $this->db->insert('sekolah', $data);
   }
+
+  public function createAkun()
+  {
+    $password=$this->input->post('password');
+    $data = array(
+            'username'          => $this->input->post('username'),
+            'nama_pengguna'   => $this->input->post('nama_pengguna'),
+            'email'   => $this->input->post('email'),
+            'password'   => md5($password),
+            'id_sekolah'          => $this->input->post('id_sekolah'),
+            'id_jenis_pengguna'          => '2',
+        );
+        $this->db->insert('pengguna', $data);
+  }
 }
 
 
