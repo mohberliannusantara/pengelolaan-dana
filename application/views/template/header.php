@@ -37,51 +37,29 @@
     -->
       <div class="logo">
         <a href="#" class="simple-text logo-normal">
-          <?php echo $nama_pengguna ?>
+          <?php echo $this->session->nama_sekolah ?>
         </a>
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="nav-item">
-            <?php if ($nama_jenis_pengguna == "bendahara_sekolah") { ?>
-              <a class="nav-link" href="<?php echo site_url('HomeBendahara') ?>">  
-            <?php } else { ?>
-              <a class="nav-link" href="<?php echo site_url('HomeAdmin') ?>">  
-            <?php } ?> 
-            
+          <li class="nav-item <?php echo ($this->uri->segment(1) == 'beranda') ? 'active':''; ?>">
+            <a class="nav-link" href="<?php echo site_url('beranda') ?>">
               <i class="material-icons">dashboard</i>
               <p>Beranda</p>
             </a>
           </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./tables.html">
+          <li class="nav-item <?php echo ($this->uri->segment(1) == 'sekolah') ? 'active':''; ?> ">
+            <a class="nav-link" href="<?php echo site_url('sekolah')?>">
               <i class="material-icons">content_paste</i>
               <p>Kelola Dana</p>
             </a>
           </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./user.html">
+          <li class="nav-item <?php echo ($this->uri->segment(1) == 'pengguna') ? 'active':''; ?> ">
+            <a class="nav-link" href="<?php echo site_url('pengguna')?>">
               <i class="material-icons">person</i>
               <p>Profil</p>
             </a>
           </li>
-          <li class="nav-item ">
-            <?php if ($nama_jenis_pengguna == "bendahara_sekolah") { ?>
-              <a class="nav-link" href="<?php echo site_url('sekolah/edit/'.$id_sekolah) ?>">  
-            <?php } else { ?>
-              <a class="nav-link" href="<?php echo site_url('sekolah')?>">
-            <?php } ?> 
-            
-              <i class="material-icons">person</i>
-              <p>Sekolah</p>
-            </a>
-          </li>
-          <!-- <li class="nav-item active-pro ">
-                <a class="nav-link" href="./upgrade.html">
-                    <i class="material-icons">unarchive</i>
-                    <p>Upgrade to PRO</p>
-                </a>
-            </li> -->
         </ul>
       </div>
     </div>
@@ -116,7 +94,7 @@
                   </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="<?php echo base_url('HomeAdmin/create')?>">Tambah Pengguna</a>
+                  <a class="dropdown-item" href="<?php echo base_url('pengguna')?>">Lihat Profil</a>
                   <a class="dropdown-item" href="<?php echo base_url('autentikasi/logout')?>">Keluar</a>
                 </div>
               </li>

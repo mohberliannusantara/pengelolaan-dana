@@ -24,10 +24,13 @@ class Sekolah extends CI_Controller {
 		parent::__construct();
 		$this->load->model('sekolah_model');
 		$this->load->library('form_validation');
+
 		if (!$this->session->logged_in == TRUE) {
-			redirect('Welcome','refresh');
+			redirect('welcome','refresh');
 		}
-		
+		if ($this->session->id_jenis_pengguna == 1 ) {
+			redirect('admin/beranda','refresh');
+		}
 	}
 
 	public function index()

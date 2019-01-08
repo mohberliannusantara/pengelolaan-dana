@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class Beranda extends CI_Controller {
 
 	/**
 	* Index Page for this controller.
@@ -18,20 +18,22 @@ class Welcome extends CI_Controller {
 	* map to /index.php/welcome/<method_name>
 	* @see https://codeigniter.com/user_guide/general/urls.html
 	*/
-
 	function __construct()
 	{
 		parent::__construct();
-		if ($this->session->logged_in == TRUE) {
-			if ($this->session->id_jenis_pengguna == 1) {
-				redirect('admin/beranda','refresh');
-			}else {
-				redirect('beranda','refresh');
-			}
+		if (!$this->session->logged_in == TRUE) {
+			redirect('welcome','refresh');
+		}
+		if ($this->session->id_jenis_pengguna == 2 ) {
+			redirect('beranda','refresh');
 		}
 	}
+
 	public function index()
 	{
-		$this->load->view('welcome_message');
+		$data['page'] = 'Beranda';
+		$this->load->view('template/header', $data);
+		$this->load->view('admin/beranda/index');
+		$this->load->view('template/footer');
 	}
 }

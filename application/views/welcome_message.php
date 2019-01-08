@@ -129,6 +129,12 @@
 	<script src="<?php echo base_url() ?>assets/js/material-dashboard.min.js?v=2.1.0" type="text/javascript"></script>
 	<!-- Material Dashboard DEMO methods, don't include it in your project! -->
 	<script src="<?php echo base_url() ?>assets/demo/demo.js"></script>
+	<!-- <script type="text/javascript">
+
+		if (<?php $this->session->flashdata('error'); ?>) {
+			demo.showNotification('top', 'center');
+		}
+	</script> -->
 </body>
 
 </html>

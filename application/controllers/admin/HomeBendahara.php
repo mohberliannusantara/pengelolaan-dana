@@ -23,7 +23,7 @@ class HomeBendahara extends CI_Controller {
 
         $this->load->model('sekolah_model');
 		$userdata['sekolah'] = $this->sekolah_model->get_by_id($session_data['id_sekolah']);
-		
+
 
 		// print_r($userdata['data']);
 		// die();

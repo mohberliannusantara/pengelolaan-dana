@@ -22,7 +22,10 @@ class Beranda extends CI_Controller {
 	{
 		parent::__construct();
 		if (!$this->session->logged_in == TRUE) {
-			redirect('Welcome','refresh');
+			redirect('welcome','refresh');
+		}
+		if ($this->session->id_jenis_pengguna == 1 ) {
+			redirect('admin/beranda','refresh');
 		}
 	}
 
