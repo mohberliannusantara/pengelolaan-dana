@@ -114,4 +114,12 @@ class Sekolah extends CI_Controller {
 		$this->load->view('sekolah/edit', $data);
 		$this->load->view('template/footer');
 	}
+
+	public function export()
+	{
+		$this->load->model('sekolah_model');
+		$data['sekolah'] = $this->sekolah_model->get();
+		$this->load->view('admin/sekolah/exportExcel', $data);
+
+	}
 }
