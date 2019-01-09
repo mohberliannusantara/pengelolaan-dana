@@ -61,13 +61,14 @@ class Sekolah extends CI_Controller {
 		$this->form_validation->set_rules('id_status_sekolah', 'Status Sekolah', 'trim|required');
 		$this->form_validation->set_rules('alamat', 'Alamat', 'trim|required');
 		$this->form_validation->set_rules('kecamatan', 'Kecamatan', 'trim|required');
+		$this->form_validation->set_rules('kepala_sekolah', 'Kepala Sekolah', 'trim|required');
 
 		if ($this->form_validation->run()==FALSE){
 			echo validation_errors();
 		}else{
 			$this->sekolah_model->create();
 			echo "<script>alert('Successfully Added'); </script>";
-			redirect('sekolah','refresh');
+			redirect('admin/sekolah','refresh');
 		}
 
 		$this->load->view('admin/template/header', $data);
@@ -78,7 +79,7 @@ class Sekolah extends CI_Controller {
 	public function get($id)
 	{
 		$data['sekolah'] = $this->sekolah_model->get_by_id($id);
-		$this->load->view('sekolah/show', $data);
+		$this->load->view('admin/sekolah/show', $data);
 	}
 
 	public function edit($id = null)
@@ -96,6 +97,7 @@ class Sekolah extends CI_Controller {
 		$this->form_validation->set_rules('id_status_sekolah', 'Status Sekolah', 'trim|required');
 		$this->form_validation->set_rules('alamat', 'Alamat', 'trim|required');
 		$this->form_validation->set_rules('kecamatan', 'Kecamatan', 'trim|required');
+		$this->form_validation->set_rules('kepala_sekolah', 'Kepala Sekolah', 'trim|required');
 
 
 		if ($this->form_validation->run()==FALSE){
@@ -103,15 +105,20 @@ class Sekolah extends CI_Controller {
 		}else{
 			$this->sekolah_model->edit($id);
 			echo "<script>alert('Successfully Updated'); </script>";
-			if ($data['nama_jenis_pengguna'] == 'bendahara_sekolah') {
-				redirect('HomeBendahara','refresh');
-			}else{
-				redirect('Sekolah','refresh');
-			}
+			redirect('admin/sekolah','refresh');
+			
 		}
 
-		$this->load->view('template/header', $data);
-		$this->load->view('sekolah/edit', $data);
-		$this->load->view('template/footer');
+		$this->load->view('admin/template/header', $data);
+		$this->load->view('admin/sekolah/edit', $data);
+		$this->load->view('admin/template/footer');
+	}
+
+	public function export()
+	{
+		$this->load->model('sekolah_model');
+		$data['sekolah'] = $this->sekolah_model->get();
+		$this->load->view('admin/sekolah/exportExcel', $data);
+
 	}
 }

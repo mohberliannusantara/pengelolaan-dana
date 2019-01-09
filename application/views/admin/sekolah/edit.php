@@ -39,6 +39,12 @@
               </div>
 
               <div class="form-group">
+                <label for="kepala_sekolah">Kepala Sekolah</label>
+                <input type="text" class="form-control" name="kepala_sekolah" value="<?php echo $sekolah->kepala_sekolah ?>" required>
+                <div class="invalid-feedback">Masukkan kepala_sekolah.</div>
+              </div>
+
+              <div class="form-group">
                 <label for="id_jenis_sekolah">Jenis Sekolah: </label>
                 <select class="form-control" name="id_jenis_sekolah">
                   <option selected hidden value="<?php echo $id_jenis_sekolah ?>"><?php echo $sekolah->nama_jenis_sekolah ?></option>

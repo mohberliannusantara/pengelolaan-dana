@@ -57,7 +57,7 @@
           <li class="nav-item <?php echo ($this->uri->segment(1) == 'pengguna') ? 'active':''; ?> ">
             <a class="nav-link" href="<?php echo site_url('pengguna')?>">
               <i class="material-icons">person</i>
-              <p>Profil</p>
+              <p>Profil Sekolah</p>
             </a>
           </li>
         </ul>

@@ -92,6 +92,7 @@ class Autentikasi extends CI_Controller {
 					'nama_jenis_pengguna' => $value->nama_jenis_pengguna,
 					'id_sekolah' =>$value->id_sekolah,
 					'nama_sekolah' => $value->nama_sekolah,
+					'kepala_sekolah' => $value->kepala_sekolah,
 					'nama_jenis_sekolah' => $value->nama_jenis_sekolah,
 					'nama_status_sekolah' => $value->nama_status_sekolah,
 					'npsn' => $value->npsn,
