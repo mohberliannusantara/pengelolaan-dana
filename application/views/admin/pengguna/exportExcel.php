@@ -20,6 +20,7 @@ header("Expires: 0");
 <tr>
 	<th colspan="5">DINAS PENDIDIKAN KOTA BATU</th>
 </tr>
+
 <tr>
 
  <th>No</th>
