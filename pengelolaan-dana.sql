@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.8.4
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 09, 2019 at 08:46 AM
--- Server version: 10.1.19-MariaDB
--- PHP Version: 7.0.13
+-- Generation Time: Jan 09, 2019 at 09:56 AM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 7.3.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -198,118 +200,119 @@ CREATE TABLE `sekolah` (
   `npsn` int(11) NOT NULL,
   `id_status_sekolah` int(11) NOT NULL,
   `kecamatan` varchar(255) NOT NULL,
-  `alamat` varchar(255) NOT NULL
+  `alamat` varchar(255) NOT NULL,
+  `kepala_sekolah` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `sekolah`
 --
 
-INSERT INTO `sekolah` (`id_sekolah`, `nama_sekolah`, `id_jenis_sekolah`, `npsn`, `id_status_sekolah`, `kecamatan`, `alamat`) VALUES
-(0, 'Dinas Pendidikan', 0, 0, 0, 'Batu', 'Jl. Panglima Sudirman 507, Gedung A Lantai 2 Balaikota Among Tani'),
-(1, 'SMP AHMAD YANI', 2, 20536792, 2, 'Batu', 'Jl. Wukir VII'),
-(2, 'SMP AL IRSYAD D/H CENDEKIA', 2, 20539423, 2, 'Junrejo', 'Jl. Mojowarno 01'),
-(3, 'SMP AL IZZAH BATU', 2, 20539424, 2, 'Batu', 'Jl. INDRAGIRI GG PANGKUR NO 78 KOTA BATU'),
-(4, 'SMP ARJUNO', 2, 20536793, 2, 'Bumiaji', 'Jl. Raya Wonorejo'),
-(5, 'SMP AS SALAM', 2, 20536794, 2, 'Junrejo', 'Jl. Makam 30 RT3 RW4'),
-(6, 'SMP DARUSH SHOLIHIN', 2, 20535795, 2, 'Batu', 'Jl. Suropati 139'),
-(7, 'SMP DIPONEGORO JUNREJO BATU', 2, 20536796, 2, 'Junrejo', 'Jl. Raya Junrejo 3'),
-(8, 'SMP IMMANUEL', 2, 20536814, 2, 'Batu', 'Jl. Wukir 01'),
-(9, 'SMP ISLAM 01', 2, 20536815, 2, 'Batu', 'Jl. Wr. Supratman 6'),
-(10, 'SMP ISLAM ABU GHONAIM', 2, 69964725, 2, 'Bumiaji', 'Jl. Abdul Ghonaim NO. 37'),
-(11, 'SMP K WIDYATAMA', 2, 20536845, 2, 'Batu', 'Jalan Panglima Sudirman No. 59'),
-(12, 'SMP MAARIF BATU', 2, 20536832, 2, 'Batu', 'Batu'),
-(13, 'SMP MUHAMMADIYAH 02', 2, 20536833, 2, 'Batu', 'Jl. Bukit Berbunga 175'),
-(14, 'SMP MUHAMMADIYAH 08', 2, 20536834, 2, 'Batu', 'Jl. Welirag 17'),
-(15, 'SMP NEGERI 01 BATU', 2, 20536839, 1, 'Batu', 'Jl. KH. Agus Salim 55'),
-(16, 'SMP NEGERI 02 BATU', 2, 20536840, 1, 'Batu', 'Sisir Batu'),
-(17, 'SMP NEGERI 03 BATU', 2, 20536841, 1, 'Junrejo', 'Jl. Ir Soekarno NO. 8'),
-(18, 'SMP NEGERI 04 BATU', 2, 20536842, 1, 'Bumiaji', 'Jln. Diponegoro X / No. 18 RT.4 RW.1 Tulungrejo'),
-(19, 'SMP NEGERI 05 BATU', 2, 20531661, 1, 'Bumiaji', 'Dsn. Lemah Putih'),
-(20, 'SMP NEGERI 06 BATU', 2, 20551662, 1, 'Bumiaji', 'Jl. Raya Giripurho 284'),
-(21, 'SMP PGRI 01', 2, 20539426, 2, 'Batu', 'Jl. Arjuno 40 E Kota Batu'),
-(22, 'SMP PGRI 02 BATU', 2, 20536835, 2, 'Bumiaji', 'Jl. Raya Pandanrejo No. 1A'),
-(23, 'SMP RADEN PATAH', 2, 20536836, 2, 'Batu', 'Jl. Bukit Berbunga 261'),
-(24, 'SMP SOLAIMAN', 2, 20536837, 2, 'Junrejo', 'Jl. Raya Beji 133 Po. Box 2'),
-(25, 'SMP TAMANSISWA', 2, 20536838, 2, 'Batu', 'Jl. Kh Agus Salim 45 Batu'),
-(26, 'SMPN SATU ATAP GUNUNGSARI 04', 2, 20539427, 1, 'Bumiaji', 'Jl. Argomulyo No.20 Brau'),
-(27, 'SMPN SATU ATAP PESANGGRAHAN 2', 2, 20574662, 1, 'Batu', 'Jl. Cempaka Atas No 01'),
-(28, 'SD CITRA BUNDA', 1, 20536873, 2, 'Batu', 'Jl. Sudiro 12'),
-(29, 'SD IMMANUEL', 1, 20536874, 2, 'Batu', 'Jl. Wukir Batu '),
-(30, 'SD INTEGRAL ALFATTAH', 1, 69974458, 2, 'Batu', 'Jl. Cemara Intan Gg. II Kampung Ladu RT.04 '),
-(31, 'SD ISLAM AL HUDA', 1, 20536875, 2, 'Batu', 'Jl. Abdul Gani Atas'),
-(32, 'SD K SANG TIMUR', 1, 20539422, 2, 'Batu', 'Jl. Panglima Sudirman 59 A'),
-(33, 'SD MUHAMMADIYAH 04 BATU', 1, 20536860, 2, 'Batu', 'Jl. Wlirang 17'),
-(34, 'SD MUHAMMADIYAH 05 BATU', 1, 20536847, 2, 'Bumiaji', 'Jl. Masjid 14 Banaran'),
-(35, 'SD NEGERI BEJI 01', 1, 20536850, 1, 'Junrejo', 'Jl. Ir SOEKARNO (Ex. Jl. Raya Beji 42)'),
-(36, 'SD NEGERI BEJI 02', 1, 20536851, 1, 'Junrejo', 'Jl. Sarimun V'),
-(37, 'SD NEGERI BEJI 03', 1, 20536852, 1, 'Junrejo', 'Jl. Sarimun V'),
-(38, 'SD NEGERI BULUKERTO 01', 1, 20536853, 1, 'Bumiaji', 'Jl. Kenanga'),
-(39, 'SD NEGERI BULUKERTO 02', 1, 20536854, 1, 'Bumiaji', 'Jl. Imam Sujono 67'),
-(40, 'SD NEGERI BUMIAJI 01', 1, 20536856, 1, 'Bumiaji', 'Jl. Abu Ghonaim 31'),
-(41, 'SD NEGERI BUMIAJI 02', 1, 20536857, 1, 'Bumiaji', 'Jl. Kastubi 01'),
-(42, 'SD NEGERI DADAPREJO 01', 1, 20536858, 1, 'Junrejo', 'Jl. Martorejo 1A'),
-(43, 'SD NEGERI DADAPREJO 02', 1, 20536859, 1, 'Junrejo', 'Jl. Martorejo'),
-(44, 'SD NEGERI GIRIPURNO 01', 1, 20536876, 1, 'Bumiaji', 'Jl. Raya Giripurno 221'),
-(45, 'SD NEGERI GIRIPURNO 02', 1, 20536877, 1, 'Bumiaji', 'Jl. Arjuno No 9'),
-(46, 'SD NEGERI GIRIPURNO 03', 1, 20536878, 1, 'Bumiaji', 'Jl. Indrokilo No 01'),
-(47, 'SD NEGERI GUNUNGSARI 01', 1, 20536897, 1, 'Bumiaji', 'Jl. Brumbung 73'),
-(48, 'SD NEGERI GUNUNGSARI 02', 1, 20536898, 1, 'Bumiaji', 'Jl. Wongso 45 Pagergunung'),
-(49, 'SD NEGERI GUNUNGSARI 03', 1, 20536899, 1, 'Bumiaji', 'Dsn. Kandangan'),
-(50, 'SD NEGERI GUNUNGSARI 04', 1, 20536900, 1, 'Bumiaji', 'Jl. Argomulyo 20 Brau'),
-(51, 'SD NEGERI JUNREJO 01', 1, 20536901, 1, 'Junrejo', 'Jl. Hasanudin 57'),
-(52, 'SD NEGERI JUNREJO 02', 1, 20536903, 1, 'Junrejo', 'Jl. Raya Junrejo 6'),
-(53, 'SD NEGERI MOJOREJO 01', 1, 20536904, 1, 'Junrejo', 'Jl. Mojopahit 02'),
-(54, 'SD NEGERI MOJOREJO 02', 1, 20536905, 1, 'Junrejo', 'Jl Masjid No 23'),
-(55, 'SD NEGERI NGAGLIK 01', 1, 20536906, 1, 'Batu', 'Jl. Abdul Rahman No 23'),
-(56, 'SD NEGERI NGAGLIK 03', 1, 20536907, 1, 'Batu', 'Jl. Abdul Gani IV / 29'),
-(57, 'SD NEGERI NGAGLIK 04', 1, 20536908, 1, 'Batu', 'Jl Darsono Barat 27'),
-(58, 'SD NEGERI NGAGLIK 2', 1, 20539420, 1, 'Batu', 'Jl. Ikhwan Hadi no 41'),
-(59, 'SD NEGERI ORO-ORO OMBO 03', 1, 20536895, 1, 'Batu', 'Jl. Tvri RT 03 RW 10 Dresel'),
-(60, 'SD NEGERI ORO-ORO OMBO 01', 1, 20536909, 1, 'Batu', 'Jl. Raya Oro-oro Ombo'),
-(61, 'SD NEGERI ORO-ORO OMBO 02', 1, 20536896, 1, 'Batu', 'Jl Raya Oro-oro Ombo 36'),
-(62, 'SD NEGERI PANDANREJO 01', 1, 20536894, 1, 'Bumiaji', 'Jl. Raya Pandanrejo NO 1A'),
-(63, 'SD NEGERI PANDANREJO 02', 1, 20536879, 1, 'Bumiaji', 'Jl. Raya Pandanrejo 122'),
-(64, 'SD NEGERI PENDEM 01', 1, 20536880, 1, 'Junrejo', 'Jl. Dr. Moh. Hatta NO 118'),
-(65, 'SD NEGERI PENDEM 02', 1, 20536881, 1, 'Junrejo', 'Jl. Dr. Moh. Hatta NO 134'),
-(66, 'SD NEGERI PESANGGRAHAN 01', 1, 20536883, 1, 'Batu', 'Jl. Suropati 123'),
-(67, 'SD NEGERI PESANGGRAHAN 02', 1, 20551660, 1, 'Batu', 'Jl Cempaka Atas 1'),
-(68, 'SD NEGERI PUNTEN 01', 1, 20536884, 1, 'Bumiaji', 'Jl Raya Punten 24'),
-(69, 'SD NEGERI PUNTEN 02', 1, 20536885, 1, 'Bumiaji', 'Jl Anjasmoro 12'),
-(70, 'SD NEGERI SIDOMULYO 01', 1, 20536886, 1, 'Batu', 'Jl Bukit Berbunga 70'),
-(71, 'SD NEGERI SIDOMULYO 02', 1, 20536887, 1, 'Batu', 'Jl Cemara Kipas 120'),
-(72, 'SD NEGERI SIDOMULYO 03', 1, 20536889, 1, 'Batu', 'Jl Mawar Putih 141 RT 03 RW 12'),
-(73, 'SD NEGERI SISIR 01', 1, 20536891, 1, 'Batu', 'Jl Arjuno 40 D'),
-(74, 'SD NEGERI SISIR 02', 1, 20536892, 1, 'Batu', 'Jl. Arjuno 40 D'),
-(76, 'SD NEGERI SISIR 03', 1, 20536893, 1, 'Batu', 'Jl. Imam Bonjol III / 9'),
-(77, 'SD NEGERI SISIR 04', 1, 20536910, 1, 'Batu', 'Jl. Imam Bonjol III / 8'),
-(78, 'SD NEGERI SISIR 05', 1, 20536813, 1, 'Batu', 'Jl. Arjuno 60'),
-(79, 'SD NEGERI SISIR 06', 1, 20536800, 1, 'Batu', 'Jl. Imam Bonjol Gg III No 15 B'),
-(80, 'SD NEGERI SONGGOKERTO 01', 1, 20536801, 1, 'Batu', 'Jl Trunojoyo V / 2A'),
-(81, 'SD NEGERI SONGGOKERTO 02', 1, 20536802, 1, 'Batu', 'Jl. Terati II / 23'),
-(82, 'SD NEGERI SONGGOKERTO 03', 1, 20536803, 1, 'Batu', 'Jl. Arum Dalu 65A'),
-(83, 'SD NEGERI SUMBEREJO 01', 1, 20536804, 1, 'Batu', 'Jl Indragiri 79'),
-(84, 'SD NEGERI SUMBEREJO 02', 1, 20536805, 1, 'Batu', 'Jl Indragiri 81'),
-(85, 'SD NEGERI SUMBEREJO 03', 1, 20536806, 1, 'Batu', 'Jl. Metro NO 22 Santrean Sumberejo'),
-(86, 'SD NEGERI SUMBERGONDO 01', 1, 20536807, 1, 'Bumiaji', 'Jl. Raya Sumbergondo 2'),
-(87, 'SD NEGERI TEMAS 01', 1, 20536809, 1, 'Batu', 'Jl. Patimura 23'),
-(88, 'SD NEGERI TEMAS 02', 1, 20536811, 1, 'Batu', 'Jl. Wukir VIII / 38'),
-(89, 'SD NEGERI TLEKUNG 01', 1, 20536812, 1, 'Junrejo', 'Jl Raya Tlekung 51'),
-(90, 'SD NEGERI TLEKUNG 02', 1, 20536799, 1, 'Junrejo', 'Jl Raya Tlekung RT 03 RW 06'),
-(91, 'SD NEGERI TORONGREJO 01', 1, 20536778, 1, 'Junrejo', 'Jl. Wukir 37'),
-(93, 'SD NEGERI TORONGREJO 02', 1, 20536798, 1, 'Junrejo', 'Jl. Cendana Ngukir'),
-(94, 'SD NEGERI TORONGREJO 03', 1, 20536797, 1, 'Junrejo', 'Jl. Aji Mustofa No 53'),
-(95, 'SD NEGERI TULUNGREJO 01', 1, 20536776, 1, 'Bumiaji', 'Jl Diponegoro 182'),
-(96, 'SD NEGERI TULUNGREJO 02', 1, 20539421, 1, 'Bumiaji', 'Jl. Asparagus 27 Junggo'),
-(97, 'SD NEGERI TULUNGREJO 03', 1, 20536775, 1, 'Bumiaji', 'Jl. Raya Sumberbrantas No 116 Dusun Lemah Putih'),
-(98, 'SD NEGERI TULUNGREJO 04', 1, 20536774, 1, 'Bumiaji', 'Dsn Wonorejo'),
-(99, 'SD NEGERI TULUNGREJO 05', 1, 20554537, 1, 'Bumiaji', 'Jl Anjarnyoto No 01 Dusun Kekep Desa Tulungrejo'),
-(100, 'SD PLUS AL IRSYAD', 1, 20536848, 2, 'Batu', 'Jl. Semeru I / 8'),
-(101, 'SD - IT IBNU HAJAR', 1, 20571506, 2, 'Batu', 'Jl. Perum Puri Indah Gondorejo'),
-(102, 'SDI SABILUL KHOIR BEJI', 1, 69727596, 2, 'Junrejo', 'Jl Makam No 33 RT 03 RW 04'),
-(103, 'SDIT TAHFIDZ AL MUNAWWAR', 1, 69969378, 2, 'Batu', 'Jl. Melati No 11 RT 01 RW 05'),
-(104, 'SD NEGERI SUMBERGONDO 02', 1, 20536808, 1, 'Bumiaji', 'Jl. Tegalsari 5'),
-(105, 'SD NEGERI BULUKERTO 03', 1, 20536855, 1, 'Bumiaji', 'Jl.Nurhadi No 1 Cangar Bulukerto');
+INSERT INTO `sekolah` (`id_sekolah`, `nama_sekolah`, `id_jenis_sekolah`, `npsn`, `id_status_sekolah`, `kecamatan`, `alamat`, `kepala_sekolah`) VALUES
+(0, 'Dinas Pendidikan', 0, 0, 0, 'Batu', 'Jl. Panglima Sudirman 507, Gedung A Lantai 2 Balaikota Among Tani', ''),
+(1, 'SMP AHMAD YANI', 2, 20536792, 2, 'Batu', 'Jl. Wukir VII', 'Takim, S.pd'),
+(2, 'SMP AL IRSYAD D/H CENDEKIA', 2, 20539423, 2, 'Junrejo', 'Jl. Mojowarno 01', 'Ahmad Chandra Pradana'),
+(3, 'SMP AL IZZAH BATU', 2, 20539424, 2, 'Batu', 'Jl. INDRAGIRI GG PANGKUR NO 78 KOTA BATU', 'Aziz Effendy'),
+(4, 'SMP ARJUNO', 2, 20536793, 2, 'Bumiaji', 'Jl. Raya Wonorejo', 'Nurhayati'),
+(5, 'SMP AS SALAM', 2, 20536794, 2, 'Junrejo', 'Jl. Makam 30 RT3 RW4', 'Ali Mahmudi'),
+(6, 'SMP DARUSH SHOLIHIN', 2, 20535795, 2, 'Batu', 'Jl. Suropati 139', 'Sugeng Subagya'),
+(7, 'SMP DIPONEGORO JUNREJO BATU', 2, 20536796, 2, 'Junrejo', 'Jl. Raya Junrejo 3', 'Yuni Purwaningsih'),
+(8, 'SMP IMMANUEL', 2, 20536814, 2, 'Batu', 'Jl. Wukir 01', 'Ratnawati Mistri Diani'),
+(9, 'SMP ISLAM 01', 2, 20536815, 2, 'Batu', 'Jl. Wr. Supratman 6', 'Subandi'),
+(10, 'SMP ISLAM ABU GHONAIM', 2, 69964725, 2, 'Bumiaji', 'Jl. Abdul Ghonaim NO. 37', 'Farida Kusumawaty'),
+(11, 'SMP K WIDYATAMA', 2, 20536845, 2, 'Batu', 'Jalan Panglima Sudirman No. 59', 'Agatha Wayan Oka Udiyani'),
+(12, 'SMP MAARIF BATU', 2, 20536832, 2, 'Batu', 'Batu', 'Supa\'at'),
+(13, 'SMP MUHAMMADIYAH 02', 2, 20536833, 2, 'Batu', 'Jl. Bukit Berbunga 175', 'Mohamad Samsudi'),
+(14, 'SMP MUHAMMADIYAH 08', 2, 20536834, 2, 'Batu', 'Jl. Welirag 17', 'Edy Susanto'),
+(15, 'SMP NEGERI 01 BATU', 2, 20536839, 1, 'Batu', 'Jl. KH. Agus Salim 55', 'Bambang Irawa, S.pd., M. Pd.'),
+(16, 'SMP NEGERI 02 BATU', 2, 20536840, 1, 'Batu', 'Sisir Batu', 'Barokah Santoso'),
+(17, 'SMP NEGERI 03 BATU', 2, 20536841, 1, 'Junrejo', 'Jl. Ir Soekarno NO. 8', 'Sulistyah'),
+(18, 'SMP NEGERI 04 BATU', 2, 20536842, 1, 'Bumiaji', 'Jln. Diponegoro X / No. 18 RT.4 RW.1 Tulungrejo', 'Tatik Ismiati'),
+(19, 'SMP NEGERI 05 BATU', 2, 20531661, 1, 'Bumiaji', 'Dsn. Lemah Putih', 'Suprapto Rasid'),
+(20, 'SMP NEGERI 06 BATU', 2, 20551662, 1, 'Bumiaji', 'Jl. Raya Giripurho 284', 'Budi Prasetyo'),
+(21, 'SMP PGRI 01', 2, 20539426, 2, 'Batu', 'Jl. Arjuno 40 E Kota Batu', 'Erfa Diana'),
+(22, 'SMP PGRI 02 BATU', 2, 20536835, 2, 'Bumiaji', 'Jl. Raya Pandanrejo No. 1A', 'Mochamad Syamsoedin'),
+(23, 'SMP RADEN PATAH', 2, 20536836, 2, 'Batu', 'Jl. Bukit Berbunga 261', 'Triono'),
+(24, 'SMP SOLAIMAN', 2, 20536837, 2, 'Junrejo', 'Jl. Raya Beji 133 Po. Box 2', 'Mistiani'),
+(25, 'SMP TAMANSISWA', 2, 20536838, 2, 'Batu', 'Jl. Kh Agus Salim 45 Batu', 'Onyka Abdillah'),
+(26, 'SMPN SATU ATAP GUNUNGSARI 04', 2, 20539427, 1, 'Bumiaji', 'Jl. Argomulyo No.20 Brau', 'Henu Lismiyati'),
+(27, 'SMPN SATU ATAP PESANGGRAHAN 2', 2, 20574662, 1, 'Batu', 'Jl. Cempaka Atas No 01', 'Sudiyono'),
+(28, 'SD CITRA BUNDA', 1, 20536873, 2, 'Batu', 'Jl. Sudiro 12', 'Eny Mudyowati'),
+(29, 'SD IMMANUEL', 1, 20536874, 2, 'Batu', 'Jl. Wukir Batu ', 'Kuswati'),
+(30, 'SD INTEGRAL ALFATTAH', 1, 69974458, 2, 'Batu', 'Jl. Cemara Intan Gg. II Kampung Ladu RT.04 ', 'Wawan Wahidin'),
+(31, 'SD ISLAM AL HUDA', 1, 20536875, 2, 'Batu', 'Jl. Abdul Gani Atas', 'Zaitun Sulaiman, S. Pd'),
+(32, 'SD K SANG TIMUR', 1, 20539422, 2, 'Batu', 'Jl. Panglima Sudirman 59 A', 'Sr. Celine Marie Pij - Lucia Ardiyani'),
+(33, 'SD MUHAMMADIYAH 04 BATU', 1, 20536860, 2, 'Batu', 'Jl. Wlirang 17', 'Mariani'),
+(34, 'SD MUHAMMADIYAH 05 BATU', 1, 20536847, 2, 'Bumiaji', 'Jl. Masjid 14 Banaran', 'Supriyanto'),
+(35, 'SD NEGERI BEJI 01', 1, 20536850, 1, 'Junrejo', 'Jl. Ir SOEKARNO (Ex. Jl. Raya Beji 42)', 'Mariatul Kiftiyah'),
+(36, 'SD NEGERI BEJI 02', 1, 20536851, 1, 'Junrejo', 'Jl. Sarimun V', 'Sih Waluyo Isham'),
+(37, 'SD NEGERI BEJI 03', 1, 20536852, 1, 'Junrejo', 'Jl. Sarimun V', 'Sih Waluyo Isham'),
+(38, 'SD NEGERI BULUKERTO 01', 1, 20536853, 1, 'Bumiaji', 'Jl. Kenanga', 'Sukoyo'),
+(39, 'SD NEGERI BULUKERTO 02', 1, 20536854, 1, 'Bumiaji', 'Jl. Imam Sujono 67', 'Sulistin'),
+(40, 'SD NEGERI BUMIAJI 01', 1, 20536856, 1, 'Bumiaji', 'Jl. Abu Ghonaim 31', 'Sedarmiyati'),
+(41, 'SD NEGERI BUMIAJI 02', 1, 20536857, 1, 'Bumiaji', 'Jl. Kastubi 01', 'Lesma\'un'),
+(42, 'SD NEGERI DADAPREJO 01', 1, 20536858, 1, 'Junrejo', 'Jl. Martorejo 1A', 'Suparmi'),
+(43, 'SD NEGERI DADAPREJO 02', 1, 20536859, 1, 'Junrejo', 'Jl. Martorejo', 'Irul Siti Sumarni'),
+(44, 'SD NEGERI GIRIPURNO 01', 1, 20536876, 1, 'Bumiaji', 'Jl. Raya Giripurno 221', 'Wahyudi Heri Purwono'),
+(45, 'SD NEGERI GIRIPURNO 02', 1, 20536877, 1, 'Bumiaji', 'Jl. Arjuno No 9', 'Erna inarti Ningsih'),
+(46, 'SD NEGERI GIRIPURNO 03', 1, 20536878, 1, 'Bumiaji', 'Jl. Indrokilo No 01', 'Ngarni\'ayah'),
+(47, 'SD NEGERI GUNUNGSARI 01', 1, 20536897, 1, 'Bumiaji', 'Jl. Brumbung 73', 'Lilis Iswanti'),
+(48, 'SD NEGERI GUNUNGSARI 02', 1, 20536898, 1, 'Bumiaji', 'Jl. Wongso 45 Pagergunung', 'Winarto, S. Pd.'),
+(49, 'SD NEGERI GUNUNGSARI 03', 1, 20536899, 1, 'Bumiaji', 'Dsn. Kandangan', 'Asri Suprihatin'),
+(50, 'SD NEGERI GUNUNGSARI 04', 1, 20536900, 1, 'Bumiaji', 'Jl. Argomulyo 20 Brau', 'Indrayanto'),
+(51, 'SD NEGERI JUNREJO 01', 1, 20536901, 1, 'Junrejo', 'Jl. Hasanudin 57', 'Sri Winarti'),
+(52, 'SD NEGERI JUNREJO 02', 1, 20536903, 1, 'Junrejo', 'Jl. Raya Junrejo 6', 'Ismiwati'),
+(53, 'SD NEGERI MOJOREJO 01', 1, 20536904, 1, 'Junrejo', 'Jl. Mojopahit 02', 'Sri Wahyuni'),
+(54, 'SD NEGERI MOJOREJO 02', 1, 20536905, 1, 'Junrejo', 'Jl Masjid No 23', 'Subadiyo'),
+(55, 'SD NEGERI NGAGLIK 01', 1, 20536906, 1, 'Batu', 'Jl. Abdul Rahman No 23', 'Ninit Catur Meindyawati'),
+(56, 'SD NEGERI NGAGLIK 03', 1, 20536907, 1, 'Batu', 'Jl. Abdul Gani IV / 29', 'Masykur, S.ag'),
+(57, 'SD NEGERI NGAGLIK 04', 1, 20536908, 1, 'Batu', 'Jl Darsono Barat 27', 'Suyatun'),
+(58, 'SD NEGERI NGAGLIK 2', 1, 20539420, 1, 'Batu', 'Jl. Ikhwan Hadi no 41', 'Nur Samsul Ma\'arif'),
+(59, 'SD NEGERI ORO-ORO OMBO 03', 1, 20536895, 1, 'Batu', 'Jl. Tvri RT 03 RW 10 Dresel', 'Rini Rukmawti, S.Pd'),
+(60, 'SD NEGERI ORO-ORO OMBO 01', 1, 20536909, 1, 'Batu', 'Jl. Raya Oro-oro Ombo', 'Hariono'),
+(61, 'SD NEGERI ORO-ORO OMBO 02', 1, 20536896, 1, 'Batu', 'Jl Raya Oro-oro Ombo 36', 'Budiyono'),
+(62, 'SD NEGERI PANDANREJO 01', 1, 20536894, 1, 'Bumiaji', 'Jl. Raya Pandanrejo NO 1A', 'Endang Sriati'),
+(63, 'SD NEGERI PANDANREJO 02', 1, 20536879, 1, 'Bumiaji', 'Jl. Raya Pandanrejo 122', 'Sutriyarni'),
+(64, 'SD NEGERI PENDEM 01', 1, 20536880, 1, 'Junrejo', 'Jl. Dr. Moh. Hatta NO 118', 'Samun'),
+(65, 'SD NEGERI PENDEM 02', 1, 20536881, 1, 'Junrejo', 'Jl. Dr. Moh. Hatta NO 134', 'Ramawati'),
+(66, 'SD NEGERI PESANGGRAHAN 01', 1, 20536883, 1, 'Batu', 'Jl. Suropati 123', 'Indah Wahyuningsih'),
+(67, 'SD NEGERI PESANGGRAHAN 02', 1, 20551660, 1, 'Batu', 'Jl Cempaka Atas 1', 'Edi Supraptono'),
+(68, 'SD NEGERI PUNTEN 01', 1, 20536884, 1, 'Bumiaji', 'Jl Raya Punten 24', 'Prihastutik'),
+(69, 'SD NEGERI PUNTEN 02', 1, 20536885, 1, 'Bumiaji', 'Jl Anjasmoro 12', 'Sutrisno'),
+(70, 'SD NEGERI SIDOMULYO 01', 1, 20536886, 1, 'Batu', 'Jl Bukit Berbunga 70', 'Luluk Lutfiati'),
+(71, 'SD NEGERI SIDOMULYO 02', 1, 20536887, 1, 'Batu', 'Jl Cemara Kipas 120', 'Etik Kusmiati'),
+(72, 'SD NEGERI SIDOMULYO 03', 1, 20536889, 1, 'Batu', 'Jl Mawar Putih 141 RT 03 RW 12', 'Mochammad Djamil'),
+(73, 'SD NEGERI SISIR 01', 1, 20536891, 1, 'Batu', 'Jl Arjuno 40 D', 'Eny Isnaini'),
+(74, 'SD NEGERI SISIR 02', 1, 20536892, 1, 'Batu', 'Jl. Arjuno 40 D', 'Rismiyati'),
+(76, 'SD NEGERI SISIR 03', 1, 20536893, 1, 'Batu', 'Jl. Imam Bonjol III / 9', 'Dra. Suprapti'),
+(77, 'SD NEGERI SISIR 04', 1, 20536910, 1, 'Batu', 'Jl. Imam Bonjol III / 8', 'Endah'),
+(78, 'SD NEGERI SISIR 05', 1, 20536813, 1, 'Batu', 'Jl. Arjuno 60', 'Mochamad Suntoro'),
+(79, 'SD NEGERI SISIR 06', 1, 20536800, 1, 'Batu', 'Jl. Imam Bonjol Gg III No 15 B', 'Suharmi'),
+(80, 'SD NEGERI SONGGOKERTO 01', 1, 20536801, 1, 'Batu', 'Jl Trunojoyo V / 2A', 'Trinil Wahyuni, S. Pd.'),
+(81, 'SD NEGERI SONGGOKERTO 02', 1, 20536802, 1, 'Batu', 'Jl. Terati II / 23', 'Wiwik Hartini'),
+(82, 'SD NEGERI SONGGOKERTO 03', 1, 20536803, 1, 'Batu', 'Jl. Arum Dalu 65A', 'Suliyani'),
+(83, 'SD NEGERI SUMBEREJO 01', 1, 20536804, 1, 'Batu', 'Jl Indragiri 79', 'Eni Wahyuningsih'),
+(84, 'SD NEGERI SUMBEREJO 02', 1, 20536805, 1, 'Batu', 'Jl Indragiri 81', 'Yudo Suwintoro'),
+(85, 'SD NEGERI SUMBEREJO 03', 1, 20536806, 1, 'Batu', 'Jl. Metro NO 22 Santrean Sumberejo', 'Harini'),
+(86, 'SD NEGERI SUMBERGONDO 01', 1, 20536807, 1, 'Bumiaji', 'Jl. Raya Sumbergondo 2', 'Lutfi Handayani'),
+(87, 'SD NEGERI TEMAS 01', 1, 20536809, 1, 'Batu', 'Jl. Patimura 23', 'Yayuk Rahayuningsih'),
+(88, 'SD NEGERI TEMAS 02', 1, 20536811, 1, 'Batu', 'Jl. Wukir VIII / 38', 'Agus Prianto'),
+(89, 'SD NEGERI TLEKUNG 01', 1, 20536812, 1, 'Junrejo', 'Jl Raya Tlekung 51', 'Suwandi'),
+(90, 'SD NEGERI TLEKUNG 02', 1, 20536799, 1, 'Junrejo', 'Jl Raya Tlekung RT 03 RW 06', 'Silasih'),
+(91, 'SD NEGERI TORONGREJO 01', 1, 20536778, 1, 'Junrejo', 'Jl. Wukir 37', 'Sayono'),
+(93, 'SD NEGERI TORONGREJO 02', 1, 20536798, 1, 'Junrejo', 'Jl. Cendana Ngukir', 'Samad'),
+(94, 'SD NEGERI TORONGREJO 03', 1, 20536797, 1, 'Junrejo', 'Jl. Aji Mustofa No 53', 'Jafar Priyono'),
+(95, 'SD NEGERI TULUNGREJO 01', 1, 20536776, 1, 'Bumiaji', 'Jl Diponegoro 182', 'Sri Mulyowati'),
+(96, 'SD NEGERI TULUNGREJO 02', 1, 20539421, 1, 'Bumiaji', 'Jl. Asparagus 27 Junggo', 'Sugiati'),
+(97, 'SD NEGERI TULUNGREJO 03', 1, 20536775, 1, 'Bumiaji', 'Jl. Raya Sumberbrantas No 116 Dusun Lemah Putih', 'Supriyanto'),
+(98, 'SD NEGERI TULUNGREJO 04', 1, 20536774, 1, 'Bumiaji', 'Dsn Wonorejo', 'Komsiyatin'),
+(99, 'SD NEGERI TULUNGREJO 05', 1, 20554537, 1, 'Bumiaji', 'Jl Anjarnyoto No 01 Dusun Kekep Desa Tulungrejo', 'Nunuk Suciani'),
+(100, 'SD PLUS AL IRSYAD', 1, 20536848, 2, 'Batu', 'Jl. Semeru I / 8', 'Deny Makhbubi'),
+(101, 'SD - IT IBNU HAJAR', 1, 20571506, 2, 'Batu', 'Jl. Perum Puri Indah Gondorejo', 'Rakhma Agustina Sulistyowati, Amd'),
+(102, 'SDI SABILUL KHOIR BEJI', 1, 69727596, 2, 'Junrejo', 'Jl Makam No 33 RT 03 RW 04', 'Dra. Endang Retnowati'),
+(103, 'SDIT TAHFIDZ AL MUNAWWAR', 1, 69969378, 2, 'Batu', 'Jl. Melati No 11 RT 01 RW 05', 'Rahmad Pribadi'),
+(104, 'SD NEGERI SUMBERGONDO 02', 1, 20536808, 1, 'Bumiaji', 'Jl. Tegalsari 5', 'Sri Winarni'),
+(105, 'SD NEGERI BULUKERTO 03', 1, 20536855, 1, 'Bumiaji', 'Jl.Nurhadi No 1 Cangar Bulukerto', 'Lilis Indahyani');
 
 -- --------------------------------------------------------
 
@@ -383,16 +386,19 @@ ALTER TABLE `status_sekolah`
 --
 ALTER TABLE `jenis_pengguna`
   MODIFY `id_jenis_pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `pengguna`
 --
 ALTER TABLE `pengguna`
   MODIFY `id_pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=110;
+
 --
 -- AUTO_INCREMENT for table `sekolah`
 --
 ALTER TABLE `sekolah`
   MODIFY `id_sekolah` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
+
 --
 -- Constraints for dumped tables
 --
@@ -410,6 +416,7 @@ ALTER TABLE `pengguna`
 ALTER TABLE `sekolah`
   ADD CONSTRAINT `fk_id_jenis_Sekolah` FOREIGN KEY (`id_jenis_sekolah`) REFERENCES `jenis_sekolah` (`id_jenis_sekolah`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_id_status_sekolah` FOREIGN KEY (`id_status_sekolah`) REFERENCES `status_sekolah` (`id_status_sekolah`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
