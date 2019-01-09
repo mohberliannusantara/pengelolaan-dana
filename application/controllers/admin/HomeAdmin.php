@@ -16,12 +16,12 @@ class HomeAdmin extends CI_Controller {
 		$session_data = $this->session->userdata('logged_in');
 
 		$data['page'] = 'Sekolah';
-        $data['nama_pengguna'] = $session_data['nama_pengguna'];
-        $data['nama_jenis_pengguna'] = $session_data['nama_jenis_pengguna'];
+		$data['nama_pengguna'] = $session_data['nama_pengguna'];
+		$data['nama_jenis_pengguna'] = $session_data['nama_jenis_pengguna'];
 
-        $userdata['email'] = $session_data['email'];
-        $userdata['nama_jenis_pengguna'] = $session_data['nama_jenis_pengguna'];
-        $userdata['nama_sekolah'] = $session_data['nama_sekolah'];
+		$userdata['email'] = $session_data['email'];
+		$userdata['nama_jenis_pengguna'] = $session_data['nama_jenis_pengguna'];
+		$userdata['nama_sekolah'] = $session_data['nama_sekolah'];
 
 		$this->load->view('template/header', $data);
 		$this->load->view('admin/index', $userdata);
@@ -35,13 +35,13 @@ class HomeAdmin extends CI_Controller {
 
 		$data['page'] = 'Sekolah';
 		$data['id_sekolah'] = $session_data['id_sekolah'];
-        $data['nama_pengguna'] = $session_data['nama_pengguna'];
-        $data['nama_jenis_pengguna'] = $session_data['nama_jenis_pengguna'];
+		$data['nama_pengguna'] = $session_data['nama_pengguna'];
+		$data['nama_jenis_pengguna'] = $session_data['nama_jenis_pengguna'];
 
-        $this->load->model('sekolah_model');
+		$this->load->model('sekolah_model');
 		$data2['sekolah'] = $this->sekolah_model->get();
 
-        $this->form_validation->set_rules('username', 'username', 'trim|required');
+		$this->form_validation->set_rules('username', 'username', 'trim|required');
 		$this->form_validation->set_rules('nama_pengguna', 'Nama Pengguna', 'trim|required');
 		$this->form_validation->set_rules('email', 'Email', 'trim|required');
 		$this->form_validation->set_rules('password', 'Password', 'trim|required');
@@ -57,7 +57,7 @@ class HomeAdmin extends CI_Controller {
 			redirect('HomeAdmin','refresh');
 		}
 
-        $this->load->view('template/header', $data);
+		$this->load->view('template/header', $data);
 		$this->load->view('admin/createAkun', $data2);
 		$this->load->view('template/footer');
 	}

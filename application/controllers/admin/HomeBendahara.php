@@ -16,12 +16,12 @@ class HomeBendahara extends CI_Controller {
 		$session_data = $this->session->userdata('logged_in');
 
 		$data['page'] = 'Sekolah';
-        $data['nama_pengguna'] = $session_data['nama_pengguna'];
-        $data['nama_jenis_pengguna'] = $session_data['nama_jenis_pengguna'];
-        $data['id_sekolah'] = $session_data['id_sekolah'];
-        $data['email'] = $session_data['email'];
+		$data['nama_pengguna'] = $session_data['nama_pengguna'];
+		$data['nama_jenis_pengguna'] = $session_data['nama_jenis_pengguna'];
+		$data['id_sekolah'] = $session_data['id_sekolah'];
+		$data['email'] = $session_data['email'];
 
-        $this->load->model('sekolah_model');
+		$this->load->model('sekolah_model');
 		$userdata['sekolah'] = $this->sekolah_model->get_by_id($session_data['id_sekolah']);
 
 

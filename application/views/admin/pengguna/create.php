@@ -8,7 +8,7 @@
             <p class="card-category">menambahkan akun untuk sekolah</p>
           </div>
           <div class="card-body">
-            <form action="<?php base_url('HomeAdmin/create/') ?>" method="post" enctype="multipart/form-data">
+            <form action="<?php base_url('admin/pengguna/create/') ?>" method="post" enctype="multipart/form-data">
 
               <div class="form-group">
                 <label for="username">Username</label>
@@ -44,7 +44,7 @@
                 <div class="invalid-feedback">Masukkan Asal Sekolah.</div>
               </div>
                 <div class="form-group">
-                  <input class="btn btn-warning" type="submit" value="Simpan">
+                  <input class="btn btn-info" type="submit" value="Simpan">
                 </div>
               </form>
             </div>

@@ -2,17 +2,17 @@
   <div class="container-fluid">
     <div class="col-md-12">
       <div class="card">
-        <div class="card-header card-header-primary">
+        <div class="card-header card-header-warning">
           <div class="row">
             <div class="col-md-9">
               <h4 class="card-title">Daftar Sekolah</h4>
               <p class="card-category">menampilkan daftar sekolah yang ada</p>
             </div>
             <div class="col-md-3">
-              <a href="<?php echo base_url('sekolah/create/') ?>" rel="tooltip" title="Tambah" class="btn btn-info">
+              <a href="<?php echo base_url('admin/sekolah/create/') ?>" rel="tooltip" title="Tambah" class="btn btn-primary">
                 <i class="material-icons">add</i>
               </a>
-              <a href="<?php echo base_url('Cetak/printPdf/').$this->uri->segment(1) ?>" rel="tooltip" title="Cetak Laporan" class="btn btn-danger">
+              <a href="<?php echo base_url('Cetak/printPdf/').$this->uri->segment(1) ?>" rel="tooltip" title="Cetak Laporan" class="btn btn-primary">
                 <i class="material-icons">print</i>
               </a>
             </div>
@@ -49,7 +49,7 @@
                       <a href="#" onclick="openModal(<?php echo $value->id_sekolah; ?>)" rel="tooltip" title="Lihat" class="btn btn-sm btn-success">
                         <i class="material-icons">zoom_out_map</i>
                       </a>
-                      <a href="<?php echo base_url('sekolah/edit/') . $value->id_sekolah ?>" rel="tooltip" title="Ubah" class="btn btn-sm btn-warning">
+                      <a href="<?php echo base_url('admin/sekolah/edit/') . $value->id_sekolah ?>" rel="tooltip" title="Ubah" class="btn btn-sm btn-warning">
                         <i class="material-icons">edit</i>
                       </a>
                     </td>
@@ -102,7 +102,7 @@
 <script type="text/javascript">
 function openModal(id) {
   $.ajax({
-    url:"<?php echo base_url('sekolah/get/'); ?>"+id,
+    url:"<?php echo base_url('admin/sekolah/get/'); ?>"+id,
     method: 'post',
     data:null
   }).done(function(data) {

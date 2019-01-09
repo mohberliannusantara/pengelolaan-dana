@@ -42,22 +42,28 @@
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="nav-item <?php echo ($this->uri->segment(1) == 'beranda') ? 'active':''; ?>">
-            <a class="nav-link" href="<?php echo site_url('beranda') ?>">
+          <li class="nav-item <?php echo ($this->uri->segment(2) == 'beranda') ? 'active':''; ?>">
+            <a class="nav-link" href="<?php echo site_url('admin/beranda') ?>">
               <i class="material-icons">dashboard</i>
               <p>Beranda</p>
             </a>
           </li>
-          <li class="nav-item <?php echo ($this->uri->segment(1) == 'sekolah') ? 'active':''; ?> ">
+          <li class="nav-item <?php echo ($this->uri->segment(2) == 'dana') ? 'active':''; ?> ">
             <a class="nav-link" href="<?php echo site_url('sekolah')?>">
               <i class="material-icons">content_paste</i>
               <p>Kelola Dana</p>
             </a>
           </li>
-          <li class="nav-item <?php echo ($this->uri->segment(1) == 'pengguna') ? 'active':''; ?> ">
-            <a class="nav-link" href="<?php echo site_url('pengguna')?>">
+          <li class="nav-item <?php echo ($this->uri->segment(2) == 'sekolah') ? 'active':''; ?> ">
+            <a class="nav-link" href="<?php echo site_url('admin/sekolah')?>">
+              <i class="material-icons">school</i>
+              <p>Sekolah</p>
+            </a>
+          </li>
+          <li class="nav-item <?php echo ($this->uri->segment(2) == 'pengguna') ? 'active':''; ?> ">
+            <a class="nav-link" href="<?php echo site_url('admin/pengguna')?>">
               <i class="material-icons">person</i>
-              <p>Profil</p>
+              <p>Pengguna</p>
             </a>
           </li>
         </ul>

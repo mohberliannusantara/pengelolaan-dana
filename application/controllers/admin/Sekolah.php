@@ -28,22 +28,22 @@ class Sekolah extends CI_Controller {
 		if (!$this->session->logged_in == TRUE) {
 			redirect('welcome','refresh');
 		}
-		if ($this->session->id_jenis_pengguna == 1 ) {
-			redirect('admin/beranda','refresh');
+		if ($this->session->id_jenis_pengguna != 1 ) {
+			redirect('beranda','refresh');
 		}
 	}
 
 	public function index()
 	{
-		$session_data = $this->session->userdata('logged_in');
 		$data['page'] = 'Sekolah';
+		$session_data = $this->session->userdata('logged_in');
 		$data['nama_jenis_pengguna'] = $session_data['nama_jenis_pengguna'];
 		$data['nama_pengguna'] = $session_data['nama_pengguna'];
 		$data['sekolah'] = $this->sekolah_model->get();
 
-		$this->load->view('template/header', $data);
-		$this->load->view('sekolah/index', $data);
-		$this->load->view('template/footer');
+		$this->load->view('admin/template/header', $data);
+		$this->load->view('admin/sekolah/index', $data);
+		$this->load->view('admin/template/footer');
 	}
 
 	public function create()
@@ -70,9 +70,9 @@ class Sekolah extends CI_Controller {
 			redirect('sekolah','refresh');
 		}
 
-		$this->load->view('template/header', $data);
-		$this->load->view('sekolah/create');
-		$this->load->view('template/footer');
+		$this->load->view('admin/template/header', $data);
+		$this->load->view('admin/sekolah/create');
+		$this->load->view('admin/template/footer');
 	}
 
 	public function get($id)

@@ -8,7 +8,7 @@
             <p class="card-category">menambahkan informasi data tentang sekolah</p>
           </div>
           <div class="card-body">
-            <form action="<?php base_url('sekolah/create/') ?>" method="post" enctype="multipart/form-data">
+            <form action="<?php base_url('admin/sekolah/create/') ?>" method="post" enctype="multipart/form-data">
 
               <div class="form-group">
                 <label for="npsp">NPSN</label>
