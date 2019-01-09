@@ -35,6 +35,7 @@ class Sekolah_model extends CI_Model {
 			'id_status_sekolah'          => $this->input->post('id_status_sekolah'),
 			'alamat'          => $this->input->post('alamat'),
 			'kecamatan'          => $this->input->post('kecamatan'),
+			'kepala_sekolah'          => $this->input->post('kepala_sekolah'),
 
 		);
 		$this->db->where('id_sekolah', $id);
@@ -50,7 +51,7 @@ class Sekolah_model extends CI_Model {
 			'id_status_sekolah'          => $this->input->post('id_status_sekolah'),
 			'alamat'          => $this->input->post('alamat'),
 			'kecamatan'          => $this->input->post('kecamatan'),
-
+			'kepala_sekolah'          => $this->input->post('kepala_sekolah'),
 		);
 		$this->db->insert('sekolah', $data);
 	}

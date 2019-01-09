@@ -19,7 +19,7 @@ class Pengguna_model extends CI_Model {
 		$this->db->select('*');
 		$this->db->from('pengguna');
 		$this->db->join('jenis_pengguna','pengguna.id_jenis_pengguna = jenis_pengguna.id_jenis_pengguna');
-		$this->db->join('status_pengguna','status_pengguna.id_status_pengguna = pengguna.id_status_pengguna');
+		$this->db->join('sekolah','sekolah.id_sekolah = pengguna.id_sekolah');
 		$this->db->where(array('pengguna.id_pengguna' => $id));
 
 		$query = $this->db->get();
@@ -28,13 +28,12 @@ class Pengguna_model extends CI_Model {
 
 	public function edit($id)
 	{
+		$password=$this->input->post('password');
 		$data = array(
-			'npsn'          => $this->input->post('npsn'),
+			'username'          => $this->input->post('username'),
 			'nama_pengguna'   => $this->input->post('nama_pengguna'),
-			'id_jenis_pengguna'          => $this->input->post('id_jenis_pengguna'),
-			'id_status_pengguna'          => $this->input->post('id_status_pengguna'),
-			'alamat'          => $this->input->post('alamat'),
-			'kecamatan'          => $this->input->post('kecamatan'),
+			'email'          => $this->input->post('email'),
+			'password'          => md5($password),
 
 		);
 		$this->db->where('id_pengguna', $id);

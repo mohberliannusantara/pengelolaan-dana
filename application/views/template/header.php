@@ -55,9 +55,9 @@
             </a>
           </li>
           <li class="nav-item <?php echo ($this->uri->segment(1) == 'pengguna') ? 'active':''; ?> ">
-            <a class="nav-link" href="<?php echo site_url('pengguna')?>">
+            <a class="nav-link" href="<?php echo site_url('pengguna/')?>">
               <i class="material-icons">person</i>
-              <p>Profil</p>
+              <p>Profil Sekolah</p>
             </a>
           </li>
         </ul>
@@ -94,7 +94,7 @@
                   </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="<?php echo base_url('pengguna')?>">Lihat Profil</a>
+                  <a class="dropdown-item" href="<?php echo base_url('setting') ?>">Setting</a>
                   <a class="dropdown-item" href="<?php echo base_url('autentikasi/logout')?>">Keluar</a>
                 </div>
               </li>

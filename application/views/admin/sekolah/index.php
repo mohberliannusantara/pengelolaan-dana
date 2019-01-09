@@ -12,7 +12,7 @@
               <a href="<?php echo base_url('admin/sekolah/create/') ?>" rel="tooltip" title="Tambah" class="btn btn-primary">
                 <i class="material-icons">add</i>
               </a>
-              <a href="<?php echo base_url('Cetak/printPdf/').$this->uri->segment(1) ?>" rel="tooltip" title="Cetak Laporan" class="btn btn-primary">
+              <a href="<?php echo base_url('admin/sekolah/export/') ?>" rel="tooltip" title="Cetak Laporan" class="btn btn-primary">
                 <i class="material-icons">print</i>
               </a>
             </div>

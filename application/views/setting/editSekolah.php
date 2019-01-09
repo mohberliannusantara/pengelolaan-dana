@@ -1,14 +1,14 @@
 <div class="content">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-8">
         <div class="card">
           <div class="card-header card-header-warning">
             <h4 class="card-title ">Ubah Data Sekolah</h4>
             <p class="card-category">mengubah informasi data tentang sekolah</p>
           </div>
           <div class="card-body">
-            <form action="<?php base_url('admin/sekolah/edit/'.$this->uri->segment(2)) ?>" method="post" enctype="multipart/form-data">
+            <form action="<?php base_url('setting/editSekolah/'.$this->uri->segment(2)) ?>" method="post" enctype="multipart/form-data">
 
               <?php
                 $id_jenis_sekolah=0;
@@ -28,7 +28,7 @@
 
               <div class="form-group">
                 <label for="npsp">NPSN</label>
-                <input type="number" class="form-control" name="npsn" value="<?php echo $sekolah->npsn ?>" required autofocus>
+                <input type="number" class="form-control" name="npsn" value="<?php echo $sekolah->npsn ?>" required autofocus readonly>
                 <div class="invalid-feedback">Masukkan nomor npsn.</div>
               </div>
 
@@ -92,6 +92,23 @@
             </div>
           </div>
         </div>
+        <div class="col-md-4">
+        <div class="card card-profile">
+          <div class="card-avatar">
+            <a href="#pablo">
+              <img class="img" src="<?php echo base_url('assets/img/faces/marc.jpg') ?>" />
+            </a>
+          </div>
+          <div class="card-body">
+            <h6 class="card-category text-gray">admin / <?php echo $this->session->nama_sekolah ?></h6>
+            <h4 class="card-title"><?php echo $this->session->nama_pengguna ?></h4>
+            <p class="card-description">
+              "Ing Ngarso Sung Tulodo, Ing Madyo Mangun Karso, Tut Wuri Handayani" - Ki Hajar Dewantara
+            </p>
+            <a href="#hello" class="btn btn-primary btn-round">Hello</a>
+          </div>
+        </div>
+      </div>
       </div>
     </div>
   </div>

@@ -74,4 +74,12 @@ class Pengguna extends CI_Controller {
 		$this->load->view('admin/pengguna/create', $data2);
 		$this->load->view('admin/template/footer');
 	}
+
+	public function export()
+	{
+		$this->load->model('pengguna_model');
+		$data['pengguna'] = $this->pengguna_model->get();
+		$this->load->view('admin/pengguna/exportExcel', $data);
+
+	}
 }

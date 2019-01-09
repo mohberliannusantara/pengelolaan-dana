@@ -13,7 +13,7 @@
                 <div class="col-md-5">
                   <div class="form-group">
                     <label class="bmd-label-floating">Nama Sekolah</label>
-                    <input type="text" class="form-control" value="<?php echo $this->session->nama_sekolah ?>" disabled>
+                    <input type="text" class="form-control" value="<?php echo $pengguna->email; ?>" disabled>
                   </div>
                 </div>
                 <div class="col-md-3">
@@ -46,33 +46,28 @@
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label class="bmd-label-floating">Alamat</label>
-                    <input type="text" class="form-control" value="<?php echo $this->session->alamat ?>" disabled>
+                    <label class="bmd-label-floating">Kepala Sekolah</label>
+                    <input type="text" class="form-control" value="<?php echo $this->session->kepala_sekolah ?>" disabled>
                   </div>
                 </div>
               </div>
               <div class="row">
                 <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Alamat</label>
+                    <input type="text" class="form-control" value="<?php echo $this->session->alamat ?>" disabled>
+                  </div>
+                </div>
+                <div class="col-md-3">
                   <div class="form-group">
                     <label class="bmd-label-floating">Kecamatan</label>
                     <input type="text" class="form-control" value="<?php echo $this->session->kecamatan ?>" disabled>
                   </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-3">
                   <div class="form-group">
                     <label class="bmd-label-floating">Kota</label>
                     <input type="text" class="form-control" value="Batu" disabled>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="form-group">
-                    <label>Tentang Sekolah</label>
-                    <div class="form-group">
-                      <label class="bmd-label-floating"> - </label>
-                      <textarea class="form-control" rows="2"></textarea>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -92,7 +87,7 @@
             <h6 class="card-category text-gray">admin / <?php echo $this->session->nama_sekolah ?></h6>
             <h4 class="card-title"><?php echo $this->session->nama_pengguna ?></h4>
             <p class="card-description">
-              Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
+              "Ing Ngarso Sung Tulodo, Ing Madyo Mangun Karso, Tut Wuri Handayani" - Ki Hajar Dewantara
             </p>
             <a href="#hello" class="btn btn-primary btn-round">Hello</a>
           </div>

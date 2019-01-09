@@ -33,6 +33,12 @@
               </div>
 
               <div class="form-group">
+                <label for="kepala_sekolah">Kepala Sekolah</label>
+                <input type="text" class="form-control" name="kepala_sekolah" value="" required>
+                <div class="invalid-feedback">Masukkan kepala_sekolah.</div>
+              </div>
+
+              <div class="form-group">
                 <label for="nama_status_sekolah">Status Sekolah</label>
                 <!-- <input min="1000" class="form-control number" name="harga" value="<?php echo $sekolah->nama_status_sekolah ?>" required > -->
 
