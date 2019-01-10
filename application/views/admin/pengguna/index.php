@@ -29,11 +29,9 @@
                   </th>
                   <th class="th-sm">Username
                   </th>
-                  <th class="th-sm">Password
-                  </th>
                   <th class="th-sm">Email
                   </th>
-                  <th class="th-sm">Aksi
+                  <th class="th-sm">Reset Password
                   </th>
                 </tr>
               </thead>
@@ -43,16 +41,9 @@
                     <td><?php echo $key+1 ?></td>
                     <td><?php echo $value->nama_sekolah ?></td>
                     <td><?php echo $value->username ?></td>
-                    <td><?php echo $value->username ?></td>
                     <td><?php echo $value->email ?></td>
-                    <td>
-                      <a href="#" onclick="openModal(<?php echo $value->id_sekolah; ?>)" rel="tooltip" title="Lihat" class="btn btn-sm btn-success">
-                        <i class="material-icons">zoom_out_map</i>
-                      </a>
-                      <a href="<?php echo base_url('admin/pengguna/edit/') . $value->id_sekolah ?>" rel="tooltip" title="Ubah" class="btn btn-sm btn-warning">
-                        <i class="material-icons">edit</i>
-                      </a>
-                    </td>
+                    <td><a href="<?php echo site_url('admin/pengguna/resetPass/').$value->username ?>">
+                      <button type="button" class="btn btn-danger" onclick="return confirm('Anda Yakin Ingin Mereset Password Akun Ini?')">Reset Password</button></td></a>
                   </tr>
                 <?php endforeach; ?>
               </tbody>
@@ -68,7 +59,7 @@
                   </th>
                   <th>Email
                   </th>
-                  <th>Aksi
+                  <th>Reset Password
                   </th>
                 </tr>
               </tfoot>

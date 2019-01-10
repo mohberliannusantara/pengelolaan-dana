@@ -86,6 +86,15 @@ class Pengguna_model extends CI_Model {
 		$this->db->where('id_pengguna', $id);
 		$this->db->update('pengguna', $data);
 	}
+
+	public function resetPass($username)
+	{
+		$data = array(
+			'password' => md5($username)
+		);
+		$this->db->where('username', $username);
+		$this->db->update('pengguna', $data);
+	}
 }
 
 

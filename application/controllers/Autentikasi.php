@@ -56,7 +56,7 @@ class Autentikasi extends CI_Controller {
 					redirect('beranda','refresh');
 				}
 			} else {
-				echo "<script>.('Informasi Akun yang Anda Masukkan Salah'); </script>";
+				echo "<script>alert('Informasi Akun yang Anda Masukkan Salah') </script>";
 				redirect('welcome','refresh');
 			}
 		}

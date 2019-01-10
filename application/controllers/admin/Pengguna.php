@@ -82,4 +82,13 @@ class Pengguna extends CI_Controller {
 		$this->load->view('admin/pengguna/exportExcel', $data);
 
 	}
+
+	public function resetPass($username)
+	{
+		$data['page'] = 'Admin';
+		$this->pengguna_model->resetPass($username);
+		echo "<script>alert('Successfully Updated'); </script>";
+		redirect('pengguna','refresh');
+
+	}
 }
