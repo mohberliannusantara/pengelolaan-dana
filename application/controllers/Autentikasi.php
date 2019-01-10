@@ -46,19 +46,17 @@ class Autentikasi extends CI_Controller {
 					'logged_in' => TRUE
 				);
 
-				// $this->session->set_flashdata('user_loggedin', 'You are now logged in');
+				$this->session->set_flashdata('user_loggedin', 'You are now logged in');
 
 				if ($userdata['id_jenis_pengguna'] == 1) {
-					$this->session->set_userdata('logged_in',$userdata);
+					$this->session->set_userdata($userdata);
 					redirect('admin/beranda','refresh');
 				}else {
-					$this->session->set_userdata('logged_in',$userdata);
+					$this->session->set_userdata($userdata);
 					redirect('beranda','refresh');
 				}
 			} else {
 				echo "<script>.('Informasi Akun yang Anda Masukkan Salah'); </script>";
-				// $this->session->set_flashdata('login_failed', 'Login is invalid');
-				// echo "demo.showNotification('top','center'); </script>";
 				redirect('welcome','refresh');
 			}
 		}

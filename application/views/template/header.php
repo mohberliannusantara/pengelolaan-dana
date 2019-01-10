@@ -37,7 +37,7 @@
     -->
       <div class="logo">
         <a href="#" class="simple-text logo-normal">
-          <?php echo $this->session->nama_sekolah ?>
+          <?php echo $this->session->nama_pengguna ?>
         </a>
       </div>
       <div class="sidebar-wrapper">
@@ -94,7 +94,7 @@
                   </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="<?php echo base_url('setting') ?>">Setting</a>
+                  <a class="dropdown-item" href="<?php echo base_url('pengguna/gantiPass'). $this->session->id_pengguna ?>"  data-toggle="modal" data-target="#exampleModalCenter">Ganti Password</a>
                   <a class="dropdown-item" href="<?php echo base_url('autentikasi/logout')?>">Keluar</a>
                 </div>
               </li>
@@ -102,3 +102,36 @@
           </div>
         </div>
       </nav>
+      <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Silahkan Masuk</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="<?php echo base_url().'pengguna/gantiPass/'.$this->session->id_pengguna ?>" method='post'>
+          <div class="form-group">
+            <label for="" class="label">Password Lama</label>
+            <input type="text" name="password" class="form-control" id="recipient-name" autofocus required>
+          </div>
+          <div class="form-group">
+            <label for="" class="label">Password Baru</label>
+            <input type="password" name="password2" class="form-control" id="recipient-name" required>
+          </div>
+          <div class="form-group">
+            <label for="" class="label">Konfirmasi Password</label>
+            <input type="password" name="password3" class="form-control" id="recipient-name" required>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+          <button type="submit" class="btn btn-primary">Masuk</button>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>

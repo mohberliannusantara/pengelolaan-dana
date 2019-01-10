@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-md-8">
         <div class="card">
-          <div class="card-header card-header-info">
+          <div class="card-header card-header-warning">
             <h4 class="card-title">Detail Profil</h4>
             <p class="card-category">menampilkan informasi detail tentang pengguna</p>
           </div>
@@ -71,6 +71,13 @@
                   </div>
                 </div>
               </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <center>
+                  <a class="btn btn-warning" href="<?php echo site_url('pengguna/edit/').$this->session->id_sekolah.'/'.$this->session->id_pengguna ?>">Ubah</a>
+                </center>
+                </div>
+              </div>
               <div class="clearfix"></div>
             </form>
           </div>
@@ -84,8 +91,8 @@
             </a>
           </div>
           <div class="card-body">
-            <h6 class="card-category text-gray">admin / <?php echo $this->session->nama_sekolah ?></h6>
-            <h4 class="card-title"><?php echo $this->session->nama_pengguna ?></h4>
+            <h6 class="card-category text-gray">Kepala Sekolah <?php echo $this->session->nama_sekolah ?></h6>
+            <h4 class="card-title"><?php echo $this->session->kepala_sekolah ?></h4>
             <p class="card-description">
               "Ing Ngarso Sung Tulodo, Ing Madyo Mangun Karso, Tut Wuri Handayani" - Ki Hajar Dewantara
             </p>

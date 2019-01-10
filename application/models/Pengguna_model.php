@@ -26,20 +26,30 @@ class Pengguna_model extends CI_Model {
 		return $query->row();
 	}
 
+	// public function edit($id)
+	// {
+	// 	$password=$this->input->post('password');
+	// 	$data = array(
+	// 		'username'          => $this->input->post('username'),
+	// 		'nama_pengguna'   => $this->input->post('nama_pengguna'),
+	// 		'email'          => $this->input->post('email'),
+	// 		'password'          => md5($password),
+
+	// 	);
+	// 	$this->db->where('id_pengguna', $id);
+	// 	$this->db->update('pengguna', $data);
+	// }
+
 	public function edit($id)
 	{
-		$password=$this->input->post('password');
 		$data = array(
-			'username'          => $this->input->post('username'),
 			'nama_pengguna'   => $this->input->post('nama_pengguna'),
-			'email'          => $this->input->post('email'),
-			'password'          => md5($password),
-
+			'username'   => $this->input->post('username'),
+			'email'          => $this->input->post('email')
 		);
 		$this->db->where('id_pengguna', $id);
 		$this->db->update('pengguna', $data);
 	}
-
 	public function create()
 	{
 		$data = array(
@@ -66,6 +76,15 @@ class Pengguna_model extends CI_Model {
 			'id_jenis_pengguna'          => '2',
 		);
 		$this->db->insert('pengguna', $data);
+	}
+
+	public function gantiPass($id)
+	{
+		$data = array(
+			'password' => md5($this->input->post('password2'))
+		);
+		$this->db->where('id_pengguna', $id);
+		$this->db->update('pengguna', $data);
 	}
 }
 
