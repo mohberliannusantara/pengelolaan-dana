@@ -40,14 +40,10 @@ class Pengguna extends CI_Controller {
 		$data['page'] = 'Beranda';
 
 		$this->load->model('sekolah_model');
-		$userdata['sekolah'] = $this->sekolah_model->get_by_id($session_data['id_sekolah']);
+		$userdata['sekolah'] = $this->sekolah_model->get_by_id($this->session->id_sekolah);
 
 		$this->load->model('pengguna_model');
-		$userdata['pengguna'] = $this->pengguna_model->get_by_id($session_data['id_sekolah']);
-		
-		print_r($userdata['pengguna']);
-		print_r($userdata['sekolah']);
-		die();
+		$userdata['pengguna'] = $this->pengguna_model->get_by_id($this->session->id_pengguna);
 
 		$this->load->view('template/header', $data);
 		$this->load->view('pengguna/index', $userdata);

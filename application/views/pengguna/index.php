@@ -13,19 +13,19 @@
                 <div class="col-md-5">
                   <div class="form-group">
                     <label class="bmd-label-floating">Nama Sekolah</label>
-                    <input type="text" class="form-control" value="<?php echo $pengguna->email; ?>" disabled>
+                    <input type="text" class="form-control" value="<?php echo $sekolah->nama_sekolah; ?>" disabled>
                   </div>
                 </div>
                 <div class="col-md-3">
                   <div class="form-group">
                     <label class="bmd-label-floating">Tingkat</label>
-                    <input type="text" class="form-control" value="<?php echo $this->session->nama_jenis_sekolah ?>" disabled>
+                    <input type="text" class="form-control" value="<?php echo  $sekolah->nama_jenis_sekolah ?>" disabled>
                   </div>
                 </div>
                 <div class="col-md-4">
                   <div class="form-group">
                     <label class="bmd-label-floating">Status</label>
-                    <input type="email" class="form-control" value="<?php echo $this->session->nama_status_sekolah ?>" disabled>
+                    <input type="email" class="form-control" value="<?php echo $sekolah->nama_status_sekolah ?>" disabled>
                   </div>
                 </div>
               </div>
@@ -33,13 +33,13 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label class="bmd-label-floating">Email</label>
-                    <input type="text" class="form-control" value="<?php echo $this->session->email ?>" disabled>
+                    <input type="text" class="form-control" value="<?php echo $pengguna->email ?>" disabled>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                     <label class="bmd-label-floating">NPSN</label>
-                    <input type="text" class="form-control" value="<?php echo $this->session->npsn ?>" disabled>
+                    <input type="text" class="form-control" value="<?php echo $sekolah->npsn ?>" disabled>
                   </div>
                 </div>
               </div>
@@ -47,7 +47,7 @@
                 <div class="col-md-12">
                   <div class="form-group">
                     <label class="bmd-label-floating">Kepala Sekolah</label>
-                    <input type="text" class="form-control" value="<?php echo $this->session->kepala_sekolah ?>" disabled>
+                    <input type="text" class="form-control" value="<?php echo $sekolah->kepala_sekolah ?>" disabled>
                   </div>
                 </div>
               </div>
@@ -55,13 +55,13 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label class="bmd-label-floating">Alamat</label>
-                    <input type="text" class="form-control" value="<?php echo $this->session->alamat ?>" disabled>
+                    <input type="text" class="form-control" value="<?php echo $sekolah->alamat ?>" disabled>
                   </div>
                 </div>
                 <div class="col-md-3">
                   <div class="form-group">
                     <label class="bmd-label-floating">Kecamatan</label>
-                    <input type="text" class="form-control" value="<?php echo $this->session->kecamatan ?>" disabled>
+                    <input type="text" class="form-control" value="<?php echo $sekolah->kecamatan ?>" disabled>
                   </div>
                 </div>
                 <div class="col-md-3">

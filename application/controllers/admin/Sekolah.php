@@ -122,12 +122,4 @@ class Sekolah extends CI_Controller {
 
 	}
 
-	public function export()
-	{
-		$this->load->model('sekolah_model');
-		$data['sekolah'] = $this->sekolah_model->get();
-		$this->load->view('admin/sekolah/exportExcel', $data);
-
-
-	}
 }
