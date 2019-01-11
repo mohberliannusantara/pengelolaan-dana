@@ -1,5 +1,6 @@
 <div class="content">
   <div class="container-fluid">
+    <div class="row">
     <div class="col-md-12">
       <div class="card">
         <div class="card-header card-header-warning">
@@ -77,7 +78,8 @@
         </div>
       </div>
     </div>
-  </div>
+    </div>
+  .</div>
 </div>
 
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

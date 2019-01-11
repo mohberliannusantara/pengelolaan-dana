@@ -42,6 +42,12 @@ class Pengguna extends CI_Controller {
 		$this->load->view('admin/template/footer');
 	}
 
+	public function get($id)
+	{
+		$data['pengguna'] = $this->pengguna_model->get_by_id($id);
+		$this->load->view('admin/pengguna/show', $data);
+	}
+
 	public function create()
 	{
 		$session_data = $this->session->userdata('logged_in');
@@ -75,6 +81,33 @@ class Pengguna extends CI_Controller {
 		$this->load->view('admin/template/footer');
 	}
 
+	public function edit($id = null)
+	{
+		$session_data = $this->session->userdata('logged_in');
+		$data['page'] = 'Sekolah';
+		$data['pengguna'] = $this->pengguna_model->get_by_id($id);
+
+		// print_r($data);
+		// die();
+
+		$this->form_validation->set_rules('username', 'Username', 'trim|required');
+		$this->form_validation->set_rules('nama_pengguna', 'Nama Pengguna', 'trim|required');
+		$this->form_validation->set_rules('email', 'Email', 'trim|required');
+
+		if ($this->form_validation->run()==FALSE){
+			echo validation_errors();
+		}else{
+			$this->pengguna_model->edit($id);
+			echo "<script>alert('Successfully Updated'); </script>";
+			redirect('admin/pengguna','refresh');
+			
+		}
+
+		$this->load->view('admin/template/header', $data);
+		$this->load->view('admin/pengguna/edit', $data);
+		$this->load->view('admin/template/footer');
+	}
+
 	public function export()
 	{
 		$this->load->model('pengguna_model');
@@ -88,7 +121,7 @@ class Pengguna extends CI_Controller {
 		$data['page'] = 'Admin';
 		$this->pengguna_model->resetPass($username);
 		echo "<script>alert('Successfully Updated'); </script>";
-		redirect('pengguna','refresh');
+		redirect('admin/pengguna','refresh');
 
 	}
 }

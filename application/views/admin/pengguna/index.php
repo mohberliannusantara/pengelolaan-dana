@@ -1,15 +1,18 @@
 <div class="content">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-8">
+      <div class="col-md-12">
         <div class="card">
           <div class="card-header card-header-warning">
             <div class="row">
-              <div class="col-md-10">
+              <div class="col-md-9">
                 <h4 class="card-title">Daftar Pengguna</h4>
                 <p class="card-category">menampilkan daftar pengguna yang ada</p>
               </div>
-              <div class="col-md-2">
+              <div class="col-md-3">
+                <a href="<?php echo base_url('admin/pengguna/create')?>" rel="tooltip" title="Tambah" class="btn btn-primary">
+                <i class="material-icons">add</i>
+                </a>
                 <a href="<?php echo base_url('admin/pengguna/export/') ?>" rel="tooltip" title="Cetak Laporan" class="btn btn-primary">
                   <i class="material-icons">print</i>
                 </a>
@@ -23,9 +26,9 @@
                   <tr>
                     <th class="th-sm">No
                     </th>
-                    <th class="th-sm">Kelapa Sekolah
+                    <th class="th-sm">Nama Pengguna
                     </th>
-                    <th class="th-sm">Nama Sekolah
+                    <th class="th-sm">Username
                     </th>
                     <th class="th-sm">Aksi
                     </th>
@@ -35,14 +38,17 @@
                   <?php foreach ($pengguna as $key => $value): ?>
                     <tr>
                       <td><?php echo $key+1 ?></td>
-                      <td><?php echo $value->kepala_sekolah ?></td>
-                      <td><?php echo $value->nama_sekolah ?></td>
+                      <td><?php echo $value->nama_pengguna ?></td>
+                      <td><?php echo $value->username ?></td>
                       <td>
                         <a href="#" onclick="openModal(<?php echo $value->id_pengguna; ?>)" rel="tooltip" title="Lihat" class="btn btn-sm btn-success">
                           <i class="material-icons">zoom_out_map</i>
                         </a>
-                        <a href="<?php echo base_url('admin/pengguna/edit/') . $value->id_pengguna ?>" rel="tooltip" title="Ubah" class="btn btn-sm btn-warning">
+                        <a href="<?php echo base_url('admin/pengguna/edit/') . $value->id_pengguna ?>" rel="tooltip" title="Ubah Informasi" class="btn btn-sm btn-warning">
                           <i class="material-icons">edit</i>
+                        </a>
+                        <a href="<?php echo base_url('admin/pengguna/resetPass/') . $value->username ?>" rel="tooltip" title="Reset Password" class="btn btn-sm btn-danger" onclick="return confirm('Ingin mereset password? Password akan di set sama dengan username akun')">
+                          <i class="material-icons">warning</i>
                         </a>
                       </td>
                     </tr>
@@ -52,45 +58,15 @@
                   <tr>
                     <th class="th-sm">No
                     </th>
-                    <th class="th-sm">Kelapa Sekolah
+                    <th class="th-sm">Nama Pengguna
                     </th>
-                    <th class="th-sm">Nama Sekolah
+                    <th class="th-sm">Username
                     </th>
                     <th class="th-sm">Aksi
                     </th>
                   </tr>
                 </tfoot>
               </table>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="row">
-          <div class="card card-profile">
-            <div class="card-avatar">
-              <a href="#pablo">
-                <img class="img" src="<?php echo base_url('assets/img/faces/marc.jpg') ?>" />
-              </a>
-            </div>
-            <div class="card-body">
-              <h6 class="card-category text-gray">Kepala Sekolah <?php echo $this->session->nama_sekolah ?></h6>
-              <h4 class="card-title"><?php echo $this->session->kepala_sekolah ?></h4>
-              <p class="card-description">
-                "Ing Ngarso Sung Tulodo, Ing Madyo Mangun Karso, Tut Wuri Handayani" - Ki Hajar Dewantara
-              </p>
-              <a href="#hello" class="btn btn-primary btn-round">Hello</a>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="card card-profile">
-            <div class="card-body">
-              <h3>Tambah sekolah</h3>
-              <a href="<?php echo base_url('admin/pengguna/create/') ?>" rel="tooltip" title="Tambah" class="btn btn-info">
-                <i class="material-icons">add</i> Tambah
-              </a>
-              <h3> </h3>
             </div>
           </div>
         </div>

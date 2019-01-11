@@ -33,12 +33,6 @@ class Pengguna extends CI_Controller {
 
 	public function index()
 	{
-		$session_data = $this->session->userdata('logged_in');
-		$data['nama_pengguna'] = $session_data['nama_pengguna'];
-        $data['nama_jenis_pengguna'] = $session_data['nama_jenis_pengguna'];
-        $data['id_sekolah'] = $session_data['id_sekolah'];
-        $data['email'] = $session_data['email'];
-
 		$data['page'] = 'Beranda';
 
 		$this->load->model('sekolah_model');
@@ -47,7 +41,7 @@ class Pengguna extends CI_Controller {
 		$this->load->model('pengguna_model');
 		$userdata['pengguna'] = $this->pengguna_model->get_by_id($this->session->id_pengguna);
 
-		$this->load->view('template/header', $data);
+		$this->load->view('template/header', array_merge($data,$userdata));
 		$this->load->view('pengguna/index', $userdata);
 		$this->load->view('template/footer');
 	}

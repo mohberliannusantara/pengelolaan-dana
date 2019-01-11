@@ -32,8 +32,11 @@ class Beranda extends CI_Controller {
 	public function index()
 	{
 		$data['page'] = 'Beranda';
-		$this->load->view('template/header', $data);
-		$this->load->view('beranda/index');
+		$this->load->model('pengguna_model');
+		$userdata['pengguna'] = $this->pengguna_model->get_by_id($this->session->id_pengguna);
+
+		$this->load->view('template/header', array_merge($data,$userdata));
+		$this->load->view('beranda/index', $userdata);
 		$this->load->view('template/footer');
 	}
 }

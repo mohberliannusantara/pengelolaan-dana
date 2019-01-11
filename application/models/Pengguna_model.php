@@ -43,22 +43,23 @@ class Pengguna_model extends CI_Model {
 	public function edit($id)
 	{
 		$data = array(
-			'nama_pengguna'   => $this->input->post('nama_pengguna'),
-			'username'   => $this->input->post('username'),
-			'email'          => $this->input->post('email')
+			'nama_pengguna'	=> $this->input->post('nama_pengguna'),
+			'username'  	=> $this->input->post('username'),
+			'email'         => $this->input->post('email')
 		);
 		$this->db->where('id_pengguna', $id);
 		$this->db->update('pengguna', $data);
 	}
+	
 	public function create()
 	{
 		$data = array(
-			'npsn'          => $this->input->post('npsn'),
-			'nama_pengguna'   => $this->input->post('nama_pengguna'),
-			'id_jenis_pengguna'          => $this->input->post('id_jenis_pengguna'),
-			'id_status_pengguna'          => $this->input->post('id_status_pengguna'),
-			'alamat'          => $this->input->post('alamat'),
-			'kecamatan'          => $this->input->post('kecamatan'),
+			'npsn'          	=> $this->input->post('npsn'),
+			'nama_pengguna'		=> $this->input->post('nama_pengguna'),
+			'id_jenis_pengguna' => $this->input->post('id_jenis_pengguna'),
+			'id_status_pengguna'=> $this->input->post('id_status_pengguna'),
+			'alamat'          	=> $this->input->post('alamat'),
+			'kecamatan'         => $this->input->post('kecamatan'),
 
 		);
 		$this->db->insert('pengguna', $data);
