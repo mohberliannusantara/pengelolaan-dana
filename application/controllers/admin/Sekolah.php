@@ -28,7 +28,7 @@ class Sekolah extends CI_Controller {
 		if (!$this->session->logged_in == TRUE) {
 			redirect('welcome','refresh');
 		}
-		if ($this->session->id_jenis_pengguna != 1 ) {
+		if ($this->session->id_jenis_pengguna == 2 ) {
 			redirect('beranda','refresh');
 		}
 	}
@@ -36,9 +36,6 @@ class Sekolah extends CI_Controller {
 	public function index()
 	{
 		$data['page'] = 'Sekolah';
-		$session_data = $this->session->userdata('logged_in');
-		$data['nama_jenis_pengguna'] = $session_data['nama_jenis_pengguna'];
-		$data['nama_pengguna'] = $session_data['nama_pengguna'];
 		$data['sekolah'] = $this->sekolah_model->get();
 
 		$this->load->view('admin/template/header', $data);
