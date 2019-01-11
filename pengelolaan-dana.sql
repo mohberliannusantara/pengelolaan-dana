@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 09, 2019 at 09:56 AM
--- Server version: 10.1.37-MariaDB
--- PHP Version: 7.3.0
+-- Generation Time: Jan 11, 2019 at 04:47 AM
+-- Server version: 10.1.19-MariaDB
+-- PHP Version: 7.0.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -21,6 +19,25 @@ SET time_zone = "+00:00";
 --
 -- Database: `pengelolaan-dana`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `jenis_pengeluaran`
+--
+
+CREATE TABLE `jenis_pengeluaran` (
+  `id_jenis_pengeluaran` int(11) NOT NULL,
+  `nama_jenis_pengeluaran` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `jenis_pengeluaran`
+--
+
+INSERT INTO `jenis_pengeluaran` (`id_jenis_pengeluaran`, `nama_jenis_pengeluaran`) VALUES
+(1, 'pembelian'),
+(2, 'pembayaran');
 
 -- --------------------------------------------------------
 
@@ -60,6 +77,29 @@ INSERT INTO `jenis_sekolah` (`id_jenis_sekolah`, `nama_jenis_sekolah`) VALUES
 (0, 'ADM'),
 (1, 'SD'),
 (2, 'SMP');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pengeluaran`
+--
+
+CREATE TABLE `pengeluaran` (
+  `id_pengeluaran` int(11) NOT NULL,
+  `nama_pengeluaran` varchar(255) NOT NULL,
+  `jumlah` int(11) NOT NULL,
+  `id_jenis_pengeluaran` int(11) NOT NULL,
+  `nama_toko` varchar(100) NOT NULL,
+  `tanggal` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `pengeluaran`
+--
+
+INSERT INTO `pengeluaran` (`id_pengeluaran`, `nama_pengeluaran`, `jumlah`, `id_jenis_pengeluaran`, `nama_toko`, `tanggal`) VALUES
+(1, 'transport pembina ekstrakulikuler', 600000, 2, '', '2017-01-09'),
+(2, 'pembelian sound system dan pajak', 5500000, 1, 'Harry Music', '2017-12-13');
 
 -- --------------------------------------------------------
 
@@ -221,7 +261,7 @@ INSERT INTO `sekolah` (`id_sekolah`, `nama_sekolah`, `id_jenis_sekolah`, `npsn`,
 (9, 'SMP ISLAM 01', 2, 20536815, 2, 'Batu', 'Jl. Wr. Supratman 6', 'Subandi'),
 (10, 'SMP ISLAM ABU GHONAIM', 2, 69964725, 2, 'Bumiaji', 'Jl. Abdul Ghonaim NO. 37', 'Farida Kusumawaty'),
 (11, 'SMP K WIDYATAMA', 2, 20536845, 2, 'Batu', 'Jalan Panglima Sudirman No. 59', 'Agatha Wayan Oka Udiyani'),
-(12, 'SMP MAARIF BATU', 2, 20536832, 2, 'Batu', 'Batu', 'Supa\'at'),
+(12, 'SMP MAARIF BATU', 2, 20536832, 2, 'Batu', 'Batu', 'Supa''at'),
 (13, 'SMP MUHAMMADIYAH 02', 2, 20536833, 2, 'Batu', 'Jl. Bukit Berbunga 175', 'Mohamad Samsudi'),
 (14, 'SMP MUHAMMADIYAH 08', 2, 20536834, 2, 'Batu', 'Jl. Welirag 17', 'Edy Susanto'),
 (15, 'SMP NEGERI 01 BATU', 2, 20536839, 1, 'Batu', 'Jl. KH. Agus Salim 55', 'Bambang Irawa, S.pd., M. Pd.'),
@@ -250,12 +290,12 @@ INSERT INTO `sekolah` (`id_sekolah`, `nama_sekolah`, `id_jenis_sekolah`, `npsn`,
 (38, 'SD NEGERI BULUKERTO 01', 1, 20536853, 1, 'Bumiaji', 'Jl. Kenanga', 'Sukoyo'),
 (39, 'SD NEGERI BULUKERTO 02', 1, 20536854, 1, 'Bumiaji', 'Jl. Imam Sujono 67', 'Sulistin'),
 (40, 'SD NEGERI BUMIAJI 01', 1, 20536856, 1, 'Bumiaji', 'Jl. Abu Ghonaim 31', 'Sedarmiyati'),
-(41, 'SD NEGERI BUMIAJI 02', 1, 20536857, 1, 'Bumiaji', 'Jl. Kastubi 01', 'Lesma\'un'),
+(41, 'SD NEGERI BUMIAJI 02', 1, 20536857, 1, 'Bumiaji', 'Jl. Kastubi 01', 'Lesma''un'),
 (42, 'SD NEGERI DADAPREJO 01', 1, 20536858, 1, 'Junrejo', 'Jl. Martorejo 1A', 'Suparmi'),
 (43, 'SD NEGERI DADAPREJO 02', 1, 20536859, 1, 'Junrejo', 'Jl. Martorejo', 'Irul Siti Sumarni'),
 (44, 'SD NEGERI GIRIPURNO 01', 1, 20536876, 1, 'Bumiaji', 'Jl. Raya Giripurno 221', 'Wahyudi Heri Purwono'),
 (45, 'SD NEGERI GIRIPURNO 02', 1, 20536877, 1, 'Bumiaji', 'Jl. Arjuno No 9', 'Erna inarti Ningsih'),
-(46, 'SD NEGERI GIRIPURNO 03', 1, 20536878, 1, 'Bumiaji', 'Jl. Indrokilo No 01', 'Ngarni\'ayah'),
+(46, 'SD NEGERI GIRIPURNO 03', 1, 20536878, 1, 'Bumiaji', 'Jl. Indrokilo No 01', 'Ngarni''ayah'),
 (47, 'SD NEGERI GUNUNGSARI 01', 1, 20536897, 1, 'Bumiaji', 'Jl. Brumbung 73', 'Lilis Iswanti'),
 (48, 'SD NEGERI GUNUNGSARI 02', 1, 20536898, 1, 'Bumiaji', 'Jl. Wongso 45 Pagergunung', 'Winarto, S. Pd.'),
 (49, 'SD NEGERI GUNUNGSARI 03', 1, 20536899, 1, 'Bumiaji', 'Dsn. Kandangan', 'Asri Suprihatin'),
@@ -267,7 +307,7 @@ INSERT INTO `sekolah` (`id_sekolah`, `nama_sekolah`, `id_jenis_sekolah`, `npsn`,
 (55, 'SD NEGERI NGAGLIK 01', 1, 20536906, 1, 'Batu', 'Jl. Abdul Rahman No 23', 'Ninit Catur Meindyawati'),
 (56, 'SD NEGERI NGAGLIK 03', 1, 20536907, 1, 'Batu', 'Jl. Abdul Gani IV / 29', 'Masykur, S.ag'),
 (57, 'SD NEGERI NGAGLIK 04', 1, 20536908, 1, 'Batu', 'Jl Darsono Barat 27', 'Suyatun'),
-(58, 'SD NEGERI NGAGLIK 2', 1, 20539420, 1, 'Batu', 'Jl. Ikhwan Hadi no 41', 'Nur Samsul Ma\'arif'),
+(58, 'SD NEGERI NGAGLIK 2', 1, 20539420, 1, 'Batu', 'Jl. Ikhwan Hadi no 41', 'Nur Samsul Ma''arif'),
 (59, 'SD NEGERI ORO-ORO OMBO 03', 1, 20536895, 1, 'Batu', 'Jl. Tvri RT 03 RW 10 Dresel', 'Rini Rukmawti, S.Pd'),
 (60, 'SD NEGERI ORO-ORO OMBO 01', 1, 20536909, 1, 'Batu', 'Jl. Raya Oro-oro Ombo', 'Hariono'),
 (61, 'SD NEGERI ORO-ORO OMBO 02', 1, 20536896, 1, 'Batu', 'Jl Raya Oro-oro Ombo 36', 'Budiyono'),
@@ -339,6 +379,12 @@ INSERT INTO `status_sekolah` (`id_status_sekolah`, `nama_status_sekolah`) VALUES
 --
 
 --
+-- Indexes for table `jenis_pengeluaran`
+--
+ALTER TABLE `jenis_pengeluaran`
+  ADD PRIMARY KEY (`id_jenis_pengeluaran`);
+
+--
 -- Indexes for table `jenis_pengguna`
 --
 ALTER TABLE `jenis_pengguna`
@@ -350,6 +396,13 @@ ALTER TABLE `jenis_pengguna`
 --
 ALTER TABLE `jenis_sekolah`
   ADD PRIMARY KEY (`id_jenis_sekolah`);
+
+--
+-- Indexes for table `pengeluaran`
+--
+ALTER TABLE `pengeluaran`
+  ADD PRIMARY KEY (`id_pengeluaran`),
+  ADD KEY `id_jenis_pengeluaran` (`id_jenis_pengeluaran`);
 
 --
 -- Indexes for table `pengguna`
@@ -382,23 +435,30 @@ ALTER TABLE `status_sekolah`
 --
 
 --
+-- AUTO_INCREMENT for table `jenis_pengeluaran`
+--
+ALTER TABLE `jenis_pengeluaran`
+  MODIFY `id_jenis_pengeluaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
 -- AUTO_INCREMENT for table `jenis_pengguna`
 --
 ALTER TABLE `jenis_pengguna`
   MODIFY `id_jenis_pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
+--
+-- AUTO_INCREMENT for table `pengeluaran`
+--
+ALTER TABLE `pengeluaran`
+  MODIFY `id_pengeluaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `pengguna`
 --
 ALTER TABLE `pengguna`
   MODIFY `id_pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=110;
-
 --
 -- AUTO_INCREMENT for table `sekolah`
 --
 ALTER TABLE `sekolah`
   MODIFY `id_sekolah` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
-
 --
 -- Constraints for dumped tables
 --
@@ -416,7 +476,6 @@ ALTER TABLE `pengguna`
 ALTER TABLE `sekolah`
   ADD CONSTRAINT `fk_id_jenis_Sekolah` FOREIGN KEY (`id_jenis_sekolah`) REFERENCES `jenis_sekolah` (`id_jenis_sekolah`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_id_status_sekolah` FOREIGN KEY (`id_status_sekolah`) REFERENCES `status_sekolah` (`id_status_sekolah`) ON DELETE CASCADE ON UPDATE CASCADE;
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
