@@ -19,7 +19,7 @@ class Dana extends CI_Controller {
 
 	public function index()
 	{
-		$data['page'] = 'Sekolah';
+		$data['page'] = 'Kelola Dana';
 		$data['sekolah'] = $this->sekolah_model->get();
 
 		$this->load->view('admin/template/header', $data);
@@ -27,6 +27,15 @@ class Dana extends CI_Controller {
 		$this->load->view('admin/template/footer');
 	}
 
+	public function manage($id)
+	{
+		$data['page'] = 'Kelola Dana';
+		$data['sekolah'] = $this->sekolah_model->get();
+
+		$this->load->view('admin/template/header', $data);
+		$this->load->view('admin/dana/detail', $data);
+		$this->load->view('admin/template/footer');
+	}
 }
 
 /* End of file Dana.php */

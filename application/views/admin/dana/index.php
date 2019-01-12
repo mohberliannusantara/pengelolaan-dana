@@ -4,17 +4,9 @@
       <div class="card">
         <div class="card-header card-header-warning">
           <div class="row">
-            <div class="col-md-9">
-              <h4 class="card-title">Daftar Sekolah</h4>
-              <p class="card-category">menampilkan daftar sekolah yang ada</p>
-            </div>
-            <div class="col-md-3">
-              <a href="<?php echo base_url('admin/sekolah/create/') ?>" rel="tooltip" title="Tambah" class="btn btn-primary">
-                <i class="material-icons">add</i>
-              </a>
-              <a href="<?php echo base_url('admin/sekolah/export/') ?>" rel="tooltip" title="Cetak Laporan" class="btn btn-primary">
-                <i class="material-icons">print</i>
-              </a>
+            <div class="col-md-12">
+              <h4 class="card-title">Pengelolaan Dana</h4>
+              <p class="card-category">menampilkan daftar sekolah dimana admin dapat melihat peng dana di setiap sekolah</p>
             </div>
           </div>
         </div>
@@ -33,6 +25,8 @@
                   </th>
                   <th class="th-sm">Status Sekolah
                   </th>
+                  <th class="th-sm">Kecamatan
+                  </th>
                   <th class="th-sm">Aksi
                   </th>
                 </tr>
@@ -45,9 +39,10 @@
                     <td><?php echo $value->nama_sekolah ?></td>
                     <td><?php echo $value->nama_jenis_sekolah ?></td>
                     <td><?php echo $value->nama_status_sekolah ?></td>
+                    <td><?php echo $value->kecamatan ?></td>
                     <td>
-                      <a href="#" onclick="openModal(<?php echo $value->id_sekolah; ?>)" rel="tooltip" title="Kelola" class="btn btn-sm btn-info">
-                        <i class="material-icons">zoom_out_map</i>
+                      <a href="<?php echo base_url('admin/dana/manage/') . $value->id_sekolah ?>" rel="tooltip" title="Lihat" class="btn btn-sm btn-primary">
+                        <i class="material-icons">forward</i>
                       </a>
                     </td>
                   </tr>
@@ -64,6 +59,8 @@
                   <th>Jenis Sekolah
                   </th>
                   <th>Status Sekolah
+                  </th>
+                  <th>Kecamatan
                   </th>
                   <th>Aksi
                   </th>
