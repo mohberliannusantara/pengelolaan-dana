@@ -12,7 +12,7 @@
 
               <?php
                 $id_jenis_sekolah=0;
-                $id_status_sekolah=0; 
+                $id_status_sekolah=0;
                 if ($sekolah->nama_jenis_sekolah == 'SD') {
                   $id_jenis_sekolah=1;
                 }else{

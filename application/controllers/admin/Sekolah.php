@@ -3,22 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Sekolah extends CI_Controller {
 
-	/**
-	* Index Page for this controller.
-	*
-	* Maps to the following URL
-	* 		http://example.com/index.php/welcome
-	*	- or -
-	* 		http://example.com/index.php/welcome/index
-	*	- or -
-	* Since this controller is set as the default controller in
-	* config/routes.php, it's displayed at http://example.com/
-	*
-	* So any other public methods not prefixed with an underscore will
-	* map to /index.php/welcome/<method_name>
-	* @see https://codeigniter.com/user_guide/general/urls.html
-	*/
-
 	function __construct()
 	{
 		parent::__construct();
@@ -45,12 +29,7 @@ class Sekolah extends CI_Controller {
 
 	public function create()
 	{
-		$session_data = $this->session->userdata('logged_in');
-
 		$data['page'] = 'Sekolah';
-		$data['id_sekolah'] = $session_data['id_sekolah'];
-		$data['nama_pengguna'] = $session_data['nama_pengguna'];
-		$data['nama_jenis_pengguna'] = $session_data['nama_jenis_pengguna'];
 
 		$this->form_validation->set_rules('npsn', 'NPSN', 'trim|required');
 		$this->form_validation->set_rules('nama_sekolah', 'Nama Sekolah', 'trim|required');
@@ -81,11 +60,7 @@ class Sekolah extends CI_Controller {
 
 	public function edit($id = null)
 	{
-		$session_data = $this->session->userdata('logged_in');
 		$data['page'] = 'Sekolah';
-		$data['nama_pengguna'] = $session_data['nama_pengguna'];
-		$data['id_sekolah'] = $session_data['id_sekolah'];
-		$data['nama_jenis_pengguna'] = $session_data['nama_jenis_pengguna'];
 		$data['sekolah'] = $this->sekolah_model->get_by_id($id);
 
 		$this->form_validation->set_rules('npsn', 'NPSN', 'trim|required');
@@ -103,7 +78,7 @@ class Sekolah extends CI_Controller {
 			$this->sekolah_model->edit($id);
 			echo "<script>alert('Successfully Updated'); </script>";
 			redirect('admin/sekolah','refresh');
-			
+
 		}
 
 		$this->load->view('admin/template/header', $data);
@@ -113,10 +88,8 @@ class Sekolah extends CI_Controller {
 
 	public function export()
 	{
-		$this->load->model('sekolah_model');
 		$data['sekolah'] = $this->sekolah_model->get();
 		$this->load->view('admin/sekolah/exportExcel', $data);
-
 	}
 
 }

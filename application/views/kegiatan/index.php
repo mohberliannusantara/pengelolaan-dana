@@ -14,31 +14,22 @@
                   <tr>
                     <th class="th-sm">No
                     </th>
-                    <th class="th-sm">NPSN
-                    </th>
-                    <th class="th-sm">Nama Sekolah
-                    </th>
-                    <th class="th-sm">Jenis Sekolah
-                    </th>
-                    <th class="th-sm">Status Sekolah
+                    <th class="th-sm">Nama Kegiatan
                     </th>
                     <th class="th-sm">Aksi
                     </th>
                   </tr>
                 </thead>
                 <tbody>
-                  <?php foreach ($sekolah as $key => $value): ?>
+                  <?php foreach ($kegiatan as $key => $value): ?>
                     <tr>
                       <td><?php echo $key+1 ?></td>
-                      <td><?php echo $value->npsn ?></td>
-                      <td><?php echo $value->nama_sekolah ?></td>
-                      <td><?php echo $value->nama_jenis_sekolah ?></td>
-                      <td><?php echo $value->nama_status_sekolah ?></td>
+                      <td><?php echo $value->nama_jenis_kegiatan ?></td>
                       <td>
-                        <a href="#" onclick="openModal(<?php echo $value->id_sekolah; ?>)" rel="tooltip" title="Lihat" class="btn btn-sm btn-success">
+                        <a href="#" onclick="openModal(<?php echo $value->id_jenis_kegiatan; ?>)" rel="tooltip" title="Lihat" class="btn btn-sm btn-success">
                           <i class="material-icons">zoom_out_map</i>
                         </a>
-                        <a href="<?php echo base_url('admin/sekolah/edit/') . $value->id_sekolah ?>" rel="tooltip" title="Ubah" class="btn btn-sm btn-warning">
+                        <a href="<?php echo base_url('admin/sekolah/edit/') . $value->id_jenis_kegiatan ?>" rel="tooltip" title="Ubah" class="btn btn-sm btn-warning">
                           <i class="material-icons">edit</i>
                         </a>
                       </td>
@@ -49,13 +40,7 @@
                   <tr>
                     <th>No
                     </th>
-                    <th>NPSN
-                    </th>
-                    <th>Nama Sekolah
-                    </th>
-                    <th>Jenis Sekolah
-                    </th>
-                    <th>Status Sekolah
+                    <th>Nama Kegiatan
                     </th>
                     <th>Aksi
                     </th>

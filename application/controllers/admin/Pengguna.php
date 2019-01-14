@@ -3,24 +3,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Pengguna extends CI_Controller {
 
-	/**
-	* Index Page for this controller.
-	*
-	* Maps to the following URL
-	* 		http://example.com/index.php/welcome
-	*	- or -
-	* 		http://example.com/index.php/welcome/index
-	*	- or -
-	* Since this controller is set as the default controller in
-	* config/routes.php, it's displayed at http://example.com/
-	*
-	* So any other public methods not prefixed with an underscore will
-	* map to /index.php/welcome/<method_name>
-	* @see https://codeigniter.com/user_guide/general/urls.html
-	*/
 	function __construct()
 	{
 		parent::__construct();
+		$this->load->model('sekolah_model');
 		$this->load->model('pengguna_model');
 		$this->load->library('form_validation');
 
@@ -50,14 +36,7 @@ class Pengguna extends CI_Controller {
 
 	public function create()
 	{
-		$session_data = $this->session->userdata('logged_in');
-
-		$data['page'] = 'Sekolah';
-		$data['id_sekolah'] = $session_data['id_sekolah'];
-		$data['nama_pengguna'] = $session_data['nama_pengguna'];
-		$data['nama_jenis_pengguna'] = $session_data['nama_jenis_pengguna'];
-
-		$this->load->model('sekolah_model');
+		$data['page'] = 'Pengguna';
 		$data2['sekolah'] = $this->sekolah_model->get();
 
 		$this->form_validation->set_rules('username', 'username', 'trim|required');
@@ -83,12 +62,8 @@ class Pengguna extends CI_Controller {
 
 	public function edit($id = null)
 	{
-		$session_data = $this->session->userdata('logged_in');
-		$data['page'] = 'Sekolah';
+		$data['page'] = 'Pengguna';
 		$data['pengguna'] = $this->pengguna_model->get_by_id($id);
-
-		// print_r($data);
-		// die();
 
 		$this->form_validation->set_rules('username', 'Username', 'trim|required');
 		$this->form_validation->set_rules('nama_pengguna', 'Nama Pengguna', 'trim|required');
@@ -100,7 +75,7 @@ class Pengguna extends CI_Controller {
 			$this->pengguna_model->edit($id);
 			echo "<script>alert('Successfully Updated'); </script>";
 			redirect('admin/pengguna','refresh');
-			
+
 		}
 
 		$this->load->view('admin/template/header', $data);
@@ -110,7 +85,6 @@ class Pengguna extends CI_Controller {
 
 	public function export()
 	{
-		$this->load->model('pengguna_model');
 		$data['pengguna'] = $this->pengguna_model->get();
 		$this->load->view('admin/pengguna/exportExcel', $data);
 
@@ -118,7 +92,6 @@ class Pengguna extends CI_Controller {
 
 	public function resetPass($username)
 	{
-		$data['page'] = 'Admin';
 		$this->pengguna_model->resetPass($username);
 		echo "<script>alert('Successfully Updated'); </script>";
 		redirect('admin/pengguna','refresh');

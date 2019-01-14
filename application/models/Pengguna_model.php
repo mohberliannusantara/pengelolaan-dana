@@ -26,26 +26,12 @@ class Pengguna_model extends CI_Model {
 		return $query->row();
 	}
 
-	// public function edit($id)
-	// {
-	// 	$password=$this->input->post('password');
-	// 	$data = array(
-	// 		'username'          => $this->input->post('username'),
-	// 		'nama_pengguna'   => $this->input->post('nama_pengguna'),
-	// 		'email'          => $this->input->post('email'),
-	// 		'password'          => md5($password),
-
-	// 	);
-	// 	$this->db->where('id_pengguna', $id);
-	// 	$this->db->update('pengguna', $data);
-	// }
-
 	public function edit($id)
 	{
 		$data = array(
 			'nama_pengguna'	=> $this->input->post('nama_pengguna'),
-			'username'  	=> $this->input->post('username'),
-			'email'         => $this->input->post('email')
+			'username' => $this->input->post('username'),
+			'email' => $this->input->post('email')
 		);
 		$this->db->where('id_pengguna', $id);
 		$this->db->update('pengguna', $data);
@@ -54,12 +40,12 @@ class Pengguna_model extends CI_Model {
 	public function create()
 	{
 		$data = array(
-			'npsn'          	=> $this->input->post('npsn'),
-			'nama_pengguna'		=> $this->input->post('nama_pengguna'),
+			'npsn' => $this->input->post('npsn'),
+			'nama_pengguna' => $this->input->post('nama_pengguna'),
 			'id_jenis_pengguna' => $this->input->post('id_jenis_pengguna'),
-			'id_status_pengguna'=> $this->input->post('id_status_pengguna'),
-			'alamat'          	=> $this->input->post('alamat'),
-			'kecamatan'         => $this->input->post('kecamatan'),
+			'id_status_pengguna' => $this->input->post('id_status_pengguna'),
+			'alamat' => $this->input->post('alamat'),
+			'kecamatan' => $this->input->post('kecamatan'),
 
 		);
 		$this->db->insert('pengguna', $data);
@@ -69,12 +55,12 @@ class Pengguna_model extends CI_Model {
 	{
 		$password=$this->input->post('password');
 		$data = array(
-			'username'          => $this->input->post('username'),
-			'nama_pengguna'   => $this->input->post('nama_pengguna'),
-			'email'   => $this->input->post('email'),
-			'password'   => md5($password),
-			'id_pengguna'          => $this->input->post('id_pengguna'),
-			'id_jenis_pengguna'          => '2',
+			'username' => $this->input->post('username'),
+			'nama_pengguna' => $this->input->post('nama_pengguna'),
+			'email' => $this->input->post('email'),
+			'password' => md5($password),
+			'id_pengguna' => $this->input->post('id_pengguna'),
+			'id_jenis_pengguna' => '2',
 		);
 		$this->db->insert('pengguna', $data);
 	}
@@ -97,7 +83,6 @@ class Pengguna_model extends CI_Model {
 		$this->db->update('pengguna', $data);
 	}
 }
-
 
 /* End of file Pengguna_model.php */
 /* Location: ./application/models/Pengguna_model.php */

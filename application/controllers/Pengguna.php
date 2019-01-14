@@ -3,21 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Pengguna extends CI_Controller {
 
-	/**
-	* Index Page for this controller.
-	*
-	* Maps to the following URL
-	* 		http://example.com/index.php/welcome
-	*	- or -
-	* 		http://example.com/index.php/welcome/index
-	*	- or -
-	* Since this controller is set as the default controller in
-	* config/routes.php, it's displayed at http://example.com/
-	*
-	* So any other public methods not prefixed with an underscore will
-	* map to /index.php/welcome/<method_name>
-	* @see https://codeigniter.com/user_guide/general/urls.html
-	*/
 	function __construct()
 	{
 		parent::__construct();
@@ -34,9 +19,7 @@ class Pengguna extends CI_Controller {
 	public function index()
 	{
 		$data['page'] = 'Beranda';
-
 		$data['sekolah'] = $this->sekolah_model->get_by_id($this->session->id_sekolah);
-
 		$data['pengguna'] = $this->pengguna_model->get_by_id($this->session->id_pengguna);
 
 		$this->load->view('template/header', $data);
@@ -50,7 +33,6 @@ class Pengguna extends CI_Controller {
 		$data['sekolah'] = $this->sekolah_model->get_by_id($id);
 		$data['pengguna'] = $this->pengguna_model->get_by_id($id2);
 
-
 		$this->form_validation->set_rules('nama_sekolah', 'Nama Sekolah', 'trim|required');
 		$this->form_validation->set_rules('id_jenis_sekolah', 'Jenis Sekolah', 'trim|required');
 		$this->form_validation->set_rules('id_status_sekolah', 'Status Sekolah', 'trim|required');
@@ -60,7 +42,6 @@ class Pengguna extends CI_Controller {
 		$this->form_validation->set_rules('nama_pengguna', 'Nama Pengguna', 'trim|required');
 		$this->form_validation->set_rules('email', 'Email', 'trim|required');
 
-
 		if ($this->form_validation->run()==FALSE){
 			echo validation_errors();
 		}else{
@@ -68,7 +49,6 @@ class Pengguna extends CI_Controller {
 			$this->pengguna_model->edit($id2);
 			echo "<script>alert('Ubah Data Telah Berhasil, Silahkan Masuk Kembali !'); </script>";
 			redirect('autentikasi/logout','refresh');
-
 		}
 
 		$this->load->view('template/header', $data);
@@ -85,8 +65,6 @@ class Pengguna extends CI_Controller {
 		$this->form_validation->set_rules('password', 'Password Lama', 'trim|required');
 		$this->form_validation->set_rules('password2', 'Password Baru', 'trim|required');
 		$this->form_validation->set_rules('password3', 'Konfirmasi Password Baru', 'trim|required');
-
-
 
 		if($this->pengguna_model->get_by_id($id)->password != md5($this->input->post('password'))){
 			echo "<script>alert('Password lama yang dimasukkan salah'); </script>";

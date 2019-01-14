@@ -28,30 +28,24 @@ class Sekolah_model extends CI_Model {
 
 	public function get_by_status($jenis,$status)
 	{
-		// $this->db->select('*');
-		// $this->db->from('sekolah');
-		// $this->db->where(array('sekolah.id_status_sekolah' => $status, 'sekolah.id_jenis_sekolah' => $jenis));
-
-		// $query = $this->db->get();
-		// return $query->row();
-
 		$this->db->where(array('sekolah.id_status_sekolah' => $status, 'sekolah.id_jenis_sekolah' => $jenis));
-		$query=$this->db->get('sekolah');
+		$query = $this->db->get('sekolah');
+
 		return $query->result();
 	}
 
 	public function edit($id)
 	{
 		$data = array(
-			'npsn'          => $this->input->post('npsn'),
-			'nama_sekolah'   => $this->input->post('nama_sekolah'),
-			'id_jenis_sekolah'          => $this->input->post('id_jenis_sekolah'),
-			'id_status_sekolah'          => $this->input->post('id_status_sekolah'),
-			'alamat'          => $this->input->post('alamat'),
-			'kecamatan'          => $this->input->post('kecamatan'),
-			'kepala_sekolah'          => $this->input->post('kepala_sekolah'),
-
+			'npsn' => $this->input->post('npsn'),
+			'nama_sekolah' => $this->input->post('nama_sekolah'),
+			'id_jenis_sekolah' => $this->input->post('id_jenis_sekolah'),
+			'id_status_sekolah' => $this->input->post('id_status_sekolah'),
+			'alamat' => $this->input->post('alamat'),
+			'kecamatan' => $this->input->post('kecamatan'),
+			'kepala_sekolah' => $this->input->post('kepala_sekolah'),
 		);
+
 		$this->db->where('id_sekolah', $id);
 		$this->db->update('sekolah', $data);
 	}
@@ -59,14 +53,15 @@ class Sekolah_model extends CI_Model {
 	public function create()
 	{
 		$data = array(
-			'npsn'          => $this->input->post('npsn'),
-			'nama_sekolah'   => $this->input->post('nama_sekolah'),
-			'id_jenis_sekolah'          => $this->input->post('id_jenis_sekolah'),
-			'id_status_sekolah'          => $this->input->post('id_status_sekolah'),
-			'alamat'          => $this->input->post('alamat'),
-			'kecamatan'          => $this->input->post('kecamatan'),
-			'kepala_sekolah'          => $this->input->post('kepala_sekolah'),
+			'npsn' => $this->input->post('npsn'),
+			'nama_sekolah' => $this->input->post('nama_sekolah'),
+			'id_jenis_sekolah' => $this->input->post('id_jenis_sekolah'),
+			'id_status_sekolah' => $this->input->post('id_status_sekolah'),
+			'alamat' => $this->input->post('alamat'),
+			'kecamatan' => $this->input->post('kecamatan'),
+			'kepala_sekolah' => $this->input->post('kepala_sekolah'),
 		);
+
 		$this->db->insert('sekolah', $data);
 	}
 
@@ -74,13 +69,14 @@ class Sekolah_model extends CI_Model {
 	{
 		$password=$this->input->post('password');
 		$data = array(
-			'username'          => $this->input->post('username'),
-			'nama_pengguna'   => $this->input->post('nama_pengguna'),
-			'email'   => $this->input->post('email'),
-			'password'   => md5($password),
-			'id_sekolah'          => $this->input->post('id_sekolah'),
-			'id_jenis_pengguna'          => '2',
+			'username' => $this->input->post('username'),
+			'nama_pengguna' => $this->input->post('nama_pengguna'),
+			'email' => $this->input->post('email'),
+			'password' => md5($password),
+			'id_sekolah' => $this->input->post('id_sekolah'),
+			'id_jenis_pengguna' => '2',
 		);
+
 		$this->db->insert('pengguna', $data);
 	}
 }
