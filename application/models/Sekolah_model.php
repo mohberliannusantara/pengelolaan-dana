@@ -26,6 +26,20 @@ class Sekolah_model extends CI_Model {
 		return $query->row();
 	}
 
+	public function get_by_status($jenis,$status)
+	{
+		// $this->db->select('*');
+		// $this->db->from('sekolah');
+		// $this->db->where(array('sekolah.id_status_sekolah' => $status, 'sekolah.id_jenis_sekolah' => $jenis));
+
+		// $query = $this->db->get();
+		// return $query->row();
+
+		$this->db->where(array('sekolah.id_status_sekolah' => $status, 'sekolah.id_jenis_sekolah' => $jenis));
+		$query=$this->db->get('sekolah');
+		return $query->result();
+	}
+
 	public function edit($id)
 	{
 		$data = array(
