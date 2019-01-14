@@ -15,5 +15,5 @@ class Autentikasi_model extends CI_Model {
 	}
 }
 
-/* End of file Admin_model.php */
-/* Location: ./application/models/Admin_model.php */
+/* End of file Autentikasi_model.php */
+/* Location: ./application/models/Autentikasi_model.php */

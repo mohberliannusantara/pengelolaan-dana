@@ -35,10 +35,7 @@ class Sekolah extends CI_Controller {
 
 	public function index()
 	{
-		$session_data = $this->session->userdata('logged_in');
 		$data['page'] = 'Sekolah';
-		$data['nama_jenis_pengguna'] = $session_data['nama_jenis_pengguna'];
-		$data['nama_pengguna'] = $session_data['nama_pengguna'];
 		$data['sekolah'] = $this->sekolah_model->get();
 
 		$this->load->view('template/header', $data);
@@ -83,7 +80,6 @@ class Sekolah extends CI_Controller {
 
 	public function edit($id = null)
 	{
-		$session_data = $this->session->userdata('logged_in');
 		$data['page'] = 'Sekolah';
 		$data['nama_pengguna'] = $session_data['nama_pengguna'];
 		$data['id_sekolah'] = $session_data['id_sekolah'];

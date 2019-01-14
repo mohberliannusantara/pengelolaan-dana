@@ -3,7 +3,7 @@
 		<nav class="float-left">
 			<ul>
 				<li>
-					<a href="https://github.com/mohberliannusantara/warehouse-inventory">
+					<a href="https://github.com/mohberliannusantara/pengelolaan-dana/blob/master/license.txt" target="_blank">
 						Licenses
 					</a>
 				</li>
@@ -14,7 +14,7 @@
 			<script>
 				document.write(new Date().getFullYear())
 			</script>, made with <i class="material-icons">favorite</i> by
-			<a href="https://github.com/mohberliannusantara/warehouse-inventory" target="_blank" class="text-primary">Libo Tim</a> for PT. PLN Persero
+			<a href="https://github.com/mohberliannusantara/warehouse-inventory" target="_blank" class="text-primary">Libo Tim</a> for Dinas Pendidikan Kota Batu
 		</div>
 		<!-- your footer here -->
 	</div>
@@ -42,19 +42,19 @@
 <!-- MDBootstrap Datatables  -->
 <script type="text/javascript" src="<?php echo base_url('assets/js/addons/datatables.min.js') ?>"></script>
 <script>
-	$('input.number').keyup(function(event) {
-
-  // skip for arrow keys
-  if(event.which >= 37 && event.which <= 40) return;
-
-	  // format number
-	  $(this).val(function(index, value) {
-	  	return value
-	  	.replace(/\D/g, "")
-	  	.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-	  	;
-	  });
-	});
+	// $('input.number').keyup(function(event) {
+	//
+  // // skip for arrow keys
+  // if(event.which >= 37 && event.which <= 40) return;
+	//
+	//   // format number
+	//   $(this).val(function(index, value) {
+	//   	return value
+	//   	.replace(/\D/g, "")
+	//   	.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+	//   	;
+	//   });
+	// });
 
 	$(document).ready(function() {
 		$('#example').DataTable( {
@@ -69,6 +69,12 @@
 	$(document).ready(function () {
 	$('#dtBasicExample').DataTable();
 	$('.dataTables_length').addClass('bs-select');
+	});
+
+	$(document).ready(function() {
+		// Javascript method's body can be found in assets/js/demos.js
+		md.initDashboardPageCharts();
+
 	});
 	</script>
 </body>

@@ -37,7 +37,7 @@
     -->
       <div class="logo">
         <a href="#" class="simple-text logo-normal">
-          <?php echo $pengguna->nama_pengguna ?>
+          <?php echo $this->session->nama_sekolah ?>
         </a>
       </div>
       <div class="sidebar-wrapper">
@@ -48,12 +48,31 @@
               <p>Beranda</p>
             </a>
           </li>
-          <li class="nav-item <?php echo ($this->uri->segment(1) == 'sekolah') ? 'active':''; ?> ">
-            <a class="nav-link" href="<?php echo site_url('sekolah')?>">
-              <i class="material-icons">content_paste</i>
-              <p>Kelola Dana</p>
+          <li class="nav-item <?php echo ($this->uri->segment(1) == 'kegiatan') ? 'active':''; ?> ">
+            <a class="nav-link" href="<?php echo site_url('kegiatan')?>">
+              <i class="material-icons">directions_run</i>
+              <p>Kegiatan</p>
             </a>
           </li>
+          <li class="nav-item <?php echo ($this->uri->segment(1) == 'pengeluaran') ? 'active':''; ?>">
+            <a class="nav-link" href="<?php echo site_url('pengeluaran') ?>">
+              <!-- <i class="material-icons">content_paste</i> -->
+              <i class="material-icons">assessment</i>
+              <p>Pengeluaran</p>
+            </a>
+          </li>
+          <!-- <li class="nav-item <?php echo ($this->uri->segment(1) == '') ? 'active':''; ?>">
+            <a class="nav-link" href="<?php echo site_url('') ?>">
+              <i class="material-icons">dashboard</i>
+              <p>Beranda</p>
+            </a>
+          </li>
+          <li class="nav-item <?php echo ($this->uri->segment(1) == '') ? 'active':''; ?>">
+            <a class="nav-link" href="<?php echo site_url('') ?>">
+              <i class="material-icons">dashboard</i>
+              <p>Beranda</p>
+            </a>
+          </li> -->
           <li class="nav-item <?php echo ($this->uri->segment(1) == 'pengguna') ? 'active':''; ?> ">
             <a class="nav-link" href="<?php echo site_url('pengguna/')?>">
               <i class="material-icons">person</i>

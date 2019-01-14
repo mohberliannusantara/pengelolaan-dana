@@ -110,7 +110,7 @@
 				<script>
 				document.write(new Date().getFullYear())
 				</script>, made with <i class="material-icons">favorite</i> by
-				<a href="https://github.com/mohberliannusantara/pengelolaan-dana" target="_blank">Creative Tim</a> for a better web.
+				<a href="https://github.com/mohberliannusantara/warehouse-inventory" target="_blank" class="text-primary">Libo Tim</a> for Dinas Pendidikan Kota Batu
 			</div>
 		</div>
 	</footer>

@@ -35,14 +35,12 @@ class Pengguna extends CI_Controller {
 	{
 		$data['page'] = 'Beranda';
 
-		$this->load->model('sekolah_model');
-		$userdata['sekolah'] = $this->sekolah_model->get_by_id($this->session->id_sekolah);
+		$data['sekolah'] = $this->sekolah_model->get_by_id($this->session->id_sekolah);
 
-		$this->load->model('pengguna_model');
-		$userdata['pengguna'] = $this->pengguna_model->get_by_id($this->session->id_pengguna);
+		$data['pengguna'] = $this->pengguna_model->get_by_id($this->session->id_pengguna);
 
-		$this->load->view('template/header', array_merge($data,$userdata));
-		$this->load->view('pengguna/index', $userdata);
+		$this->load->view('template/header', $data);
+		$this->load->view('pengguna/index', $data);
 		$this->load->view('template/footer');
 	}
 
@@ -68,9 +66,9 @@ class Pengguna extends CI_Controller {
 		}else{
 			$this->sekolah_model->edit($id);
 			$this->pengguna_model->edit($id2);
-			echo "<script>alert('Successfully Updated'); </script>";
-			redirect('pengguna','refresh');
-			
+			echo "<script>alert('Ubah Data Telah Berhasil, Silahkan Masuk Kembali !'); </script>";
+			redirect('autentikasi/logout','refresh');
+
 		}
 
 		$this->load->view('template/header', $data);
@@ -87,8 +85,8 @@ class Pengguna extends CI_Controller {
 		$this->form_validation->set_rules('password', 'Password Lama', 'trim|required');
 		$this->form_validation->set_rules('password2', 'Password Baru', 'trim|required');
 		$this->form_validation->set_rules('password3', 'Konfirmasi Password Baru', 'trim|required');
-		
-		
+
+
 
 		if($this->pengguna_model->get_by_id($id)->password != md5($this->input->post('password'))){
 			echo "<script>alert('Password lama yang dimasukkan salah'); </script>";
@@ -103,7 +101,7 @@ class Pengguna extends CI_Controller {
 				$this->pengguna_model->gantiPass($id);
 				echo "<script>alert('Successfully Updated'); </script>";
 				redirect('pengguna','refresh');
-			}	
+			}
 		}
 
 		$this->load->view('template/header', $data);

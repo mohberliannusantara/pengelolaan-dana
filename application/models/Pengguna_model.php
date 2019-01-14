@@ -10,8 +10,8 @@ class Pengguna_model extends CI_Model {
 		$this->db->join('sekolah','pengguna.id_sekolah = sekolah.id_sekolah');
 		$this->db->join('jenis_pengguna','pengguna.id_jenis_pengguna = jenis_pengguna.id_jenis_pengguna');
 		$query = $this->db->get('pengguna');
-		return $query->result();
 
+		return $query->result();
 	}
 
 	public function get_by_id($id)
@@ -50,7 +50,7 @@ class Pengguna_model extends CI_Model {
 		$this->db->where('id_pengguna', $id);
 		$this->db->update('pengguna', $data);
 	}
-	
+
 	public function create()
 	{
 		$data = array(
@@ -99,5 +99,5 @@ class Pengguna_model extends CI_Model {
 }
 
 
-/* End of file Sekolah_model.php */
-/* Location: ./application/models/Sekolah_model.php */
+/* End of file Pengguna_model.php */
+/* Location: ./application/models/Pengguna_model.php */

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Beranda extends CI_Controller {
+class Kegiatan extends CI_Controller {
 
 	/**
 	* Index Page for this controller.
@@ -21,7 +21,6 @@ class Beranda extends CI_Controller {
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->model('pengguna_model');
 		if (!$this->session->logged_in == TRUE) {
 			redirect('welcome','refresh');
 		}
@@ -32,11 +31,10 @@ class Beranda extends CI_Controller {
 
 	public function index()
 	{
-		$data['page'] = 'Beranda';
-		$data['pengguna'] = $this->pengguna_model->get_by_id($this->session->id_pengguna);
+		$data['page'] = 'Kegiatan';
 
 		$this->load->view('template/header', $data);
-		$this->load->view('beranda/index', $data);
+		$this->load->view('kegiatan/index');
 		$this->load->view('template/footer');
 	}
 }
