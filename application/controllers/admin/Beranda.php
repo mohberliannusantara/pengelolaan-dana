@@ -21,6 +21,7 @@ class Beranda extends CI_Controller {
 	function __construct()
 	{
 		parent::__construct();
+		$this->load->model('sekolah_model');	
 		if (!$this->session->logged_in == TRUE) {
 			redirect('welcome','refresh');
 		}
@@ -32,8 +33,13 @@ class Beranda extends CI_Controller {
 	public function index()
 	{
 		$data['page'] = 'Beranda';
+		$datauser['sdnegeri'] = count($this->sekolah_model->get_by_status('1','1'));
+		$datauser['sdswasta'] = count($this->sekolah_model->get_by_status('1','2'));
+		$datauser['smpnegeri'] = count($this->sekolah_model->get_by_status('1','1'));
+		$datauser['smpswasta'] = count($this->sekolah_model->get_by_status('2','2'));
 		$this->load->view('admin/template/header', $data);
-		$this->load->view('admin/beranda/index');
+		// $this->load->view('2',$datauser);
+		$this->load->view('admin/beranda/index',$datauser);
 		$this->load->view('admin/template/footer');
 	}
 }
