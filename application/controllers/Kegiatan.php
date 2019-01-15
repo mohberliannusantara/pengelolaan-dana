@@ -6,6 +6,7 @@ class Kegiatan extends CI_Controller {
 	function __construct()
 	{
 		parent::__construct();
+		$this->load->model('pengguna_model');
 		$this->load->model('kegiatan_model');
 		$this->load->library('form_validation');
 
@@ -20,6 +21,7 @@ class Kegiatan extends CI_Controller {
 	public function index()
 	{
 		$data['page'] = 'Kegiatan';
+		$data['pengguna'] = $this->pengguna_model->get_by_id($this->session->id_pengguna);
 		$data['kegiatan'] = $this->kegiatan_model->get();
 
 		$this->load->view('template/header', $data);
