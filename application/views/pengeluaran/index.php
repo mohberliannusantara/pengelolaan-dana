@@ -41,11 +41,11 @@
                       <td><?php echo $value->tanggal ?></td>
                       <td><?php echo $value->jumlah ?></td>
                       <td>
-                        <a href="#" onclick="openModal(<?php echo $value->id_sekolah; ?>)" rel="tooltip" title="Lihat" class="btn btn-sm btn-success">
-                          <i class="material-icons">zoom_out_map</i>
-                        </a>
-                        <a href="<?php echo base_url('admin/sekolah/edit/') . $value->id_sekolah ?>" rel="tooltip" title="Ubah" class="btn btn-sm btn-warning">
+                        <a href="<?php echo base_url('pengeluaran/edit/') . $value->id_pengeluaran ?>" rel="tooltip" title="Ubah" class="btn btn-sm btn-warning">
                           <i class="material-icons">edit</i>
+                        </a>
+                        <a href="<?php echo base_url('pengeluaran/delete/') . $value->id_pengeluaran ?>" rel="tooltip" title="Ubah" class="btn btn-sm btn-danger">
+                          <i class="material-icons">delete</i>
                         </a>
                       </td>
                     </tr>
