@@ -21,6 +21,7 @@ class Pengeluaran extends CI_Controller {
 	function __construct()
 	{
 		parent::__construct();
+		$this->load->model('pengguna_model');
 		$this->load->model('pengeluaran_model');
 		$this->load->model('jenis_pengeluaran_model');
 		$this->load->library('form_validation');
@@ -37,6 +38,7 @@ class Pengeluaran extends CI_Controller {
 	{
 		$data['page'] = 'Pengeluaran';
 		$data['pengeluaran'] = $this->pengeluaran_model->get($this->session->id_sekolah);
+		$data['pengguna'] = $this->pengguna_model->get_by_id($this->session->id_pengguna);
 
 		$this->load->view('template/header', $data);
 		$this->load->view('pengeluaran/index', $data);
@@ -46,6 +48,7 @@ class Pengeluaran extends CI_Controller {
 	public function create()
 	{
 		$data['page'] = 'Pengeluaran';
+		$data['pengguna'] = $this->pengguna_model->get_by_id($this->session->id_pengguna);
 		$data['jenis_pengeluaran'] = $this->jenis_pengeluaran_model->get();
 
 		$this->form_validation->set_rules('npsn', 'NPSN', 'trim|required');
