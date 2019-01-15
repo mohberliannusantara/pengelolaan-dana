@@ -28,7 +28,7 @@
 
               <div class="form-group">
                 <label for="npsp">NPSN</label>
-                <input type="text" class="form-control" name="npsn" value="<?php echo $sekolah->npsn ?>" required disabled>
+                <input type="text" class="form-control" name="npsn" value="<?php echo $sekolah->npsn ?>" required readonly>
                 <div class="invalid-feedback">Masukkan nomor npsn.</div>
               </div>
 

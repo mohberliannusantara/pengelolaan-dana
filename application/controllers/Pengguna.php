@@ -47,8 +47,8 @@ class Pengguna extends CI_Controller {
 		}else{
 			$this->sekolah_model->edit($id);
 			$this->pengguna_model->edit($id2);
-			echo "<script>alert('Ubah Data Telah Berhasil, Silahkan Masuk Kembali !'); </script>";
-			redirect('autentikasi/logout','refresh');
+			echo "<script>alert('Ubah Data Telah Berhasil!'); </script>";
+			redirect('','refresh');
 		}
 
 		$this->load->view('template/header', $data);

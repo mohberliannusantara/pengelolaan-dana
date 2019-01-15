@@ -37,7 +37,7 @@
     -->
       <div class="logo">
         <a href="#" class="simple-text logo-normal">
-          <?php echo $this->session->nama_sekolah ?>
+          <?php echo $pengguna->nama_pengguna ?>
         </a>
       </div>
       <div class="sidebar-wrapper">
