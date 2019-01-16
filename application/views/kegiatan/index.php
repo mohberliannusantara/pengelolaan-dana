@@ -27,8 +27,8 @@
                       <td><?php echo $value->nama_jenis_kegiatan ?></td>
                       <td>
                         <center>
-                          <a href="<?php echo base_url('kegiatan/') . $value->id_jenis_kegiatan ?>" rel="tooltip" title="Lihat" class="btn btn-sm btn-info">
-                            <i class="material-icons">zoom_out_map</i>
+                          <a href="<?php echo base_url('kegiatan/list/') . $value->id_jenis_kegiatan ?>" rel="tooltip" title="Lihat" class="btn btn-sm btn-primary">
+                            <i class="material-icons">forward</i>
                           </a>
                         </center>
                       </td>

@@ -48,17 +48,23 @@
               <p>Beranda</p>
             </a>
           </li>
-          <li class="nav-item <?php echo ($this->uri->segment(1) == 'kegiatan') ? 'active':''; ?> ">
-            <a class="nav-link" href="<?php echo site_url('kegiatan')?>">
-              <i class="material-icons">directions_run</i>
-              <p>Kegiatan</p>
+          <li class="nav-item <?php echo ($this->uri->segment(1) == 'pemasukan') ? 'active':''; ?>">
+            <a class="nav-link" href="<?php echo site_url('pemasukan') ?>">
+              <i class="material-icons">content_paste</i>
+              <!-- <i class="material-icons">assessment</i> -->
+              <p>Pemasukan</p>
             </a>
           </li>
           <li class="nav-item <?php echo ($this->uri->segment(1) == 'pengeluaran') ? 'active':''; ?>">
             <a class="nav-link" href="<?php echo site_url('pengeluaran') ?>">
-              <!-- <i class="material-icons">content_paste</i> -->
               <i class="material-icons">assessment</i>
-              <p>Penggunaan Dana</p>
+              <p>Pengeluaran</p>
+            </a>
+          </li>
+          <li class="nav-item <?php echo ($this->uri->segment(1) == 'kegiatan') ? 'active':''; ?> ">
+            <a class="nav-link" href="<?php echo site_url('kegiatan')?>">
+              <i class="material-icons">directions_run</i>
+              <p>Kegiatan</p>
             </a>
           </li>
           <li class="nav-item <?php echo ($this->uri->segment(1) == 'laporan') ? 'active':''; ?>">
