@@ -37,7 +37,7 @@
     -->
       <div class="logo">
         <a href="#" class="simple-text logo-normal">
-          <?php echo $pengguna->nama_pengguna ?>
+          <?php echo $this->session->nama_sekolah ?>
         </a>
       </div>
       <div class="sidebar-wrapper">
@@ -58,16 +58,16 @@
             <a class="nav-link" href="<?php echo site_url('pengeluaran') ?>">
               <!-- <i class="material-icons">content_paste</i> -->
               <i class="material-icons">assessment</i>
-              <p>Pengeluaran</p>
+              <p>Penggunaan Dana</p>
+            </a>
+          </li>
+          <li class="nav-item <?php echo ($this->uri->segment(1) == 'laporan') ? 'active':''; ?>">
+            <a class="nav-link" href="<?php echo site_url('laporan') ?>">
+              <i class="material-icons">library_books</i>
+              <p>Laporan</p>
             </a>
           </li>
           <!-- <li class="nav-item <?php echo ($this->uri->segment(1) == '') ? 'active':''; ?>">
-            <a class="nav-link" href="<?php echo site_url('') ?>">
-              <i class="material-icons">dashboard</i>
-              <p>Beranda</p>
-            </a>
-          </li>
-          <li class="nav-item <?php echo ($this->uri->segment(1) == '') ? 'active':''; ?>">
             <a class="nav-link" href="<?php echo site_url('') ?>">
               <i class="material-icons">dashboard</i>
               <p>Beranda</p>

@@ -8,6 +8,9 @@ class Kegiatan extends CI_Controller {
 		parent::__construct();
 		$this->load->model('pengguna_model');
 		$this->load->model('kegiatan_model');
+		$this->load->model('jenis_kegiatan_model');
+		$this->load->model('detail_kegiatan_model');
+
 		$this->load->library('form_validation');
 
 		if (!$this->session->logged_in == TRUE) {
@@ -27,5 +30,10 @@ class Kegiatan extends CI_Controller {
 		$this->load->view('template/header', $data);
 		$this->load->view('kegiatan/index', $data);
 		$this->load->view('template/footer');
+	}
+
+	public function view()
+	{
+		$data['page'] = 'Kegiatan';
 	}
 }

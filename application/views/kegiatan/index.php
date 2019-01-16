@@ -26,12 +26,11 @@
                       <td><?php echo $key+1 ?></td>
                       <td><?php echo $value->nama_jenis_kegiatan ?></td>
                       <td>
-                        <a href="#" onclick="openModal(<?php echo $value->id_jenis_kegiatan; ?>)" rel="tooltip" title="Lihat" class="btn btn-sm btn-success">
-                          <i class="material-icons">zoom_out_map</i>
-                        </a>
-                        <a href="<?php echo base_url('admin/sekolah/edit/') . $value->id_jenis_kegiatan ?>" rel="tooltip" title="Ubah" class="btn btn-sm btn-warning">
-                          <i class="material-icons">edit</i>
-                        </a>
+                        <center>
+                          <a href="<?php echo base_url('kegiatan/') . $value->id_jenis_kegiatan ?>" rel="tooltip" title="Lihat" class="btn btn-sm btn-info">
+                            <i class="material-icons">zoom_out_map</i>
+                          </a>
+                        </center>
                       </td>
                     </tr>
                   <?php endforeach; ?>
