@@ -58,6 +58,15 @@ class Pengeluaran_model extends CI_Model {
 		$this->db->delete('pengeluaran');
 	}
 
+	public function cetakPengeluaran($id, $awal, $akhir)
+	{
+		$this->db->where('id_sekolah', $id);
+		$this->db->where('tanggal BETWEEN "'.$awal.'" AND "'.$akhir.'"');
+		$this->db->order_by('tanggal', 'ASC');
+		$query=$this->db->get('pengeluaran');
+		return $query->result();
+	}
+
 }
 
 /* End of file Pengeluaran_model.php */
