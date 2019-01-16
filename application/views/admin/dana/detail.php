@@ -5,7 +5,7 @@
         <div class="card card-profile">
           <div class="card-body">
             <h4 class="card-title">BOS-04</h4>
-            <a href="pengguna/create" class="btn btn-info">Kelola</a>
+            <a href="#" class="btn btn-info" data-toggle="modal" data-target="#BOS-04">Unduh</a>
             <p class="card-category">Laporan Penggunaan Dana BOS</p>
           </div>
           <div class="card-footer">
@@ -152,3 +152,43 @@
     </div>
   </div>
 </div>
+
+<!-- Modal -->
+  <div class="modal fade" id="BOS-04" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Mengunduh Laporan Form BOS-04</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+           <?php foreach ($sekolah as $key => $value): ?>
+          <form action="<?php echo base_url('admin/UnduhLaporan/exportBos04/'. $this->uri->segment('4')) ?>" method='post'>
+            <?php endforeach; ?>
+          <div class="form-group">
+            <label for="" class="label">Tahun: </label>
+            <input type="number" name="tahun" class="form-control" min="2017" value="2017" autofocus required>
+          </div>
+          <div class="form-group">
+            <label for="triwulan">Laporan Triwulan yang Ingin Di Unduh: </label>
+            <select class="form-control" name="triwulan">
+              <option disabled selected hidden>Pilih Triwulan</option>
+              <option value="1/1">Triwulan 1</option>
+              <option value="1/4">Triwulan 2</option>
+              <option value="1/7">Triwulan 3</option>
+              <option value="1/10">Triwulan 4</option>
+            </select>
+            <div class="invalid-feedback">Masukkan lokasi atau alamat.</div>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+          <button type="submit" class="btn btn-primary">Unduh</button>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
