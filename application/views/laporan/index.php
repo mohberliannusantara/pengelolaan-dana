@@ -171,13 +171,12 @@
           </div>
           <div class="form-group">
             <label for="triwulan">Laporan Triwulan yang Ingin Di Unduh: </label>
-            <select class="form-control" name="triwulan" required>
+            <select class="form-control" name="triwulan">
               <option disabled selected hidden>Pilih Triwulan</option>
               <option value="1/1">Triwulan 1</option>
               <option value="1/4">Triwulan 2</option>
               <option value="1/7">Triwulan 3</option>
               <option value="1/10">Triwulan 4</option>
-              <option value="semua">Semua Triwulan</option>
             </select>
             <div class="invalid-feedback">Masukkan lokasi atau alamat.</div>
           </div>

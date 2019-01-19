@@ -54,6 +54,12 @@
               <p>Kelola Dana</p>
             </a>
           </li>
+          <li class="nav-item <?php echo ($this->uri->segment(2) == 'sumberdana') ? 'active':''; ?> ">
+            <a class="nav-link" href="<?php echo site_url('admin/sumberDana')?>">
+              <i class="material-icons">money</i>
+              <p>Sumber Dana</p>
+            </a>
+          </li>
           <li class="nav-item <?php echo ($this->uri->segment(2) == 'sekolah') ? 'active':''; ?> ">
             <a class="nav-link" href="<?php echo site_url('admin/sekolah')?>">
               <i class="material-icons">school</i>

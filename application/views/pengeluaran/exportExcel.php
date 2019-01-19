@@ -1,13 +1,11 @@
 <?php
-// header("Content-type: application/octet-stream");
-header("Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+header("Content-type: application/octet-stream");
 $nama=$this->session->nama_sekolah;
-header("Content-Disposition: attachment; filename=Data_BOS-04_$nama_Periode_$periode.xlsx");
+header("Content-Disposition: attachment; filename=Data BOS-04 $nama Periode $periode.xls");
 header("Pragma: no-cache");
 header("Expires: 0");
 $jumlahA=0;
 $jumlahB=0;
-exit();
 ?>
 <table border="1" width="100%">
 	<thead>
