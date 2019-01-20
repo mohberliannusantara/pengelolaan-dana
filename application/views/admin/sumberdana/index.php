@@ -57,7 +57,7 @@
                       <a href="<?php echo base_url('admin/sumberdana/edit/') . $value->id_sekolah ?>" rel="tooltip" title="Ubah" class="btn btn-sm btn-warning">
                         <i class="material-icons">edit</i>
                       </a>
-                      <a href="<?php echo base_url('admin/sumberdana/delete/') . $value->id_sekolah ?>" rel="tooltip" title="Delete" class="btn btn-sm btn-danger">
+                      <a href="<?php echo base_url('admin/sumberdana/delete/') . $value->id_sumber_dana ?>" rel="tooltip" title="Delete" class="btn btn-sm btn-danger">
                         <i class="material-icons">delete</i>
                       </a>
                     </td>
@@ -89,3 +89,34 @@
     </div>
   </div>
 </div>
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-md modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Informasi Sumber Dana Sekolah</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="modal-content">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+function openModal(id) {
+  $.ajax({
+    url:"<?php echo base_url('admin/sumberdana/get/'); ?>"+id,
+    method: 'post',
+    data:null
+  }).done(function(data) {
+    $('#modal-content').html(data);
+    $('#exampleModalCenter').modal('show');
+  });
+}
+</script>

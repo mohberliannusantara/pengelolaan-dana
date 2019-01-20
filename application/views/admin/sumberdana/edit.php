@@ -43,7 +43,7 @@
               <div class="form-group">
                 <label for="id_jenis_sumber_dana">Jenis Sumber Dana Sekolah: </label>
                 <select class="form-control" name="id_jenis_sumber_dana">
-                  <option disabled selected hidden value="<?php echo $sumberdana->id_jenis_sumber_dana ?>"><?php echo $sumberdana->nama_jenis_sumber_dana ?></option>
+                  <option selected hidden value="<?php echo $sumberdana->id_jenis_sumber_dana ?>"><?php echo $sumberdana->nama_jenis_sumber_dana ?></option>
                    <?php foreach ($jenisdana as $key): ?>
                     <option value="<?php echo $key->id_jenis_sumber_dana ?>"><?php echo $key->nama_jenis_sumber_dana ?></option>
                     <?php endforeach; ?>

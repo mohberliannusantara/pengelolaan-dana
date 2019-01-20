@@ -73,7 +73,8 @@ class Sumberdana_model extends CI_Model {
 
 	public function delete($id)
 	{
-		
+		$this->db->where('id_sumber_dana', $id);
+		$this->db->delete('sumber_dana');
 	}
 
 }

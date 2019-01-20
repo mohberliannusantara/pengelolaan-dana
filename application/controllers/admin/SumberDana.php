@@ -86,6 +86,18 @@ class SumberDana extends CI_Controller {
 		$this->load->view('admin/template/footer');
 	}
 
+	public function delete($id)
+	{
+		$this->sumberdana_model->delete($id);
+		redirect('admin/Sumberdana','refresh');
+	}
+
+	public function get($id)
+	{
+		$data['sumberdana'] = $this->sumberdana_model->get_by_id($id);
+		$this->load->view('admin/sumberdana/show', $data);
+	}
+
 }
 
 /* End of file sumberDana.php */

@@ -94,7 +94,7 @@ class Pengeluaran extends CI_Controller {
 		$data['triwulan'] = $this->pengeluaran_model->cetakPengeluaran($this->session->id_sekolah,$awal,$akhir);
 		$data['periode'] = date('d-m-Y',strtotime($awal)).' S/D '.date('d-m-Y',strtotime($akhir));
 
-		// $this->load->view('pengeluaran/exportExcel', $data);
-		$this->load->view('k5');
+		$this->load->view('pengeluaran/exportExcel', $data);
+		// $this->load->view('k5');
 	}
 }
