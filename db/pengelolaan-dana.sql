@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 17, 2019 at 04:43 AM
+-- Generation Time: Jan 20, 2019 at 03:21 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -122,6 +122,26 @@ INSERT INTO `jenis_sekolah` (`id_jenis_sekolah`, `nama_jenis_sekolah`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `jenis_sumber_dana`
+--
+
+CREATE TABLE `jenis_sumber_dana` (
+  `id_jenis_sumber_dana` int(11) NOT NULL,
+  `nama_jenis_sumber_dana` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `jenis_sumber_dana`
+--
+
+INSERT INTO `jenis_sumber_dana` (`id_jenis_sumber_dana`, `nama_jenis_sumber_dana`) VALUES
+(1, 'Bosnas'),
+(2, 'Bosda'),
+(4, 'Lainnya');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `kegiatan`
 --
 
@@ -154,7 +174,9 @@ CREATE TABLE `pengeluaran` (
 
 INSERT INTO `pengeluaran` (`id_pengeluaran`, `nama_pengeluaran`, `jumlah`, `id_jenis_pengeluaran`, `nama_toko`, `tanggal`, `id_sekolah`) VALUES
 (1, 'transport pembina ekstrakulikuler', 600000, 2, '', '2017-01-09', 1),
-(2, 'pembelian sound system dan pajak', 5500000, 1, 'Harry Music', '2017-12-13', 1);
+(3, 'bensin', 10000, 2, '', '2017-01-08', 1),
+(4, 'Beli Bangku', 2000000, 1, 'Toko Bangunan Yuda', '2017-03-21', 1),
+(5, 'Beli Alat Lab', 2200000, 2, '', '2017-04-01', 1);
 
 -- --------------------------------------------------------
 
@@ -429,6 +451,34 @@ INSERT INTO `status_sekolah` (`id_status_sekolah`, `nama_status_sekolah`) VALUES
 (1, 'Negeri'),
 (2, 'Swasta');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sumber_dana`
+--
+
+CREATE TABLE `sumber_dana` (
+  `id_sumber_dana` int(11) NOT NULL,
+  `id_sekolah` int(11) NOT NULL,
+  `id_jenis_sumber_dana` int(11) NOT NULL,
+  `saldo_awal` int(11) NOT NULL,
+  `saldo_bank` int(11) NOT NULL,
+  `bunga_bank` float NOT NULL DEFAULT '0',
+  `saldo_kas_tunai` int(11) NOT NULL,
+  `jumlah` int(11) NOT NULL,
+  `tanggal` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `sumber_dana`
+--
+
+INSERT INTO `sumber_dana` (`id_sumber_dana`, `id_sekolah`, `id_jenis_sumber_dana`, `saldo_awal`, `saldo_bank`, `bunga_bank`, `saldo_kas_tunai`, `jumlah`, `tanggal`) VALUES
+(1, 1, 1, 10000, 5000, 0, 10000, 25000, '2018-01-01'),
+(2, 1, 1, 85000, 5000, 0, 10000, 100000, '2018-01-14'),
+(3, 1, 1, 25000, 50000, 0, 10000, 85000, '2018-01-07'),
+(4, 1, 4, 100000, 250000, 0, 50000, 400000, '2018-01-15');
+
 --
 -- Indexes for dumped tables
 --
@@ -464,6 +514,12 @@ ALTER TABLE `jenis_pengguna`
 --
 ALTER TABLE `jenis_sekolah`
   ADD PRIMARY KEY (`id_jenis_sekolah`);
+
+--
+-- Indexes for table `jenis_sumber_dana`
+--
+ALTER TABLE `jenis_sumber_dana`
+  ADD PRIMARY KEY (`id_jenis_sumber_dana`);
 
 --
 -- Indexes for table `kegiatan`
@@ -508,6 +564,14 @@ ALTER TABLE `status_sekolah`
   ADD PRIMARY KEY (`id_status_sekolah`);
 
 --
+-- Indexes for table `sumber_dana`
+--
+ALTER TABLE `sumber_dana`
+  ADD PRIMARY KEY (`id_sumber_dana`),
+  ADD KEY `fk_id_sekolah_3` (`id_sekolah`),
+  ADD KEY `fk_id_jenis_sumber_dana` (`id_jenis_sumber_dana`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -536,6 +600,12 @@ ALTER TABLE `jenis_pengguna`
   MODIFY `id_jenis_pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `jenis_sumber_dana`
+--
+ALTER TABLE `jenis_sumber_dana`
+  MODIFY `id_jenis_sumber_dana` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `kegiatan`
 --
 ALTER TABLE `kegiatan`
@@ -545,7 +615,7 @@ ALTER TABLE `kegiatan`
 -- AUTO_INCREMENT for table `pengeluaran`
 --
 ALTER TABLE `pengeluaran`
-  MODIFY `id_pengeluaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_pengeluaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `pengguna`
@@ -558,6 +628,12 @@ ALTER TABLE `pengguna`
 --
 ALTER TABLE `sekolah`
   MODIFY `id_sekolah` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
+
+--
+-- AUTO_INCREMENT for table `sumber_dana`
+--
+ALTER TABLE `sumber_dana`
+  MODIFY `id_sumber_dana` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
@@ -595,6 +671,13 @@ ALTER TABLE `pengguna`
 ALTER TABLE `sekolah`
   ADD CONSTRAINT `fk_id_jenis_Sekolah` FOREIGN KEY (`id_jenis_sekolah`) REFERENCES `jenis_sekolah` (`id_jenis_sekolah`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_id_status_sekolah` FOREIGN KEY (`id_status_sekolah`) REFERENCES `status_sekolah` (`id_status_sekolah`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `sumber_dana`
+--
+ALTER TABLE `sumber_dana`
+  ADD CONSTRAINT `fk_id_jenis_sumber_dana` FOREIGN KEY (`id_jenis_sumber_dana`) REFERENCES `jenis_sumber_dana` (`id_jenis_sumber_dana`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_id_sekolah_3` FOREIGN KEY (`id_sekolah`) REFERENCES `sekolah` (`id_sekolah`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

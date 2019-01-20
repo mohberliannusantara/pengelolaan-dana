@@ -48,11 +48,11 @@
               <p>Beranda</p>
             </a>
           </li>
-          <li class="nav-item <?php echo ($this->uri->segment(1) == 'pemasukan') ? 'active':''; ?>">
-            <a class="nav-link" href="<?php echo site_url('pemasukan') ?>">
+          <li class="nav-item <?php echo ($this->uri->segment(1) == 'sumberdana') ? 'active':''; ?>">
+            <a class="nav-link" href="<?php echo site_url('sumberdana') ?>">
               <i class="material-icons">content_paste</i>
               <!-- <i class="material-icons">assessment</i> -->
-              <p>Pemasukan</p>
+              <p>Sumber Dana</p>
             </a>
           </li>
           <li class="nav-item <?php echo ($this->uri->segment(1) == 'pengeluaran') ? 'active':''; ?>">

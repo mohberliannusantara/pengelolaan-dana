@@ -9,10 +9,10 @@
               <p class="card-category">menampilkan sumber dana sekolah </p>
             </div>
             <div class="col-md-3">
-              <a href="<?php echo base_url('admin/sumberdana/create/') ?>" rel="tooltip" title="Tambah" class="btn btn-primary">
+              <a href="<?php echo base_url('sumberdana/create/') ?>" rel="tooltip" title="Tambah" class="btn btn-primary">
                 <i class="material-icons">add</i>
               </a>
-              <a href="<?php echo base_url('admin/sumberdana/export/') ?>" rel="tooltip" title="Cetak Laporan" class="btn btn-primary">
+              <a href="<?php echo base_url('sumberdana/export/') ?>" rel="tooltip" title="Cetak Laporan" class="btn btn-primary">
                 <i class="material-icons">print</i>
               </a>
             </div>
@@ -25,17 +25,13 @@
                 <tr>
                   <th class="th-sm">No
                   </th>
-                  <th class="th-sm">Nama Sekolah
+                  <th class="th-sm">Jenis Anggaran
+                  </th>
+                  <th class="th-sm">Tanggal
                   </th>
                   <th class="th-sm">Saldo Awal
                   </th>
-                  <th class="th-sm">Saldo Bank
-                  </th>
-                  <!-- <th class="th-sm">Bunga Bank
-                  </th> -->
-                  <th class="th-sm">Saldo Kas Tunai
-                  </th>
-                  <th class="th-sm">Jumlah
+                  <th class="th-sm">Saldo Akhir
                   </th>
                    <th class="th-sm">Aksi
                   </th>                
@@ -45,19 +41,18 @@
                 <?php foreach ($sumberdana as $key => $value): ?>
                   <tr>
                     <td><?php echo $key+1 ?></td>
-                    <td><?php echo $value->nama_sekolah ?></td>
+                    <td><?php echo $value->nama_jenis_sumber_dana ?></td>
+                    <td><?php echo date('d-m-Y',strtotime($value->tanggal)); ?></td>
                     <td><?php echo $value->saldo_awal ?></td>
-                    <td><?php echo $value->saldo_bank ?></td>
-                    <td><?php echo $value->saldo_kas_tunai ?></td>
                     <td><?php echo $value->jumlah ?></td>
                     <td>
-                      <a href="#" onclick="openModal(<?php echo $value->id_sekolah; ?>)" rel="tooltip" title="Lihat" class="btn btn-sm btn-success">
+                      <a href="#" onclick="openModal(<?php echo $value->id_sumber_dana; ?>)" rel="tooltip" title="Lihat" class="btn btn-sm btn-success">
                         <i class="material-icons">zoom_out_map</i>
                       </a>
-                      <a href="<?php echo base_url('admin/sumberdana/edit/') . $value->id_sekolah ?>" rel="tooltip" title="Ubah" class="btn btn-sm btn-warning">
+                      <a href="<?php echo base_url('sumberdana/edit/') . $value->id_sumber_dana ?>" rel="tooltip" title="Ubah" class="btn btn-sm btn-warning">
                         <i class="material-icons">edit</i>
                       </a>
-                      <a href="<?php echo base_url('admin/sumberdana/delete/') . $value->id_sumber_dana ?>" rel="tooltip" title="Delete" class="btn btn-sm btn-danger">
+                      <a href="<?php echo base_url('sumberdana/delete/') . $value->id_sumber_dana ?>" rel="tooltip" title="Delete" class="btn btn-sm btn-danger">
                         <i class="material-icons">delete</i>
                       </a>
                     </td>
@@ -68,15 +63,13 @@
                 <tr>
                   <th>No
                   </th>
-                  <th>Nama Sekolah
+                  <th>Jenis Anggaran
+                  </th>
+                  <th>Tanggal
                   </th>
                   <th>Saldo Awal
                   </th>
-                  <th>Saldo Bank
-                  </th>
-                  <th>Saldo Kas Tunai
-                  </th>
-                  <th>Jumlah
+                  <th>Saldo Akhir
                   </th>
                   <th>Aksi
                   </th>
@@ -111,7 +104,7 @@
 <script type="text/javascript">
 function openModal(id) {
   $.ajax({
-    url:"<?php echo base_url('admin/sumberdana/get/'); ?>"+id,
+    url:"<?php echo base_url('sumberdana/get/'); ?>"+id,
     method: 'post',
     data:null
   }).done(function(data) {
