@@ -9,7 +9,6 @@ class Kegiatan extends CI_Controller {
 		$this->load->model('pengguna_model');
 		$this->load->model('kegiatan_model');
 		$this->load->model('jenis_kegiatan_model');
-		// $this->load->model('detail_kegiatan_model');
 
 		$this->load->library('form_validation');
 
@@ -24,7 +23,6 @@ class Kegiatan extends CI_Controller {
 	public function index()
 	{
 		$data['page'] = 'Kegiatan';
-		$data['pengguna'] = $this->pengguna_model->get_by_id($this->session->id_pengguna);
 		$data['kegiatan'] = $this->kegiatan_model->get();
 
 		$this->load->view('template/header', $data);
@@ -36,6 +34,7 @@ class Kegiatan extends CI_Controller {
 	{
 		$data['page'] = 'Kegiatan';
 		$data['kegiatan'] = $this->kegiatan_model->get_kegiatan($id);
+		$data['id'] = $id;
 
 		$this->load->view('template/header', $data);
 		$this->load->view('kegiatan/detail', $data);
@@ -44,28 +43,55 @@ class Kegiatan extends CI_Controller {
 
 	public function view($id)
 	{
-		$data['page'] = 'Kegiatan';
 		$data['kegiatan'] = $this->kegiatan_model->get_detail_kegiatan($id);
-
 		$this->load->view('kegiatan/show', $data);
 	}
 
-	public function create()
+	public function create($id)
 	{
 		$data['page'] = 'Kegiatan';
-		$this->form_validation->set_rules('nama_pengeluaran', 'nama pengeluaran', 'trim|required');
+		$data['id'] = $id;
+
+		$this->form_validation->set_rules('nama_kegiatan', 'nama kegiatan', 'trim|required');
 
 		if ($this->form_validation->run()==FALSE){
 			echo validation_errors();
 		}else{
-			$this->pengeluaran_model->create($id, $this->session->id_sekolah);
+			$this->kegiatan_model->create($id, $this->session->id_sekolah);
 			echo "<script>alert('Successfully Added'); </script>";
-			redirect('kegiatan','refresh');
+			redirect('kegiatan/list/' . $id ,'refresh');
 		}
 
 		$this->load->view('template/header', $data);
-		$this->load->view('kegiatan/create');
+		$this->load->view('kegiatan/create', $data);
 		$this->load->view('template/footer');
 	}
 
+	public function create_detail($id, $id2)
+	{
+		$data['page'] = 'Kegiatan';
+		$data['id'] = $id;
+
+		$this->form_validation->set_rules('nama_kegiatan', 'nama kegiatan', 'trim|required');
+		$this->form_validation->set_rules('jumlah', 'jumlah', 'trim|required');
+		$this->form_validation->set_rules('tanggal', 'tanggal', 'trim|required');
+
+		if ($this->form_validation->run()==FALSE){
+			echo validation_errors();
+		}else{
+			$this->kegiatan_model->create_detail($id);
+			echo "<script>alert('Successfully Added'); </script>";
+			redirect('kegiatan/list/' . $id2 ,'refresh');
+		}
+
+		$this->load->view('template/header', $data);
+		$this->load->view('kegiatan/create_detail', $data);
+		$this->load->view('template/footer');
+	}
+
+	public function delete($id, $id2)
+	{
+		$this->kegiatan_model->delete($id);
+		redirect('kegiatan/list/'. $id2,'refresh');
+	}
 }

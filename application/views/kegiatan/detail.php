@@ -10,7 +10,7 @@
                 <p class="card-category">menampilkan informasi tentang detail kegiatan yang ada</p>
               </div>
               <div class="col-md-2">
-                <a href="<?php echo base_url('kegiatan/create') ?>" rel="tooltip" title="Tambah Kegiatan" class="btn btn-primary">
+                <a href="<?php echo base_url('kegiatan/create/') . $id ?>" rel="tooltip" title="Tambah Kegiatan" class="btn btn-primary">
                   <i class="material-icons">add</i>
                 </a>
               </div>
@@ -38,10 +38,13 @@
                         <a href="#" onclick="openModal(<?php echo $value->id_kegiatan; ?>)" rel="tooltip" title="Lihat" class="btn btn-sm btn-success">
                           <i class="material-icons">zoom_out_map</i>
                         </a>
-                        <a href="<?php echo base_url('kegiatan/edit/') . $value->id_kegiatan ?>" rel="tooltip" title="Ubah" class="btn btn-sm btn-warning">
+                        <a href="<?php echo base_url('kegiatan/edit/') . $value->id_kegiatan; ?>" rel="tooltip" title="Ubah" class="btn btn-sm btn-warning">
                           <i class="material-icons">edit</i>
                         </a>
-                        <a href="<?php echo base_url('kegiatan/edit/') . $value->id_kegiatan ?>" rel="tooltip" title="Tambah Detail" class="btn btn-sm btn-info">
+                        <a href="<?php echo base_url('kegiatan/delete/') . $value->id_kegiatan .'/'. $id; ?>" rel="tooltip" title="Hapus" class="btn btn-sm btn-danger">
+                          <i class="material-icons">delete</i>
+                        </a>
+                        <a href="<?php echo base_url('kegiatan/create_detail/') . $value->id_kegiatan .'/'. $id; ?>" rel="tooltip" title="Tambah Detail" class="btn btn-sm btn-info">
                           <i class="material-icons">add</i>
                         </a>
                       </td>
@@ -66,12 +69,13 @@
     </div>
   </div>
 </div>
-
+col
+<!-- modal view -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-md modal-dialog-centered" role="document">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Informasi Sekolah</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">Informasi Detail Kegiatan</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -89,7 +93,7 @@
 <script type="text/javascript">
 function openModal(id) {
   $.ajax({
-    url:"<?php echo base_url('admin/sekolah/get/'); ?>"+id,
+    url:"<?php echo base_url('kegiatan/view/'); ?>"+id,
     method: 'post',
     data:null
   }).done(function(data) {
