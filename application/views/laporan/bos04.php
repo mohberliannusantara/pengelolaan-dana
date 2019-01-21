@@ -1,6 +1,6 @@
 <?php
-header("Content-type: application/vmd.openxmlformats-officedocument.spreadsheetml.sheet");
-$nama=$namasekolah->nama_sekolah;
+header("Content-type: application/octet-stream");
+$nama=$this->session->nama_sekolah;
 header("Content-Disposition: attachment; filename=Data BOS-04 $nama Periode $periode.xls");
 header("Pragma: no-cache");
 header("Expires: 0");

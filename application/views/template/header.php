@@ -119,7 +119,7 @@
                   </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                  <!-- <a class="dropdown-item" href="<?php echo base_url('pengguna/gantiPass'). $this->session->id_pengguna ?>"  data-toggle="modal" data-target="#exampleModalCenter">Ganti Password</a> -->
+                  <a class="dropdown-item" href="<?php echo base_url('pengguna/gantiPass'). $this->session->id_pengguna ?>"  data-toggle="modal" data-target="#exampleModalCenter">Ganti Password</a>
                   <a class="dropdown-item" href="<?php echo base_url('autentikasi/logout')?>">Keluar</a>
                 </div>
               </li>
@@ -128,7 +128,7 @@
         </div>
       </nav>
       <!-- Modal -->
-  <!-- <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -159,4 +159,4 @@
         </form>
       </div>
     </div>
-  </div> -->
+  </div>
