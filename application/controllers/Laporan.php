@@ -8,6 +8,7 @@ class Laporan extends CI_Controller {
 		parent::__construct();
 		$this->load->model('laporan_model');
 		$this->load->model('pengeluaran_model');
+		$this->load->model('sumberdana_model');
 		$this->load->model('jenis_pengeluaran_model');
 		if (!$this->session->logged_in == TRUE) {
 			redirect('welcome','refresh');
@@ -47,6 +48,50 @@ class Laporan extends CI_Controller {
 
 	public function exportk3($id)
 	{
+
+		$tgl = '1/'.$this->input->post('bulan').'/'.$this->input->post('tahun');
+		$awal = date('Y-d-m',strtotime($tgl));
+		$akhir = date('Y-m-d',strtotime($awal.'+1 month -1 day'));
+
+		$data['saldoAwal'] = $this->sumberdana_model->getJumlahTerakhir($this->session->id_sekolah);
+		$data['pemasukkan'] = $this->laporan_model->cetakK3($this->session->id_sekolah,$awal,$akhir);
+		$data['pengeluaran'] = $this->laporan_model->cetakBos04($this->session->id_sekolah,$awal,$akhir);
+
+		$day = date('D', strtotime($akhir));
+		$dayList = array(
+			'Sun' => 'Minggu',
+			'Mon' => 'Senin',
+			'Tue' => 'Selasa',
+			'Wed' => 'Rabu',
+			'Thu' => 'Kamis',
+			'Fri' => 'Jumat',
+			'Sat' => 'Sabtu'
+		);
+
+		$month = date("m",strtotime($akhir));
+		$monthList = array(
+			'01' => 'Januari',
+			'02' => 'Februari',
+			'03' => 'Maret',
+			'04' => 'April',
+			'05' => 'Mei',
+			'06' => 'Juni',
+			'07' => 'Juli',
+			'08' => 'Agustus',
+			'09' => 'September',
+			'10' => 'Oktober',
+			'11' => 'November',
+			'12' => 'Desember',
+		);
+
+		$data['hari'] = $dayList[$day];
+		$data['bulan'] = $monthList[$month];
+		$data['tahun'] = $this->input->post('tahun');
+		$data['akhir'] = date('d-m-Y',strtotime($akhir));
+
+		// print_r($data['pemasukkan']);
+		// die();
+
 		$this->load->view('laporan/k3', $data);
 	}
 }

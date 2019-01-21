@@ -44,9 +44,10 @@ class Sumberdana_model extends CI_Model {
 		$this->db->select('jumlah');
 		$this->db->order_by('tanggal', 'DESC');
 		$this->db->where('sumber_dana.id_sekolah', $id);
+		$this->db->limit(1);
 
 		$query = $this->db->get('sumber_dana');
-		return $query->last_row();
+		return $query->row();
 	}
 	
 	public function create()

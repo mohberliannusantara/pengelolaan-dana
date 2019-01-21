@@ -209,15 +209,23 @@
             <input type="number" name="tahun" class="form-control" min="2017" value="2017" autofocus required>
           </div>
           <div class="form-group">
-            <label for="triwulan">Laporan Bulan yang Ingin Di Unduh: </label>
-            <select class="form-control" name="triwulan" required>
+            <label for="bulan">Laporan Bulan yang Ingin Di Unduh: </label>
+            <select class="form-control" name="bulan" required="true">
               <option disabled selected hidden>Pilih Bulan</option>
-              <option value="1/1">Triwulan 1</option>
-              <option value="1/4">Triwulan 2</option>
-              <option value="1/7">Triwulan 3</option>
-              <option value="1/10">Triwulan 4</option>
+              <option value="1">Januari</option>
+              <option value="2">Februari</option>
+              <option value="3">Maret</option>
+              <option value="4">April</option>
+              <option value="5">Mei</option>
+              <option value="6">Juni</option>
+              <option value="7">Juli</option>
+              <option value="8">Agustus</option>
+              <option value="9">September</option>
+              <option value="10">Oktober</option>
+              <option value="11">November</option>
+              <option value="12">Desemver</option>
             </select>
-            <div class="invalid-feedback">Masukkan lokasi atau alamat.</div>
+            <div class="invalid-feedback">Masukkan Bulan</div>
           </div>
 
         </div>

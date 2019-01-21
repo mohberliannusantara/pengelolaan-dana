@@ -1,7 +1,7 @@
 <?php
-header("Content-type: application/octet-stream");
+header("Content-type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
 $nama=$this->session->nama_sekolah;
-header("Content-Disposition: attachment; filename=Data BOS-04 $nama Periode $periode.xls");
+header("Content-Disposition: attachment; filename=Data_BOS-04_$nama_Periode_$periode.xls");
 header("Pragma: no-cache");
 header("Expires: 0");
 $jumlahA=0;

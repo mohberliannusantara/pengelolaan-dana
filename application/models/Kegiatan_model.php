@@ -23,14 +23,6 @@ class Kegiatan_model extends CI_Model {
 		return $query->result();
 	}
 
-	public function get_by_id($id)
-	{
-		$this->db->where('kegiatan.id_kegiatan', $id, FALSE);
-		$query = $this->db->get('kegiatan');
-
-		return $query->row();
-	}
-
 	public function get_detail_kegiatan($id)
 	{
 		$this->db->where('detail_kegiatan.id_kegiatan', $id, FALSE);
@@ -51,14 +43,16 @@ class Kegiatan_model extends CI_Model {
 		$this->db->insert('kegiatan', $data);
 	}
 
-	public function edit($id)
+	public function create_detail($id)
 	{
 		$data = array(
-			'nama_kegiatan' => $this->input->post('nama_kegiatan'),
+			'nama_detail_kegiatan' => $this->input->post('nama_kegiatan'),
+			'jumlah' => $this->input->post('jumlah'),
+			'tanggal' => $this->input->post('tanggal'),
+			'id_kegiatan' => $id
 		);
 
-		$this->db->where('id_kegiatan', $id);
-		$this->db->update('kegiatan', $data);
+		$this->db->insert('detail_kegiatan', $data);
 	}
 
 	public function delete($id)

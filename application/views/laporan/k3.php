@@ -1,11 +1,11 @@
 <?php
-header("Content-type: application/octet-stream");
-$nama=$namasekolah->nama_sekolah;
-header("Content-Disposition: attachment; filename=Data BOS-04 $nama Periode $periode.xls");
+header("Content-type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+$nama=$this->session->nama_sekolah;
+$waktu=$bulan."_".$tahun;
+header("Content-Disposition: attachment; filename=Data_K3_$waktu.xls");
 header("Pragma: no-cache");
 header("Expires: 0");
-$jumlahA=0;
-$jumlahB=0;
+$saldo = 0;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,18 +21,18 @@ $jumlahB=0;
 		</center>
 		<tr>
 		<center>
-		<h3><th colspan="6">Bulan : $bulan $tahun</h3></th>
+		<h3><th colspan="6">Bulan : <?php echo $bulan.' '.$tahun ?></h3></th>
 		</center>
 		</tr>
 		</thead>
 		<font face="Lucida Sans Unicode" size="11">
 			<tr>
 				<td>Nama Sekolah </td>
-				<td>: ....</td>
+				<td>: <?php echo $this->session->nama_sekolah; ?></td>
 			</tr>
 			<tr>
 				<td>Alamat </td>
-				<td>: ....</td>
+				<td>: <?php echo $this->session->alamat; ?></td>
 			</tr>
 			<tr>
 				<td>Kota </td>
@@ -44,12 +44,47 @@ $jumlahB=0;
 			</tr>
 		</font>
 	</table>
+
 	<table border="1" width="100%">
+	<thead>
+		<center> <h4>LAPORAN PEMASUKKAN </h4></center>
 		<tr>
 			<th>Tanggal</th>
 			<th>No. Bukti</th>
 			<th>Uraian</th>
-			<th>Penerimaan(Debit)</th>
+			<th>Pemasukkan(Debit)</th>
+			<th>Saldo</th>
+		</tr>
+		<tr>
+			<th>1</th>
+			<th>2</th>
+			<th>3</th>
+			<th>4</th>
+			<th>5</th>
+		</tr>
+	</thead>
+		
+		<tbody>
+		<?php foreach ($pemasukkan as $key => $value) { ?>
+			<tr>
+				<td><?php echo $value->tanggal; ?></td>
+				<td><?php echo $this->session->npsn."/".($key+1)."/D/".$nama."/".$bulan."/".$tahun?></td>
+				<td><?php echo $value->nama_pemasukkan ?></td>
+				<?php $jumlah = $value->saldo_bank+$value->saldo_kas_tunai-($value->saldo_bank*$value->bunga_bank) ?>
+				<td><?php echo "Rp. ".$jumlah; $saldo+=$jumlah ?></td>
+				<td><?php echo "Rp. ".$saldo ?></td>
+			</tr>
+		<?php }  ?>
+		</tbody>
+	</table>
+
+	<table border="1" width="100%">
+	<thead>
+		<center> <h4>LAPORAN PENGELUARAN </h4> </center>
+		<tr>
+			<th>Tanggal</th>
+			<th>No. Bukti</th>
+			<th>Uraian</th>
 			<th>Pengeluaran(Kredit)</th>
 			<th>Saldo</th>
 		</tr>
@@ -59,28 +94,31 @@ $jumlahB=0;
 			<th>3</th>
 			<th>4</th>
 			<th>5</th>
-			<th>6</th>
 		</tr>
+	</thead>
+		
 		<tbody>
+		<?php foreach ($pengeluaran as $key => $value) { ?>
 			<tr>
-				<td>tanggal</td>
-				<td>bukti</td>
-				<td>uraian</td>
-				<td>penerimaan</td>
-				<td>pengeluaran</td>
-				<td>saldo</td>
+				<td><?php echo $value->tanggal; ?></td>
+				<td><?php echo $this->session->npsn."/".($key+1)."/K/".$nama."/".$bulan."/".$tahun?></td>
+				<td><?php echo $value->nama_pengeluaran ?></td>
+				<td><?php echo "Rp. ".$value->jumlah; $saldo-= $value->jumlah; ?></td>
+				<td><?php echo "Rp. ".$saldo ?></td>
 			</tr>
+		<?php }  ?>
 		</tbody>
 	</table>
-	<thead>
+	<!-- thead> -->
 		<font face="Lucida Sans Unicode" size="11">
-			<table border="0" width="100%">
-		<tr>Pada hari ini .......................... Tanggal ......................... (tgl akhir bulan) Buku Kas Umum ditutup </tr>
-		<tr>dengan keadaan/posisi buku sebagai berikut :</tr>
-		<tr>Saldo Buku Kas Umum</tr>
-		<tr>Terdiri dari :</tr>
+		<table border="0" width="100%">
+			<tr>Pada hari ini <?php echo $hari ?> Tanggal <?php echo $akhir; ?> Buku Kas Umum ditutup </tr>
+			<tr>dengan keadaan/posisi buku sebagai berikut :</tr>
+			<tr>Saldo Buku Kas Umum</tr>
+			<tr>Terdiri dari :</tr>
 		</table>
 		</font>
+	<!-- </thead> -->
 		<table border="0" width="100%">
 			<tr>
 				<td>Saldo Bank</td>
@@ -111,7 +149,7 @@ $jumlahB=0;
 				<td></td>
 				<td></td>
 				<td></td>
-				<td colspan="3">Batu, ......................................... (tgl akhir bulan)</td>
+				<td colspan="3">Batu, <?php echo $akhir; ?></td>
 			</tr>
 			<tr>
 				<td></td>
@@ -126,6 +164,5 @@ $jumlahB=0;
 				<td>Bendahara</td>
 			</tr>
 		</table>
-	</thead>
 </body>
 </html>

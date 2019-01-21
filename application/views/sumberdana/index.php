@@ -25,7 +25,7 @@
                 <tr>
                   <th class="th-sm">No
                   </th>
-                  <th class="th-sm">Jenis Anggaran
+                  <th class="th-sm">Nama Pemasukkan
                   </th>
                   <th class="th-sm">Tanggal
                   </th>
@@ -41,7 +41,7 @@
                 <?php foreach ($sumberdana as $key => $value): ?>
                   <tr>
                     <td><?php echo $key+1 ?></td>
-                    <td><?php echo $value->nama_jenis_sumber_dana ?></td>
+                    <td><?php echo $value->nama_pemasukkan ?></td>
                     <td><?php echo date('d-m-Y',strtotime($value->tanggal)); ?></td>
                     <td><?php echo $value->saldo_awal ?></td>
                     <td><?php echo $value->jumlah ?></td>
@@ -63,7 +63,7 @@
                 <tr>
                   <th>No
                   </th>
-                  <th>Jenis Anggaran
+                  <th>Nama Pemasukkan
                   </th>
                   <th>Tanggal
                   </th>

@@ -12,6 +12,15 @@ class Laporan_model extends CI_Model {
 		return $query->result();
 	}
 
+	public function cetakK3($id,$awal,$akhir)
+	{
+		$this->db->where('id_sekolah', $id);
+		$this->db->where('tanggal BETWEEN "'.$awal.'" AND "'.$akhir.'"');
+		$this->db->order_by('tanggal', 'ASC');
+		$query=$this->db->get('sumber_dana');
+		return $query->result();
+	}
+
 	
 
 }
