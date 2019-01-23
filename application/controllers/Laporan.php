@@ -41,8 +41,27 @@ class Laporan extends CI_Controller {
 			$akhir = date('Y-m-d',strtotime($awal.'+3 month -1 day'));
 		}
 
+		$monthAwal = date("m",strtotime($awal));
+		$monthAkhir = date("m",strtotime($akhir));
+		$monthList = array(
+			'01' => 'Januari',
+			'02' => 'Februari',
+			'03' => 'Maret',
+			'04' => 'April',
+			'05' => 'Mei',
+			'06' => 'Juni',
+			'07' => 'Juli',
+			'08' => 'Agustus',
+			'09' => 'September',
+			'10' => 'Oktober',
+			'11' => 'November',
+			'12' => 'Desember',
+		);
+		$data['tahun'] = $this->input->post('tahun');
 		$data['triwulan'] = $this->laporan_model->cetakBos04($this->session->id_sekolah,$awal,$akhir);
-		$data['periode'] = date('d-m-Y',strtotime($awal)).' S/D '.date('d-m-Y',strtotime($akhir));
+		$data['bulanAwal'] = $monthList[$monthAwal];
+		$data['bulanAkhir'] = $monthList[$monthAkhir];
+		$data['periode'] = $monthList[$monthAwal].' - '.$monthList[$monthAkhir];
 
 		$this->load->view('laporan/bos04', $data);
 	}
@@ -108,6 +127,7 @@ class Laporan extends CI_Controller {
 		$data['tahun'] = $this->input->post('tahun');
 		$data['akhir'] = date('d-m-Y',strtotime($akhir));
 		$data['nama'] = $this->session->nama_sekolah;
+
 
 		// print_r($data['pemasukkan']);
 		// die();
