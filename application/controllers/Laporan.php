@@ -46,6 +46,25 @@ class Laporan extends CI_Controller {
 		$this->load->view('laporan/bos04', $data);
 	}
 
+	public function exportBosK2($id)
+	{
+		if($this->input->post('triwulan') == 'semua'){
+			$tgl = '1/1/'.$this->input->post('tahun');
+			$awal = date('Y-d-m',strtotime($tgl));
+			$akhir = date('Y-m-d',strtotime($awal.'+1 year -1 day'));
+
+		}else{
+			// $tgl = $this->input->post('triwulan').'/'.$this->input->post('tahun');
+			$awal = date('Y-d-m',strtotime($this->input->post('tahun')));
+			$akhir = date('Y-m-d',strtotime($awal.'+3 month -1 day'));
+		}
+
+		$data['triwulan'] = $this->laporan_model->cetakBosK2($this->session->id_sekolah,$awal,$akhir);
+		$data['periode'] = date('d-m-Y',strtotime($awal)).' S/D '.date('d-m-Y',strtotime($akhir));
+
+		$this->load->view('laporan/bos04', $data);
+	}
+
 	public function exportk3($id)
 	{
 

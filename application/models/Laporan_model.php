@@ -12,6 +12,18 @@ class Laporan_model extends CI_Model {
 		return $query->result();
 	}
 
+	public function cetakK2($id,$awal,$akhir)
+	{
+		// $this->db->order_by('tanggal', 'ASC');
+		$this->db->where('tanggal BETWEEN "'.$awal.'" AND "'.$akhir.'"');
+		$this->db->where('kegiatan.id_sekolah', $id);
+		$this->db->join('detail_kegiatan', 'kegiatan.id_kegiatan = detail_kegiatan.id_kegiatan');
+		$this->db->join('kegiatan', 'jenis_kegiatan.id_jenis_kegiatan = kegiatan.id_jenis_kegiatan');
+		$query = $this->db->get('jenis_kegiatan');
+
+		return $query->result();
+	}
+
 	public function cetakK3($id,$awal,$akhir)
 	{
 		$this->db->where('id_sekolah', $id);
@@ -20,9 +32,6 @@ class Laporan_model extends CI_Model {
 		$query=$this->db->get('sumber_dana');
 		return $query->result();
 	}
-
-	
-
 }
 
 /* End of file Laporan_model.php */
