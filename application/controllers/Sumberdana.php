@@ -37,7 +37,7 @@ class SumberDana extends CI_Controller {
 		$data2['jenisdana'] = $this->sumberdana_model->getJenisSumberDana();
 		$data2['saldoawal'] = $this->sumberdana_model->getJumlahTerakhir($this->session->id_sekolah);
 
-		// $this->form_validation->set_rules('id_sekolah', 'Sekolah', 'trim|required');
+		$this->form_validation->set_rules('nama_pemasukkan', 'Nama Pemasukkan', 'trim|required');
 		$this->form_validation->set_rules('saldo_awal', 'Saldo Awal', 'trim|required');
 		$this->form_validation->set_rules('saldo_bank', 'Saldo Bank', 'trim|required');
 		$this->form_validation->set_rules('bunga_bank', 'Bunga Bank', 'trim|required');

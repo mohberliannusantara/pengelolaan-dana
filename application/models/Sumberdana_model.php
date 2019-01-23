@@ -59,6 +59,7 @@ class Sumberdana_model extends CI_Model {
 		$jumlah= $saldo_awal + $saldo_bank + $saldo_kas_tunai - ($bunga_bank/100*$saldo_bank);
 		$data = array(
 			'id_sekolah' => $this->session->id_sekolah,
+			'nama_pemasukkan' => $this->input->post('nama_pemasukkan'),
 			'saldo_awal' => $this->input->post('saldo_awal'),
 			'saldo_bank' => $this->input->post('saldo_bank'),
 			'bunga_bank' => $this->input->post('bunga_bank'),
@@ -89,6 +90,7 @@ class Sumberdana_model extends CI_Model {
 		$saldo_kas_tunai = $this->input->post('saldo_kas_tunai');
 		$jumlah= $saldo_awal + $saldo_bank + $saldo_kas_tunai;
 		$data = array(
+			'nama_pemasukkan' => $this->input->post('nama_pemasukkan'),
 			'saldo_awal' => $this->input->post('saldo_awal'),
 			'saldo_bank' => $this->input->post('saldo_bank'),
 			'bunga_bank' => $this->input->post('bunga_bank'),

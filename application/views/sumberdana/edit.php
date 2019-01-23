@@ -16,6 +16,12 @@
                 <div class="invalid-feedback">Nama Sekolah</div>
               </div>
 
+              <div class="form-group">
+                <label for="nama_pemasukan">Nama Pemasukan</label>
+                <input type="text" class="form-control" name="nama_pemasukan" value="<?php echo $sumberdana->nama_pemasukan ?>" required>
+                <div class="invalid-feedback">Nama Pemasukan</div>
+              </div>
+
              <div class="form-group">
                 <label for="saldo_awal">Saldo Awal (Rp)</label>
                 <input type="number" min="0" class="form-control" name="saldo_awal" value="<?php echo $sumberdana->saldo_awal ?>" required>
