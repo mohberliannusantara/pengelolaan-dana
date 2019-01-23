@@ -1,6 +1,7 @@
 <?php
 header("Content-type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
 $waktu=$bulan."_".$tahun;
+$nama=$namasekolah->nama_sekolah;
 header("Content-Disposition: attachment; filename=$nama (K3)_$waktu.xls");
 header("Pragma: no-cache");
 header("Expires: 0");
@@ -27,11 +28,11 @@ $saldo = 0;
 		<font face="Lucida Sans Unicode" size="11">
 			<tr>
 				<td>Nama Sekolah </td>
-				<td>: <?php echo $this->session->nama_sekolah; ?></td>
+				<td>: <?php echo $namasekolah->nama_sekolah; ?></td>
 			</tr>
 			<tr>
 				<td>Alamat </td>
-				<td>: <?php echo $this->session->alamat; ?></td>
+				<td>: <?php echo $namasekolah->alamat; ?></td>
 			</tr>
 			<tr>
 				<td>Kota </td>
@@ -67,7 +68,7 @@ $saldo = 0;
 		<?php foreach ($pemasukkan as $key => $value) { ?>
 			<tr>
 				<td><?php echo $value->tanggal; ?></td>
-				<td><?php echo $this->session->npsn."/".($key+1)."/D/".$nama."/".$bulan."/".$tahun?></td>
+				<td><?php echo $namasekolah->npsn."/".($key+1)."/D/".$nama."/".$bulan."/".$tahun?></td>
 				<td><?php echo $value->nama_pemasukkan ?></td>
 				<?php $jumlah = $value->saldo_bank+$value->saldo_kas_tunai-($value->saldo_bank*$value->bunga_bank) ?>
 				<td><?php echo "Rp. ".$jumlah; $saldo+=$jumlah ?></td>
