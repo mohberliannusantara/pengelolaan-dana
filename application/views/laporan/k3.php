@@ -1,7 +1,8 @@
 <?php
 header("Content-type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
 $waktu=$bulan."_".$tahun;
-header("Content-Disposition: attachment; filename=$nama (K3)_$waktu.xls");
+$file_name = "$nama (K3)_$waktu.xls";
+header("Content-Disposition: attachment; filename=\"".$file_name."\"");
 header("Pragma: no-cache");
 header("Expires: 0");
 $saldo = 0;
@@ -69,7 +70,7 @@ $saldo = 0;
 				<td><?php echo $value->tanggal; ?></td>
 				<td><?php echo $this->session->npsn."/".($key+1)."/D/".$nama."/".$bulan."/".$tahun?></td>
 				<td><?php echo $value->nama_pemasukkan ?></td>
-				<?php $jumlah = $value->saldo_bank+$value->saldo_kas_tunai-($value->saldo_bank*$value->bunga_bank) ?>
+				<?php $jumlah = $value->saldo_awal+$value->saldo_bank+$value->saldo_kas_tunai-($value->saldo_bank*$value->bunga_bank) ?>
 				<td><?php echo "Rp. ".$jumlah; $saldo+=$jumlah ?></td>
 				<td><?php echo "Rp. ".$saldo ?></td>
 			</tr>

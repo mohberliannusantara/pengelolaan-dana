@@ -18,7 +18,7 @@
 
               <div class="form-group">
                 <label for="nama_pemasukan">Nama Pemasukan</label>
-                <input type="text" class="form-control" name="nama_pemasukan" value="<?php echo $sumberdana->nama_pemasukan ?>" required>
+                <input type="text" class="form-control" name="nama_pemasukkan" value="<?php echo $sumberdana->nama_pemasukkan ?>" required>
                 <div class="invalid-feedback">Nama Pemasukan</div>
               </div>
 

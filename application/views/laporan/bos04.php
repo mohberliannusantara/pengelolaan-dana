@@ -1,7 +1,8 @@
 <?php
 header("Content-type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
 $nama=$this->session->nama_sekolah;
-header("Content-Disposition: attachment; filename=$nama (BOS-04) _$periode $tahun.xls");
+$file_name = "$nama (BOS-04) $periode $tahun.xls";
+header("Content-Disposition: attachment; filename=\"".$file_name."\"");
 header("Pragma: no-cache");
 header("Expires: 0");
 $jumlahA=0;
@@ -26,7 +27,7 @@ $jumlahB=0;
 		if ($value->id_jenis_pengeluaran == 2) { ?>
 		<tr>
 			<td><center><?php echo $key+1 ?></center></td>
-			<td colspan="2"><center><?php echo $value->nama_pengeluaran ?></center></td>
+			<td colspan="2"><?php echo $value->nama_pengeluaran ?></td>
 			<td><?php echo $value->tanggal ?></td>
 			<td><?php echo $value->jumlah; $jumlahA=$jumlahA+$value->jumlah; ?></td>
 		</tr>
@@ -43,8 +44,6 @@ $jumlahB=0;
 		<h4>B. Laporan Pembelian Barang / Jasa</h4>
 	</thead>
 	<tbody>
-		<?php foreach ($triwulan as $key => $value):
-		if ($value->id_jenis_pengeluaran == 1) { ?>
 		<tr>
 			<th>No</th>
 			<th>Barang/Jasa Yang Dibeli</th>
@@ -52,9 +51,11 @@ $jumlahB=0;
 			<th>Nama Toko/Penyedia Jasa</th>
 			<th>Jumlah (Rp)</th>
 		</tr>
+		<?php foreach ($triwulan as $key => $value):
+		if ($value->id_jenis_pengeluaran == 1) { ?>
 		<tr>
 			<td><center><?php echo $key+1 ?></center></td>
-			<td><center><?php echo $value->nama_pengeluaran ?></center></td>
+			<td><?php echo $value->nama_pengeluaran ?></td>
 			<td><?php echo $value->tanggal ?></td>
 			<td><?php echo $value->nama_toko ?></td>
 			<td><?php echo $value->jumlah; $jumlahB=$jumlahB+$value->jumlah; ?></td>
