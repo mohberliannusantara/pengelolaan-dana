@@ -33,19 +33,19 @@
                   <?php foreach ($kegiatan as $key => $value): ?>
                     <tr>
                       <td><?php echo $key+1 ?></td>
-                      <td><?php echo $value->nama_kegiatan ?></td>
+                      <td onclick="openModal(<?php echo $value->id_kegiatan; ?>)"><?php echo $value->nama_kegiatan ?></td>
                       <td>
                         <a href="#" onclick="openModal(<?php echo $value->id_kegiatan; ?>)" rel="tooltip" title="Lihat" class="btn btn-sm btn-success">
                           <i class="material-icons">zoom_out_map</i>
                         </a>
-                        <a href="<?php echo base_url('kegiatan/edit/') . $value->id_kegiatan; ?>" rel="tooltip" title="Ubah" class="btn btn-sm btn-warning">
+                        <a href="<?php echo base_url('detail_kegiatan/create/') . $value->id_kegiatan .'/'. $id; ?>" rel="tooltip" title="Tambah Detail" class="btn btn-sm btn-info">
+                          <i class="material-icons">add</i>
+                        </a>
+                        <a href="<?php echo base_url('kegiatan/edit/') . $value->id_kegiatan .'/'. $id; ?>" rel="tooltip" title="Ubah" class="btn btn-sm btn-warning">
                           <i class="material-icons">edit</i>
                         </a>
                         <a href="<?php echo base_url('kegiatan/delete/') . $value->id_kegiatan .'/'. $id; ?>" rel="tooltip" title="Hapus" class="btn btn-sm btn-danger">
                           <i class="material-icons">delete</i>
-                        </a>
-                        <a href="<?php echo base_url('kegiatan/create_detail/') . $value->id_kegiatan .'/'. $id; ?>" rel="tooltip" title="Tambah Detail" class="btn btn-sm btn-info">
-                          <i class="material-icons">add</i>
                         </a>
                       </td>
                     </tr>

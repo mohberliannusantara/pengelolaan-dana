@@ -61,7 +61,7 @@
               <p>Pengeluaran</p>
             </a>
           </li>
-          <li class="nav-item <?php echo ($this->uri->segment(1) == 'kegiatan') ? 'active':''; ?> ">
+          <li class="nav-item <?php echo ($this->uri->segment(1) == 'kegiatan' || $this->uri->segment(1) == 'detail_kegiatan') ? 'active':''; ?> ">
             <a class="nav-link" href="<?php echo site_url('kegiatan')?>">
               <i class="material-icons">directions_run</i>
               <p>Kegiatan</p>

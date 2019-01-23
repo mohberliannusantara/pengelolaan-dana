@@ -43,7 +43,7 @@ class Kegiatan extends CI_Controller {
 
 	public function view($id)
 	{
-		$data['kegiatan'] = $this->kegiatan_model->get_detail_kegiatan($id);
+		$data['detail_kegiatan'] = $this->kegiatan_model->get_detail_kegiatan($id);
 		$this->load->view('kegiatan/show', $data);
 	}
 
@@ -67,31 +67,33 @@ class Kegiatan extends CI_Controller {
 		$this->load->view('template/footer');
 	}
 
-	public function create_detail($id, $id2)
+	public function edit($id, $id2)
 	{
 		$data['page'] = 'Kegiatan';
-		$data['id'] = $id;
+		$data['kegiatan'] = $this->kegiatan_model->get_by_id($id);
+		$data['id'] = $id2;
 
 		$this->form_validation->set_rules('nama_kegiatan', 'nama kegiatan', 'trim|required');
 		$this->form_validation->set_rules('jumlah', 'jumlah', 'trim|required');
 		$this->form_validation->set_rules('tanggal', 'tanggal', 'trim|required');
 
-		if ($this->form_validation->run()==FALSE){
+		if ($this->form_validation->run()==FALSE) {
 			echo validation_errors();
-		}else{
-			$this->kegiatan_model->create_detail($id);
-			echo "<script>alert('Successfully Added'); </script>";
+		} else {
+			$this->kegiatan_model->edit($id);
+			echo "<script>alert('Successfully Updated'); </script>";
 			redirect('kegiatan/list/' . $id2 ,'refresh');
 		}
 
 		$this->load->view('template/header', $data);
-		$this->load->view('kegiatan/create_detail', $data);
+		$this->load->view('kegiatan/edit', $data);
 		$this->load->view('template/footer');
 	}
 
 	public function delete($id, $id2)
 	{
 		$this->kegiatan_model->delete($id);
+		echo "<script>alert('Successfully Deleted'); </script>";
 		redirect('kegiatan/list/'. $id2,'refresh');
 	}
 }

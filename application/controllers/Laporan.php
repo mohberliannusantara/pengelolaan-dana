@@ -10,6 +10,7 @@ class Laporan extends CI_Controller {
 		$this->load->model('pengeluaran_model');
 		$this->load->model('sumberdana_model');
 		$this->load->model('jenis_pengeluaran_model');
+		
 		if (!$this->session->logged_in == TRUE) {
 			redirect('welcome','refresh');
 		}
@@ -67,7 +68,6 @@ class Laporan extends CI_Controller {
 
 	public function exportk3($id)
 	{
-
 		$tgl = '1/'.$this->input->post('bulan').'/'.$this->input->post('tahun');
 		$awal = date('Y-d-m',strtotime($tgl));
 		$akhir = date('Y-m-d',strtotime($awal.'+1 month -1 day'));

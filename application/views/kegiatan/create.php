@@ -11,7 +11,7 @@
             <form action="<?php base_url('kegiatan/create/') . $id ?>" method="post" enctype="multipart/form-data">
               <div class="form-group">
                 <label for="nama_kegiatan">Nama Kegiatan</label>
-                <input type="text" class="form-control" name="nama_kegiatan" value="" required>
+                <input type="text" class="form-control" name="nama_kegiatan" value="" required autofocus>
                 <div class="invalid-feedback">Masukkan nama kegiatan.</div>
               </div>
               <div class="form-group">
