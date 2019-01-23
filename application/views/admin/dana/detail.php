@@ -55,7 +55,7 @@
         <div class="card card-profile">
           <div class="card-body">
             <h4 class="card-title">BOS-K3</h4>
-            <a href="pengguna/create" class="btn btn-danger">Kelola</a>
+            <a href="pengguna/create" class="btn btn-danger" data-toggle="modal" data-target="#BOS-k3">Kelola</a>
             <p class="card-category">Buku Kas Umum</p>
           </div>
           <div class="card-footer">
@@ -181,6 +181,52 @@
               <option value="1/10">Triwulan 4</option>
             </select>
             <div class="invalid-feedback">Masukkan lokasi atau alamat.</div>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+          <button type="submit" class="btn btn-primary">Unduh</button>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="BOS-k3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Mengunduh Laporan Form BOS-K3</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="<?php echo base_url('admin/unduhLaporan/exportk3/'. $this->uri->segment('4')) ?>" method='post'>
+          <div class="form-group">
+            <label for="" class="label">Tahun: </label>
+            <input type="number" name="tahun" class="form-control" min="2017" value="2017" autofocus required>
+          </div>
+          <div class="form-group">
+            <label for="bulan">Laporan Bulan yang Ingin Di Unduh: </label>
+            <select class="form-control" name="bulan" required="true">
+              <option disabled selected hidden>Pilih Bulan</option>
+              <option value="1">Januari</option>
+              <option value="2">Februari</option>
+              <option value="3">Maret</option>
+              <option value="4">April</option>
+              <option value="5">Mei</option>
+              <option value="6">Juni</option>
+              <option value="7">Juli</option>
+              <option value="8">Agustus</option>
+              <option value="9">September</option>
+              <option value="10">Oktober</option>
+              <option value="11">November</option>
+              <option value="12">Desemver</option>
+            </select>
+            <div class="invalid-feedback">Masukkan Bulan</div>
           </div>
 
         </div>

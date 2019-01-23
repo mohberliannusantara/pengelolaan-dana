@@ -107,6 +107,7 @@ class Laporan extends CI_Controller {
 		$data['bulan'] = $monthList[$month];
 		$data['tahun'] = $this->input->post('tahun');
 		$data['akhir'] = date('d-m-Y',strtotime($akhir));
+		$data['nama'] = $this->session->nama_sekolah;
 
 		// print_r($data['pemasukkan']);
 		// die();
