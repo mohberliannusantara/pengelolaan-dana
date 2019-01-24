@@ -87,13 +87,16 @@ class Laporan extends CI_Controller {
 
 	public function exportk3($id)
 	{
-		$tgl = '1/'.$this->input->post('bulan').'/'.$this->input->post('tahun');
-		$awal = date('Y-d-m',strtotime($tgl));
-		$akhir = date('Y-m-d',strtotime($awal.'+1 month -1 day'));
+		if($this->input->post('triwulan') == 'semua'){
+			$tgl = '1/1/'.$this->input->post('tahun');
+			$awal = date('Y-d-m',strtotime($tgl));
+			$akhir = date('Y-m-d',strtotime($awal.'+1 year -1 day'));
 
-		$data['saldoAwal'] = $this->sumberdana_model->getJumlahTerakhir($this->session->id_sekolah);
-		$data['pemasukkan'] = $this->laporan_model->cetakK3($this->session->id_sekolah,$awal,$akhir);
-		$data['pengeluaran'] = $this->laporan_model->cetakBos04($this->session->id_sekolah,$awal,$akhir);
+		}else{
+			$tgl = $this->input->post('triwulan').'/'.$this->input->post('tahun');
+			$awal = date('Y-d-m',strtotime($tgl));
+			$akhir = date('Y-m-d',strtotime($awal.'+3 month -1 day'));
+		}
 
 		$day = date('D', strtotime($akhir));
 		$dayList = array(
@@ -106,7 +109,8 @@ class Laporan extends CI_Controller {
 			'Sat' => 'Sabtu'
 		);
 
-		$month = date("m",strtotime($akhir));
+		$monthAwal = date("m",strtotime($awal));
+		$monthAkhir = date("m",strtotime($akhir));
 		$monthList = array(
 			'01' => 'Januari',
 			'02' => 'Februari',
@@ -121,17 +125,70 @@ class Laporan extends CI_Controller {
 			'11' => 'November',
 			'12' => 'Desember',
 		);
-
+		$cek=$this->laporan_model->cekDana($this->session->id_sekolah)->num_rows();
 		$data['hari'] = $dayList[$day];
-		$data['bulan'] = $monthList[$month];
 		$data['tahun'] = $this->input->post('tahun');
+		$data['bulan'] = $monthList[$month];
 		$data['akhir'] = date('d-m-Y',strtotime($akhir));
 		$data['nama'] = $this->session->nama_sekolah;
-
-
-		// print_r($data['pemasukkan']);
-		// die();
-
+		$data['pemasukkan'] = $this->laporan_model->cetakK3($this->session->id_sekolah,$awal,$akhir);
+		$data['pengeluaran'] = $this->laporan_model->cetakBos04($this->session->id_sekolah,$awal,$akhir);
+		$data['saldoAwal'] = $this->sumberdana_model->getJumlahTerakhir($this->session->id_sekolah);
+		$data['bulanAwal'] = $monthList[$monthAwal];
+		$data['bulanAkhir'] = $monthList[$monthAkhir];
+		$data['periode'] = $monthList[$monthAwal].' - '.$monthList[$monthAkhir];
+		if ($cek > 0) {
+			update
+		}else{
+			insert
+		}
+		
 		$this->load->view('laporan/k3', $data);
+		// $tgl = '1/'.$this->input->post('bulan').'/'.$this->input->post('tahun');
+		// $awal = date('Y-d-m',strtotime($tgl));
+		// $akhir = date('Y-m-d',strtotime($awal.'+1 month -1 day'));
+
+		// $data['saldoAwal'] = $this->sumberdana_model->getJumlahTerakhir($this->session->id_sekolah);
+		// $data['pemasukkan'] = $this->laporan_model->cetakK3($this->session->id_sekolah,$awal,$akhir);
+		// $data['pengeluaran'] = $this->laporan_model->cetakBos04($this->session->id_sekolah,$awal,$akhir);
+
+		// $day = date('D', strtotime($akhir));
+		// $dayList = array(
+		// 	'Sun' => 'Minggu',
+		// 	'Mon' => 'Senin',
+		// 	'Tue' => 'Selasa',
+		// 	'Wed' => 'Rabu',
+		// 	'Thu' => 'Kamis',
+		// 	'Fri' => 'Jumat',
+		// 	'Sat' => 'Sabtu'
+		// );
+
+		// $month = date("m",strtotime($akhir));
+		// $monthList = array(
+		// 	'01' => 'Januari',
+		// 	'02' => 'Februari',
+		// 	'03' => 'Maret',
+		// 	'04' => 'April',
+		// 	'05' => 'Mei',
+		// 	'06' => 'Juni',
+		// 	'07' => 'Juli',
+		// 	'08' => 'Agustus',
+		// 	'09' => 'September',
+		// 	'10' => 'Oktober',
+		// 	'11' => 'November',
+		// 	'12' => 'Desember',
+		// );
+
+		// $data['hari'] = $dayList[$day];
+		// $data['bulan'] = $monthList[$month];
+		// $data['tahun'] = $this->input->post('tahun');
+		// $data['akhir'] = date('d-m-Y',strtotime($akhir));
+		// $data['nama'] = $this->session->nama_sekolah;
+
+
+		// // print_r($data['pemasukkan']);
+		// // die();
+
+		// $this->load->view('laporan/k3', $data);
 	}
 }

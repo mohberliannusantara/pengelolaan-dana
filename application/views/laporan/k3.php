@@ -1,7 +1,7 @@
 <?php
 header("Content-type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
-$waktu=$bulan."_".$tahun;
-$file_name = "$nama (K3)_$waktu.xls";
+// $waktu=$bulan."_".$tahun;
+$file_name = "$nama (K3)_$periode.xls";
 header("Content-Disposition: attachment; filename=\"".$file_name."\"");
 header("Pragma: no-cache");
 header("Expires: 0");
@@ -21,7 +21,7 @@ $saldo = 0;
 		</center>
 		<tr>
 		<center>
-		<h3><th colspan="6">Bulan : <?php echo $bulan.' '.$tahun ?></h3></th>
+		<h3><th colspan="6">Bulan : <?php echo $periode.' '.$tahun ?></h3></th>
 		</center>
 		</tr>
 		</thead>

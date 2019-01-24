@@ -219,7 +219,7 @@
 </div>
 
 <!-- Modal k3-->
-<div class="modal fade" id="BOS-k3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<!-- <div class="modal fade" id="BOS-k3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -252,6 +252,45 @@
               <option value="12">Desemver</option>
             </select>
             <div class="invalid-feedback">Masukkan Bulan</div>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+          <button type="submit" class="btn btn-primary">Unduh</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div> -->
+
+<!-- Modal K3-->
+<div class="modal fade" id="BOS-k3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Mengunduh Laporan Form BOS-K3</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="<?php echo base_url().'Laporan/exportk3/'.$this->session->id_sekolah ?>" method='post'>
+          <div class="form-group">
+            <label for="" class="label">Tahun: </label>
+            <input type="number" name="tahun" class="form-control" min="2017" value="2017" autofocus required>
+          </div>
+          <div class="form-group">
+            <label for="triwulan">Laporan Triwulan yang Ingin Di Unduh: </label>
+            <select class="form-control" name="triwulan" required>
+              <option disabled selected hidden>Pilih Triwulan</option>
+              <option value="1/1">Triwulan 1</option>
+              <option value="1/4">Triwulan 2</option>
+              <option value="1/7">Triwulan 3</option>
+              <option value="1/10">Triwulan 4</option>
+              <option value="semua">Semua Triwulan</option>
+            </select>
+            <div class="invalid-feedback">Masukkan Triwulan yang ingin di Unduh</div>
           </div>
 
         </div>
