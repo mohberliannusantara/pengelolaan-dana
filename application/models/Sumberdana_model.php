@@ -81,6 +81,7 @@ class Sumberdana_model extends CI_Model {
 			'saldo_awal' => $saldo,
 			'tanggal' => $tanggal,
 			'id_jenis_sumber_dana' => "1",
+			'jumlah' => $saldo
 		);
 
 		$query= $this->db->insert('sumber_dana', $data);

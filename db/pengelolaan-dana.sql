@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 23, 2019 at 10:15 AM
+-- Generation Time: Jan 27, 2019 at 01:19 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -137,7 +137,7 @@ CREATE TABLE `jenis_sumber_dana` (
 INSERT INTO `jenis_sumber_dana` (`id_jenis_sumber_dana`, `nama_jenis_sumber_dana`) VALUES
 (1, 'Bosnas'),
 (2, 'Bosda'),
-(4, 'Lainnya');
+(3, 'Lainnya');
 
 -- --------------------------------------------------------
 
@@ -319,7 +319,8 @@ INSERT INTO `pengeluaran` (`id_pengeluaran`, `nama_pengeluaran`, `jumlah`, `id_j
 (144, 'Honorarium Pengampuh Jam Tambahan Pembelajaran Intensif Program Khusus Peserta Didik Upper dan Lower', 2500000, 2, '', '2017-03-31', 15),
 (145, 'Belanja Pemeliharaan (Perbaikan Printer Ruang Guru dan Ganti Cartridge)', 1645000, 2, '', '2017-03-31', 15),
 (146, 'Tanda Terima Transpor Pembina Untuk Kegiatan Pembinaan Peserta  Olimpiade Siswa Nasional (OSN) Matematika, IPA, dan IPS Tahun 2017', 750000, 2, '', '2017-03-31', 15),
-(147, 'Belanja Transpor Menggunakan Home Visit', 25000, 2, '', '2017-01-31', 15);
+(147, 'Belanja Transpor Menggunakan Home Visit', 25000, 2, '', '2017-01-31', 15),
+(148, 'Nyoba', 2, 2, '', '2017-05-21', 15);
 
 -- --------------------------------------------------------
 
@@ -604,12 +605,12 @@ CREATE TABLE `sumber_dana` (
   `id_sumber_dana` int(11) NOT NULL,
   `id_sekolah` int(11) NOT NULL,
   `id_jenis_sumber_dana` int(11) NOT NULL,
-  `nama_pemasukkan` varchar(25) NOT NULL,
-  `saldo_awal` int(11) NOT NULL,
-  `saldo_bank` int(11) NOT NULL,
+  `nama_pemasukkan` varchar(100) NOT NULL,
+  `saldo_awal` int(11) NOT NULL DEFAULT '0',
+  `saldo_bank` int(11) NOT NULL DEFAULT '0',
   `bunga_bank` float NOT NULL DEFAULT '0',
-  `saldo_kas_tunai` int(11) NOT NULL,
-  `jumlah` int(11) NOT NULL,
+  `saldo_kas_tunai` int(11) NOT NULL DEFAULT '0',
+  `jumlah` int(11) NOT NULL DEFAULT '0',
   `tanggal` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -618,9 +619,12 @@ CREATE TABLE `sumber_dana` (
 --
 
 INSERT INTO `sumber_dana` (`id_sumber_dana`, `id_sekolah`, `id_jenis_sumber_dana`, `nama_pemasukkan`, `saldo_awal`, `saldo_bank`, `bunga_bank`, `saldo_kas_tunai`, `jumlah`, `tanggal`) VALUES
-(4, 15, 1, 'Dana Bulan Januari 2017', 0, 185000000, 0, 0, 185000000, '2017-01-01'),
-(5, 15, 1, 'Dana Bulan Februari 2017', 142961200, 0, 0, 0, 142961200, '2017-02-01'),
-(6, 15, 1, 'Dana Bulan Maret 2017', 92044800, 0, 0, 0, 92044800, '2017-03-01');
+(4, 15, 1, 'Bosnas Januari 2017', 0, 0, 0, 0, 0, '2017-01-01'),
+(5, 15, 1, 'Bosnas Februari 2017', 0, 0, 0, 0, 0, '2017-02-01'),
+(6, 15, 1, 'Bosnas Maret 2017', 0, 185000000, 0, 0, 185000000, '2017-03-01'),
+(7, 15, 1, 'tes1', 1, 0, 0, 0, 1, '2017-04-01'),
+(8, 15, 1, 'tes2', 1, 1, 0, 0, 2, '2017-05-01'),
+(9, 15, 1, 'tes3', 1, 1, 0, 1, 3, '2017-06-01');
 
 --
 -- Indexes for dumped tables
@@ -746,7 +750,7 @@ ALTER TABLE `jenis_pengguna`
 -- AUTO_INCREMENT for table `jenis_sumber_dana`
 --
 ALTER TABLE `jenis_sumber_dana`
-  MODIFY `id_jenis_sumber_dana` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_jenis_sumber_dana` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `kegiatan`
@@ -758,7 +762,7 @@ ALTER TABLE `kegiatan`
 -- AUTO_INCREMENT for table `pengeluaran`
 --
 ALTER TABLE `pengeluaran`
-  MODIFY `id_pengeluaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=148;
+  MODIFY `id_pengeluaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=149;
 
 --
 -- AUTO_INCREMENT for table `pengguna`
@@ -776,7 +780,7 @@ ALTER TABLE `sekolah`
 -- AUTO_INCREMENT for table `sumber_dana`
 --
 ALTER TABLE `sumber_dana`
-  MODIFY `id_sumber_dana` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_sumber_dana` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- Constraints for dumped tables

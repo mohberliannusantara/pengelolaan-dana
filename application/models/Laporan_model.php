@@ -53,9 +53,15 @@ class Laporan_model extends CI_Model {
 		$this->db->where('id_sekolah', $id);
 		$this->db->where('tanggal BETWEEN "'.$awal.'" AND "'.$akhir.'"');
 		$query=$this->db->get('pengeluaran');
-		return $query->row()->jumlah;
+		if($query->row()->jumlah == null){
+			return "0";
+		}else{
+			return $query->row()->jumlah;
+		}
+		// return $query->row()->jumlah;
 	}
 }
 
 /* End of file Laporan_model.php */
 /* Location: ./application/models/Laporan_model.php */
+// return $query->row()->jumlah == null ? "0" : $query->row()->jumlah ;

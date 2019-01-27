@@ -129,9 +129,6 @@ class Laporan extends CI_Controller {
 		$data['saldoAwal'] = $this->sumberdana_model->getJumlahTerakhir($this->session->id_sekolah);
 		$data['sumMasuk'] = $this->laporan_model->sumMasuk($this->session->id_sekolah,$awal,$akhir);
 		$data['sumKeluar'] = $this->laporan_model->sumKeluar($this->session->id_sekolah,$awal,$akhir);
-		if($data['sumKeluar'] == null ){
-			$data['sumKeluar'] = 0;
-		}
 		$data['hari'] = $dayList[$day];
 		$data['tahun'] = $this->input->post('tahun');
 		$data['akhir'] = date('d-m-Y',strtotime($akhir));
