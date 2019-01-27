@@ -73,6 +73,27 @@ class Sumberdana_model extends CI_Model {
 		// return $query->row();
 	}
 
+	public function createAuto($nama,$tanggal,$saldo)
+	{
+		$data = array(
+			'id_sekolah' => $this->session->id_sekolah,
+			'nama_pemasukkan' => $nama,
+			'saldo_awal' => $saldo,
+			'tanggal' => $tanggal,
+			'id_jenis_sumber_dana' => "1",
+		);
+
+		$query= $this->db->insert('sumber_dana', $data);
+	}
+
+	public function updateAuto($nama,$id_sekolah,$saldo)
+	{
+		$data = array('saldo_awal' => $saldo,'jumlah' => $saldo);
+		$this->db->where(array('sumber_dana.id_sekolah' => $id_sekolah, 'sumber_dana.nama_pemasukkan' => $nama));
+		$this->db->update('sumber_dana', $data);
+
+	}
+
 	public function get($id_sekolah)
 	{
 		$this->db->order_by('tanggal', 'ASC');
