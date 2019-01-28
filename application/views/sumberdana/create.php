@@ -11,12 +11,6 @@
             <form action="<?php base_url('sumberdana/create/') ?>" method="post" enctype="multipart/form-data">
 
               <div class="form-group">
-                <label for="nama_pemasukan">Nama Pemasukan</label>
-                <input type="text" class="form-control" name="nama_pemasukkan" value="" required>
-                <div class="invalid-feedback">Nama Pemasukan</div>
-              </div>
-
-              <div class="form-group">
                 <label for="id_jenis_sumber_dana">Jenis Sumber Dana Sekolah: </label>
                 <select class="form-control" name="id_jenis_sumber_dana">
                   <option disabled selected hidden>Pilih Sumber Dana</option>
