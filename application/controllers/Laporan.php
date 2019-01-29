@@ -183,11 +183,7 @@ class Laporan extends CI_Controller {
 		}else{
 			$data['inputBaru'] = $this->sumberdana_model->createAuto($nama, date('Y-m-d',strtotime($awal.'+3 month')),$data['sumMasuk'] - $data['sumKeluar']);
 		}
-
-<<<<<<< HEAD
-		$this->load->view('laporan/k3', $data);
-=======
+		
 		$this->load->view('laporan/lhtk3', $data);
->>>>>>> e7dabf7c1e83d611b470124ad7aad35436aae80c
 	}
 }
