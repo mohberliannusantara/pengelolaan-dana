@@ -206,7 +206,7 @@
         <form action="<?php echo base_url().'Laporan/exportBosK2/'.$this->session->id_sekolah ?>" method='post'>
           <div class="form-group">
             <label for="" class="label">Tahun: </label>
-            <input type="number" name="tahun" class="form-control" min="2017" value="2017" autofocus required>
+            <input type="month" name="tahun" class="form-control" autofocus required>
           </div>
         </div>
         <div class="modal-footer">
