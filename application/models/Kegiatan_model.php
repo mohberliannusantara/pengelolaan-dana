@@ -39,16 +39,6 @@ class Kegiatan_model extends CI_Model {
 		return $query->result();
 	}
 
-	// public function get_kegiatan($id)
-	// {
-	// 	$this->db->where('kegiatan.id_sekolah', $this->session->id_sekolah);
-	// 	$this->db->where('kegiatan.id_jenis_kegiatan', $id, FALSE);
-	// 	$this->db->join('jenis_kegiatan','kegiatan.id_jenis_kegiatan = jenis_kegiatan.id_jenis_kegiatan');
-	// 	$query = $this->db->get('kegiatan');
-	//
-	// 	return $query->result();
-	// }
-
 	public function create($id, $id_sekolah)
 	{
 		$data = array(

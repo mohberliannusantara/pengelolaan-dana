@@ -12,14 +12,13 @@ class Laporan_model extends CI_Model {
 		return $query->result();
 	}
 
-	public function cetakK2($id, $tahun)
+	public function cetakK2($id,$awal,$akhir)
 	{
-		$this->db->order_by('jenis_kegiatan.id_jenis_kegiatan', 'ASC');
-		// $this->db->where('tanggal BETWEEN "'.$awal.'" AND "'.$akhir.'"');
-		$this->db->where('year(detail_kegiatan.tanggal)',$tahun);
+		// $this->db->order_by('tanggal', 'ASC');
+		$this->db->where('tanggal BETWEEN "'.$awal.'" AND "'.$akhir.'"');
 		$this->db->where('kegiatan.id_sekolah', $id);
-		$this->db->join('kegiatan', 'jenis_kegiatan.id_jenis_kegiatan = kegiatan.id_jenis_kegiatan');
 		$this->db->join('detail_kegiatan', 'kegiatan.id_kegiatan = detail_kegiatan.id_kegiatan');
+		$this->db->join('kegiatan', 'jenis_kegiatan.id_jenis_kegiatan = kegiatan.id_jenis_kegiatan');
 		$query = $this->db->get('jenis_kegiatan');
 
 		return $query->result();
