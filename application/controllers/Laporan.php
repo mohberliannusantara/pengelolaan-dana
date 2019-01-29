@@ -10,7 +10,9 @@ class Laporan extends CI_Controller {
 		$this->load->model('pengeluaran_model');
 		$this->load->model('sumberdana_model');
 		$this->load->model('jenis_pengeluaran_model');
+
 		$this->load->model('kegiatan_model');
+		$this->load->model('jenis_kegiatan_model');
 
 		if (!$this->session->logged_in == TRUE) {
 			redirect('welcome','refresh');
@@ -87,8 +89,11 @@ class Laporan extends CI_Controller {
 
 	public function exportBosK2($id)
 	{
-		$data['periode'] = date('Y',strtotime($this->input->post('tahun')));
-		$data['kegiatan'] = $this->laporan_model->cetakK2($this->session->id_sekolah, $data['periode']);
+		$data['periode'] = $this->input->post('tahun');
+		$data['jenis_kegiatan'] = $this->jenis_kegiatan_model->get();
+		$data['kegiatan'] = $this->kegiatan_model->get($this->session->id_sekolah);
+		// $data['detail_kegiatan'] = $this->kegiatan_model->get($this->session->id_sekolah, $data['periode']);
+		// $data['detail_kegiatan'] = $this->laporan_model->cetakK2($this->session->id_sekolah, $data['periode']);
 
 		$this->load->view('laporan/k2', $data);
 	}
@@ -183,7 +188,7 @@ class Laporan extends CI_Controller {
 		}else{
 			$data['inputBaru'] = $this->sumberdana_model->createAuto($nama, date('Y-m-d',strtotime($awal.'+3 month')),$data['sumMasuk'] - $data['sumKeluar']);
 		}
-		
+
 		$this->load->view('laporan/lhtk3', $data);
 	}
 }

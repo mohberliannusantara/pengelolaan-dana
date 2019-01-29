@@ -20,7 +20,7 @@ class Laporan_model extends CI_Model {
 		$this->db->where('kegiatan.id_sekolah', $id);
 		$this->db->join('kegiatan', 'jenis_kegiatan.id_jenis_kegiatan = kegiatan.id_jenis_kegiatan');
 		$this->db->join('detail_kegiatan', 'kegiatan.id_kegiatan = detail_kegiatan.id_kegiatan');
-		$query = $this->db->get('jenis_kegiatan');
+		$query = $this->db->get('detail_kegiatan');
 
 		return $query->result();
 	}

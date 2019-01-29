@@ -245,8 +245,10 @@
       <div class="modal-body">
         <form action="<?php echo base_url().'Laporan/exportBosK2/'.$this->session->id_sekolah ?>" method='post'>
           <div class="form-group">
-            <label for="" class="label">Tahun: </label>
-            <input type="month" name="tahun" class="form-control" autofocus required>
+            <label for="" class="label text-dan">Tahun : </label>
+            <br>
+            <!-- <input type="month" name="tahun" class="form-control" autofocus required> -->
+            <input type="number" name="tahun" min="2017" max="2100" class="form-control" value="2017" autofocus required>
           </div>
         </div>
         <div class="modal-footer">

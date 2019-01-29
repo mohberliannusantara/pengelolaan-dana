@@ -4,12 +4,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Kegiatan_model extends CI_Model {
 
-	public function get()
+	public function get($id)
 	{
-		// $this->db->order_by('tanggal', 'ASC');
-		// $this->db->where('pengeluaran.id_sekolah', $id_sekolah, FALSE);
-		// $this->db->join('jenis_pengeluaran','pengeluaran.id_jenis_pengeluaran = jenis_pengeluaran.id_jenis_pengeluaran');
-		$query = $this->db->get('jenis_kegiatan');
+		$this->db->order_by('jenis_kegiatan.id_jenis_kegiatan', 'ASC');
+		$this->db->where('kegiatan.id_sekolah', $id);
+		$this->db->join('jenis_kegiatan','kegiatan.id_jenis_kegiatan = jenis_kegiatan.id_jenis_kegiatan');
+		$query = $this->db->get('kegiatan');
 
 		return $query->result();
 	}
