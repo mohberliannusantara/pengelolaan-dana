@@ -50,7 +50,7 @@ class Sumberdana_model extends CI_Model {
 		return $query->row();
 	}
 	
-	public function create()
+	public function create($nama)
 	{
 		$saldo_awal = $this->input->post('saldo_awal');
 		$saldo_bank = $this->input->post('saldo_bank');
@@ -59,6 +59,7 @@ class Sumberdana_model extends CI_Model {
 		$jumlah= $saldo_awal + $saldo_bank + $saldo_kas_tunai - ($bunga_bank/100*$saldo_bank);
 		$data = array(
 			'id_sekolah' => $this->session->id_sekolah,
+			'nama_pemasukkan' => $nama,
 			'saldo_awal' => $this->input->post('saldo_awal'),
 			'saldo_bank' => $this->input->post('saldo_bank'),
 			'bunga_bank' => $this->input->post('bunga_bank'),
@@ -70,6 +71,28 @@ class Sumberdana_model extends CI_Model {
 
 		$query= $this->db->insert('sumber_dana', $data);
 		// return $query->row();
+	}
+
+	public function createAuto($nama,$tanggal,$saldo)
+	{
+		$data = array(
+			'id_sekolah' => $this->session->id_sekolah,
+			'nama_pemasukkan' => $nama,
+			'saldo_awal' => $saldo,
+			'tanggal' => $tanggal,
+			'id_jenis_sumber_dana' => "1",
+			'jumlah' => $saldo
+		);
+
+		$query= $this->db->insert('sumber_dana', $data);
+	}
+
+	public function updateAuto($nama,$id_sekolah,$saldo)
+	{
+		$data = array('saldo_awal' => $saldo,'jumlah' => $saldo);
+		$this->db->where(array('sumber_dana.id_sekolah' => $id_sekolah, 'sumber_dana.nama_pemasukkan' => $nama));
+		$this->db->update('sumber_dana', $data);
+
 	}
 
 	public function get($id_sekolah)
@@ -89,6 +112,7 @@ class Sumberdana_model extends CI_Model {
 		$saldo_kas_tunai = $this->input->post('saldo_kas_tunai');
 		$jumlah= $saldo_awal + $saldo_bank + $saldo_kas_tunai;
 		$data = array(
+			'nama_pemasukkan' => $this->input->post('nama_pemasukkan'),
 			'saldo_awal' => $this->input->post('saldo_awal'),
 			'saldo_bank' => $this->input->post('saldo_bank'),
 			'bunga_bank' => $this->input->post('bunga_bank'),

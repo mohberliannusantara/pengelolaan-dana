@@ -37,7 +37,7 @@ class SumberDana extends CI_Controller {
 		$data2['jenisdana'] = $this->sumberdana_model->getJenisSumberDana();
 		$data2['saldoawal'] = $this->sumberdana_model->getJumlahTerakhir($this->session->id_sekolah);
 
-		// $this->form_validation->set_rules('id_sekolah', 'Sekolah', 'trim|required');
+		// $this->form_validation->set_rules('nama_pemasukkan', 'Nama Pemasukkan', 'trim|required');
 		$this->form_validation->set_rules('saldo_awal', 'Saldo Awal', 'trim|required');
 		$this->form_validation->set_rules('saldo_bank', 'Saldo Bank', 'trim|required');
 		$this->form_validation->set_rules('bunga_bank', 'Bunga Bank', 'trim|required');
@@ -45,11 +45,22 @@ class SumberDana extends CI_Controller {
 		$this->form_validation->set_rules('id_jenis_sumber_dana', 'Jenis Sumber Dana', 'trim|required');
 		$this->form_validation->set_rules('tanggal', 'Tanggal', 'trim|required');
 
-
 		if ($this->form_validation->run()==FALSE){
 			echo validation_errors();
 		}else{
-			$this->sumberdana_model->create();
+			$bulanList = array(	'01' => 'Januari', '02' => 'Februari', '03' => 'Maret', '04' => 'April',
+								'05' => 'Mei', '06' => 'Juni', '07' => 'Juli', '08' => 'Agustus',
+								'09' => 'September', '10' => 'Oktober', '11' => 'November', '12' => 'Desember');
+			
+			if($this->input->post('id_jenis_sumber_dana') == 1){
+				$nama = "Bosnas ".$bulanList[date("m",strtotime($this->input->post('tanggal')))]." ".date("Y",strtotime($this->input->post('tanggal')));
+			}else if ($this->input->post('id_jenis_sumber_dana') == 2) {
+				$nama = "Bosda ".$bulanList[date("m",strtotime($this->input->post('tanggal')))]." ".date("Y",strtotime($this->input->post('tanggal')));
+			}else{
+				$nama = "Sumber Dana Lain-Lain ".$bulanList[date("m",strtotime($this->input->post('tanggal')))]." ".date("Y",strtotime($this->input->post('tanggal')));
+			}
+
+			$this->sumberdana_model->create($nama);
 			echo "<script>alert('Successfully Added'); </script>";
 			redirect('SumberDana','refresh');
 		}

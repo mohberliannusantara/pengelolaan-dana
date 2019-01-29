@@ -1,10 +1,4 @@
 <?php
-header("Content-type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
-// $waktu=$bulan."_".$tahun;
-$file_name = "$nama (K3) $bulanAwal - $bulanAkhir $tahun.xls";
-header("Content-Disposition: attachment; filename=\"".$file_name."\"");
-header("Pragma: no-cache");
-header("Expires: 0");
 $masuk = 0;
 $keluar = 0;
 $saldo = 0;
@@ -19,7 +13,7 @@ $saldo = 0;
 		<table border="0" width="100%">
 			<thead>
 				<center>
-				<th colspan="6"><h3>BUKU KAS UMUM</h3></th>
+				<th colspan="6"><h3>BUKU KAS UMUM <?php echo $namasekolah->nama_sekolah ?> </h3></th>
 				</center>
 				<tr>
 					<center>
@@ -30,11 +24,11 @@ $saldo = 0;
 			<font face="Lucida Sans Unicode" size="11">
 			<tr>
 				<td>Nama Sekolah </td>
-				<td>: <?php echo $this->session->nama_sekolah; ?></td>
+				<td>: <?php echo $namasekolah->nama_sekolah; ?></td>
 			</tr>
 			<tr>
 				<td>Alamat </td>
-				<td>: <?php echo $this->session->alamat; ?></td>
+				<td>: <?php echo $namasekolah->alamat; ?></td>
 			</tr>
 			<tr>
 				<td>Kota </td>
@@ -69,7 +63,7 @@ $saldo = 0;
 				<?php foreach ($pemasukkan as $key => $value) { ?>
 				<tr>
 					<td><?php echo $value->tanggal; ?></td>
-					<td><?php echo $this->session->npsn."/".($key+1)."/D/".$nama."/".date("M",strtotime($value->tanggal))."/".$tahun?></td>
+					<td><?php echo $namasekolah->npsn."/".($key+1)."/D/".$namasekolah->nama_sekolah."/".date("M",strtotime($value->tanggal))."/".$tahun?></td>
 					<td><?php echo $value->nama_pemasukkan ?></td>
 					<?php $jumlah = $value->saldo_awal+$value->saldo_bank+$value->saldo_kas_tunai-($value->saldo_bank*$value->bunga_bank) ?>
 					<td><?php echo "Rp. ".$jumlah; $saldo+=$jumlah; $masuk=$saldo; ?></td>
@@ -108,7 +102,7 @@ $saldo = 0;
 				<?php foreach ($pengeluaran as $key => $value) { ?>
 				<tr>
 					<td><?php echo $value->tanggal; ?></td>
-					<td><?php echo $this->session->npsn."/".($key+1)."/K/".$nama."/".date("M",strtotime($value->tanggal))."/".$tahun?></td>
+					<td><?php echo $namasekolah->npsn."/".($key+1)."/K/".$namasekolah->nama_sekolah."/".date("M",strtotime($value->tanggal))."/".$tahun?></td>
 					<td><?php echo $value->nama_pengeluaran ?></td>
 					<td><?php echo "Rp. ".$value->jumlah; $saldo-= $value->jumlah; $keluar+=$value->jumlah; ?></td>
 					<td><?php echo "Rp. ".$saldo ?></td>
@@ -128,59 +122,5 @@ $saldo = 0;
 				</tr>
 			</tbody>
 		</table>
-		<!-- thead> -->
-		<font face="Lucida Sans Unicode" size="11">
-<table border="0" width="100%">
-	<tr>Pada hari ini <?php echo $hari ?> Tanggal <?php echo $akhir; ?> Buku Kas Umum ditutup </tr>
-	<tr>dengan keadaan/posisi buku sebagai berikut :</tr>
-	<tr>Saldo Buku Kas Umum</tr>
-	<tr>Terdiri dari :</tr>
-</table>
-</font>
-<!-- </thead> -->
-<table border="0" width="100%">
-	<tr>
-		<td>Saldo Bank</td>
-		<td>Rp. </td>
-		<td>...</td>
-	</tr>
-	<tr>
-		<td>Bunga Bank</td>
-		<td>Rp. </td>
-		<td>...</td>
-	</tr>
-	<tr>
-		<td>Saldo Kas Tunai</td>
-		<td>Rp. </td>
-		<td>...</td>
-	</tr>
-	<tr>
-		<td>Jumlah</td>
-		<td>Rp. </td>
-		<td>...</td>
-	</tr>
-	<tr>
-
-	</tr>
-	<tr></tr>
-	<tr>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td colspan="3">Batu, <?php echo $akhir; ?></td>
-	</tr>
-	<tr>
-		<td></td>
-		<td>Mengetahui</td>
-		<td></td>
-		<td>Dibuat Oleh,</td>
-	</tr>
-	<tr>
-		<td></td>
-		<td>Kepala Sekolah</td>
-		<td></td>
-		<td>Bendahara</td>
-	</tr>
-</table>
 </body>
 </html>

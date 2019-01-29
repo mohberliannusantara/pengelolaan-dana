@@ -1,7 +1,7 @@
 <?php
 header("Content-type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
-$nama=$this->session->nama_sekolah;
-$file_name = "$nama (BOS-04) $periode $tahun.xls";
+$nama=$namasekolah->nama_sekolah;
+$file_name = "$nama (BOS-04) $periode.xls";
 header("Content-Disposition: attachment; filename=\"".$file_name."\"");
 header("Pragma: no-cache");
 header("Expires: 0");
@@ -11,7 +11,7 @@ $jumlahB=0;
 <table border="1" width="100%">
 	<thead>
 		<center>
-		<h3>LAPORAN PENGGUNAAN DANA BOS PERIODE <?php echo "$periode"; ?></h3>
+		<h3>LAPORAN PENGGUNAAN DANA BOS <?php echo $nama ?> PERIODE <?php echo "$periode"; ?></h3>
 		</center>
 		<h4>A. Laporan Pengeluaran</h4>
 		

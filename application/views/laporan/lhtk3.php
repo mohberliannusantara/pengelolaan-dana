@@ -1,10 +1,4 @@
 <?php
-header("Content-type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
-// $waktu=$bulan."_".$tahun;
-$file_name = "$nama (K3) $bulanAwal - $bulanAkhir $tahun.xls";
-header("Content-Disposition: attachment; filename=\"".$file_name."\"");
-header("Pragma: no-cache");
-header("Expires: 0");
 $masuk = 0;
 $keluar = 0;
 $saldo = 0;
@@ -128,59 +122,6 @@ $saldo = 0;
 				</tr>
 			</tbody>
 		</table>
-		<!-- thead> -->
-		<font face="Lucida Sans Unicode" size="11">
-<table border="0" width="100%">
-	<tr>Pada hari ini <?php echo $hari ?> Tanggal <?php echo $akhir; ?> Buku Kas Umum ditutup </tr>
-	<tr>dengan keadaan/posisi buku sebagai berikut :</tr>
-	<tr>Saldo Buku Kas Umum</tr>
-	<tr>Terdiri dari :</tr>
-</table>
-</font>
-<!-- </thead> -->
-<table border="0" width="100%">
-	<tr>
-		<td>Saldo Bank</td>
-		<td>Rp. </td>
-		<td>...</td>
-	</tr>
-	<tr>
-		<td>Bunga Bank</td>
-		<td>Rp. </td>
-		<td>...</td>
-	</tr>
-	<tr>
-		<td>Saldo Kas Tunai</td>
-		<td>Rp. </td>
-		<td>...</td>
-	</tr>
-	<tr>
-		<td>Jumlah</td>
-		<td>Rp. </td>
-		<td>...</td>
-	</tr>
-	<tr>
-
-	</tr>
-	<tr></tr>
-	<tr>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td colspan="3">Batu, <?php echo $akhir; ?></td>
-	</tr>
-	<tr>
-		<td></td>
-		<td>Mengetahui</td>
-		<td></td>
-		<td>Dibuat Oleh,</td>
-	</tr>
-	<tr>
-		<td></td>
-		<td>Kepala Sekolah</td>
-		<td></td>
-		<td>Bendahara</td>
-	</tr>
-</table>
+		
 </body>
 </html>

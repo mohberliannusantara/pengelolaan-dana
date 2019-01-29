@@ -51,7 +51,7 @@
           <li class="nav-item <?php echo ($this->uri->segment(2) == 'dana') ? 'active':''; ?> ">
             <a class="nav-link" href="<?php echo site_url('admin/dana')?>">
               <i class="material-icons">content_paste</i>
-              <p>Kelola Dana</p>
+              <p>Laporan Dana</p>
             </a>
           </li>
           <li class="nav-item <?php echo ($this->uri->segment(2) == 'jenissumberdana') ? 'active':''; ?> ">

@@ -5,6 +5,7 @@
         <div class="card card-profile">
           <div class="card-body dropdown show">
             <h4 class="card-title">BOS-04</h4>
+            <a href="#" class="btn btn-info" data-toggle="modal" data-target="#lhtBOS-04">Lihat</a>
             <a href="#" class="btn btn-info" data-toggle="modal" data-target="#BOS-04">Unduh</a>
             <p class="card-category">Laporan Penggunaan Dana BOS</p>
           </div>
@@ -55,6 +56,7 @@
         <div class="card card-profile">
           <div class="card-body">
             <h4 class="card-title">BOS-K3</h4>
+            <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#lhtBOS-k3">Lihat</a>
             <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#BOS-k3">Unduh</a>
             <p class="card-category">Buku Kas Umum</p>
           </div>
@@ -192,6 +194,44 @@
   </div>
 </div>
 
+<div class="modal fade" id="lhtBOS-04" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Melihat Laporan Form BOS-04</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="<?php echo base_url().'Laporan/lhtBos04/'.$this->session->id_sekolah ?>" method='post' target="_blank">
+          <div class="form-group">
+            <label for="" class="label">Tahun: </label>
+            <input type="number" name="tahun" class="form-control" min="2017" value="2017" autofocus required>
+          </div>
+          <div class="form-group">
+            <label for="triwulan">Laporan Triwulan yang Ingin Di Lihat: </label>
+            <select class="form-control" name="triwulan" required>
+              <option disabled selected hidden>Pilih Triwulan</option>
+              <option value="1/1">Triwulan 1</option>
+              <option value="1/4">Triwulan 2</option>
+              <option value="1/7">Triwulan 3</option>
+              <option value="1/10">Triwulan 4</option>
+              <option value="semua">Semua Triwulan</option>
+            </select>
+            <div class="invalid-feedback">Masukkan Triwulan yang ingin di Lihat</div>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+          <button type="submit" class="btn btn-primary">Lihat</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
 <!-- Modal BOS-k2 -->
 <div class="modal fade" id="BOS-K2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
@@ -219,6 +259,45 @@
 </div>
 
 <!-- Modal k3-->
+<div class="modal fade" id="lhtBOS-k3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Melihat Laporan Form BOS-K3</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="<?php echo base_url().'Laporan/lhtk3/'.$this->session->id_sekolah ?>" method='post' target="_blank">
+          <div class="form-group">
+            <label for="" class="label">Tahun: </label>
+            <input type="number" name="tahun" class="form-control" min="2017" value="2017" autofocus required>
+          </div>
+          <div class="form-group">
+            <label for="triwulan">Laporan Triwulan yang Ingin Di Lihat: </label>
+            <select class="form-control" name="triwulan" required>
+              <option disabled selected hidden>Pilih Triwulan</option>
+              <option value="1/1">Triwulan 1</option>
+              <option value="1/4">Triwulan 2</option>
+              <option value="1/7">Triwulan 3</option>
+              <option value="1/10">Triwulan 4</option>
+              <option value="semua">Semua Triwulan</option>
+            </select>
+            <div class="invalid-feedback">Masukkan Triwulan yang ingin di Lihat</div>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+          <button type="submit" class="btn btn-primary">Lihat</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
 <div class="modal fade" id="BOS-k3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -235,23 +314,16 @@
             <input type="number" name="tahun" class="form-control" min="2017" value="2017" autofocus required>
           </div>
           <div class="form-group">
-            <label for="bulan">Laporan Bulan yang Ingin Di Unduh: </label>
-            <select class="form-control" name="bulan" required="true">
-              <option disabled selected hidden>Pilih Bulan</option>
-              <option value="1">Januari</option>
-              <option value="2">Februari</option>
-              <option value="3">Maret</option>
-              <option value="4">April</option>
-              <option value="5">Mei</option>
-              <option value="6">Juni</option>
-              <option value="7">Juli</option>
-              <option value="8">Agustus</option>
-              <option value="9">September</option>
-              <option value="10">Oktober</option>
-              <option value="11">November</option>
-              <option value="12">Desemver</option>
+            <label for="triwulan">Laporan Triwulan yang Ingin Di Unduh: </label>
+            <select class="form-control" name="triwulan" required>
+              <option disabled selected hidden>Pilih Triwulan</option>
+              <option value="1/1">Triwulan 1</option>
+              <option value="1/4">Triwulan 2</option>
+              <option value="1/7">Triwulan 3</option>
+              <option value="1/10">Triwulan 4</option>
+              <option value="semua">Semua Triwulan</option>
             </select>
-            <div class="invalid-feedback">Masukkan Bulan</div>
+            <div class="invalid-feedback">Masukkan Triwulan yang ingin di Unduh</div>
           </div>
 
         </div>

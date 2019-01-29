@@ -1,10 +1,4 @@
 <?php
-header("Content-type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
-$nama=$this->session->nama_sekolah;
-$file_name = "$nama (BOS-04) $periode $tahun.xls";
-header("Content-Disposition: attachment; filename=\"".$file_name."\"");
-header("Pragma: no-cache");
-header("Expires: 0");
 $jumlahA=0;
 $jumlahB=0;
 ?>

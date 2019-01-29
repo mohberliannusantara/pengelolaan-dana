@@ -1,4 +1,7 @@
 <div class="modal-body">
+  <h5>JNama Pemasukkan</h5>
+  <p><?php echo $sumberdana->nama_pemasukkan; ?></p>
+  <hr>
   <h5>Jenis Sumber Dana</h5>
   <p><?php echo $sumberdana->nama_jenis_sumber_dana; ?></p>
   <hr>
