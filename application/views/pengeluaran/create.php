@@ -52,6 +52,13 @@
                 <input type="date" class="form-control" name="tanggal" value="" required >
                 <div class="invalid-feedback">Masukkan Tanggal.</div>
               </div>
+              <div class="form-group">
+                <label for="gambar">Bukti Transaksi</label>
+              </div>
+              <label class="file">
+                <input type="file" class="form-control-file" name="gambar">
+                <span class="file-custom"></span>
+              </label>
 
               <div class="form-group">
                 <input class="btn btn-info" type="submit" value="Simpan">

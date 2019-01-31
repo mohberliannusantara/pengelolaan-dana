@@ -44,9 +44,22 @@ class Pengeluaran extends CI_Controller {
 		if ($this->form_validation->run()==FALSE){
 			echo validation_errors();
 		}else{
-			$this->pengeluaran_model->create();
-			echo "<script>alert('Successfully Added'); </script>";
-			redirect('pengeluaran','refresh');
+
+			$config['upload_path']='./assets/img/bukti/';
+            $config['allowed_types']='gif|jpg|png';
+            $config['max_size']=1000000000;
+            $config['max_width']=10240;
+            $config['max_height']=7680;
+
+            $this->load->library('upload', $config);
+            if (! $this->upload->do_upload('gambar')) {
+                $error = array('error' => $this->upload->display_errors());
+            } else {
+                $this->pengeluaran_model->create();
+				echo "<script>alert('Successfully Added'); </script>";
+				redirect('pengeluaran','refresh');
+            }
+			
 		}
 
 		$this->load->view('template/header', $data);
@@ -68,9 +81,25 @@ class Pengeluaran extends CI_Controller {
 		if ($this->form_validation->run()==FALSE){
 			echo validation_errors();
 		}else{
-			$this->pengeluaran_model->edit($id);
-			echo "<script>alert('Successfully Added'); </script>";
-			redirect('pengeluaran','refresh');
+
+			$config['upload_path']='./assets/img/bukti/';
+            $config['allowed_types']='gif|jpg|png';
+            $config['max_size']=1000000000;
+            $config['max_width']=10240;
+            $config['max_height']=7680;
+            $config['encrypt_name'] = TRUE;
+
+            $this->load->library('upload', $config);
+            if (! $this->upload->do_upload('gambar')) {
+                $this->pengeluaran_model->edit($id);
+				echo "<script>alert('Successfully Updated'); </script>";
+				redirect('pengeluaran','refresh');
+            } else {
+                $this->pengeluaran_model->editPic($id);
+				echo "<script>alert('Successfully Updated'); </script>";
+				redirect('pengeluaran','refresh');
+            }
+
 		}
 
 		$this->load->view('template/header', $data);

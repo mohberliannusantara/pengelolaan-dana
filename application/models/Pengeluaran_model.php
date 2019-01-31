@@ -23,6 +23,7 @@ class Pengeluaran_model extends CI_Model {
 			'jumlah' => $this->input->post('jumlah'),
 			'id_sekolah' => $this->session->id_sekolah,
 			'tanggal' => $this->input->post('tanggal'),
+			'gambar' => $this->upload->data('file_name'),
 		);
 
 		$this->db->insert('pengeluaran', $data);
@@ -39,6 +40,35 @@ class Pengeluaran_model extends CI_Model {
 
 	public function edit($id)
 	{
+		if ($this->upload->data('file_name')==null) {
+			$data = array(
+			'nama_pengeluaran' => $this->input->post('nama_pengeluaran'),
+			'nama_toko' => $this->input->post('toko'),
+			'id_jenis_pengeluaran' => $this->input->post('jenis_pengeluaran'),
+			'jumlah' => $this->input->post('jumlah'),
+			'id_sekolah' => $this->session->id_sekolah,
+			'tanggal' => $this->input->post('tanggal'),
+			);
+			$this->db->where('id_pengeluaran', $id);
+			$this->db->update('pengeluaran', $data);		
+		}else{
+			$data = array(
+			'nama_pengeluaran' => $this->input->post('nama_pengeluaran'),
+			'nama_toko' => $this->input->post('toko'),
+			'id_jenis_pengeluaran' => $this->input->post('jenis_pengeluaran'),
+			'jumlah' => $this->input->post('jumlah'),
+			'id_sekolah' => $this->session->id_sekolah,
+			'tanggal' => $this->input->post('tanggal'),
+			'gambar' => $this->upload->data('file_name'),
+			);
+			$this->db->where('id_pengeluaran', $id);
+			$this->db->update('pengeluaran', $data);
+		}
+		
+	}
+
+	public function editPic($id)
+	{
 		$data = array(
 			'nama_pengeluaran' => $this->input->post('nama_pengeluaran'),
 			'nama_toko' => $this->input->post('toko'),
@@ -46,6 +76,7 @@ class Pengeluaran_model extends CI_Model {
 			'jumlah' => $this->input->post('jumlah'),
 			'id_sekolah' => $this->session->id_sekolah,
 			'tanggal' => $this->input->post('tanggal'),
+			'gambar' => $this->upload->data('file_name'),
 		);
 
 		$this->db->where('id_pengeluaran', $id);
