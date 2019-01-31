@@ -37,7 +37,7 @@
         <div class="card card-profile">
           <div class="card-body">
             <h4 class="card-title">BOS-K2</h4>
-            <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#BOS-K2">Unduh</a>
+            <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#BOS-K2">Cek Laporan</a>
             <p class="card-category">Rencana Kegiatan & Anggaran</p>
           </div>
           <div class="card-footer">
@@ -206,15 +206,10 @@
       <div class="modal-body">
         <form action="<?php echo base_url().'Laporan/exportBosK2/'.$this->session->id_sekolah ?>" method='post'>
           <div class="form-group">
-<<<<<<< HEAD
             <label for="" class="label text-dan">Tahun : </label>
             <br>
             <!-- <input type="month" name="tahun" class="form-control" autofocus required> -->
             <input type="number" name="tahun" min="2017" max="2100" class="form-control" value="2017" autofocus required>
-=======
-            <label for="" class="label">Tahun: </label>
-            <input type="number" name="tahun" class="form-control" min="2017" value="2017" autofocus required>
->>>>>>> 76fe0a724c5c3e257a32702b92dc17ad418c38a1
           </div>
         </div>
         <div class="modal-footer">

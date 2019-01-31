@@ -5,123 +5,141 @@ $saldo = 0;
 ?>
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<title>Document</title>
-	</head>
-	<body>
-		<table border="0" width="100%">
-			<thead>
-				<center>
-				<th colspan="6"><h3>BUKU KAS UMUM</h3></th>
-				</center>
-				<tr>
-					<center>
-					<h3><th colspan="6">Bulan : <?php echo $bulanAwal.' - '.$bulanAkhir.' '.$tahun ?></h3></th>
-					</center>
-				</tr>
-			</thead>
-			<font face="Lucida Sans Unicode" size="11">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<table class="table">
+		<thead>
+			<center>
+				<h3>RENCANA KEGIATAN DAN ANGGARAN SEKOLAH (RKAS)</h3>
+				<h3>TAHUN <?php echo $periode ?></h3>
+			</center>
+		</thead>
+		<tbody>
 			<tr>
-				<td>Nama Sekolah </td>
-				<td>: <?php echo $this->session->nama_sekolah; ?></td>
+				<td>Nama Sekolah</td>
+				<td>:</td>
+				<td><?php echo $this->session->nama_sekolah; ?></td>
 			</tr>
 			<tr>
-				<td>Alamat </td>
-				<td>: <?php echo $this->session->alamat; ?></td>
+				<td>Desa / Kecamatan</td>
+				<td>:</td>
+				<td><?php echo $this->session->kecamatan ?></td>
 			</tr>
 			<tr>
-				<td>Kota </td>
-				<td>: Batu</td>
+				<td>Kabupaten / Kota</td>
+				<td>:</td>
+				<td>Kota Batu</td>
 			</tr>
 			<tr>
-				<td>Propinsi </td>
-				<td>: Jawa Timur</td>
+				<td>Provinsi</td>
+				<td>:</td>
+				<td>Jawa Timur</td>
 			</tr>
-			</font>
-		</table>
-		<table border="1" width="100%">
-			<thead>
-				<center> <h4>LAPORAN PEMASUKKAN </h4></center>
+			<tr>
+				<td>Triwulan</td>
+				<td>:</td>
+				<td>I-IV</td>
+			</tr>
+			<tr>
+				<td>Sumber Dana</td>
+				<td>:</td>
+				<td>BOS REGULER</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<table border="1" width="100%">
+		<thead>
+			<tr>
+				<th>Nomor</th>
+				<th>Jenis Kegiatan</th>
+				<th>Kegiatan</th>
+				<th>Uraian</th>
+				<th>Jumlah (Rp)</th>
+			</tr>
+		</thead>
+		<tbody>
+			<?php foreach ($jenis_kegiatan as $key_jenis_kegiatan => $value_jenis_kegiatan): ?>
 				<tr>
-					<th>Tanggal</th>
-					<th>No. Bukti</th>
-					<th>Uraian</th>
-					<th>Pemasukkan(Debit)</th>
-					<th>Saldo</th>
+					<td><?php echo $key_jenis_kegiatan+1 ?></td>
+					<td><?php echo $value_jenis_kegiatan->nama_jenis_kegiatan ?></td>
+					<td>
+						<table border="1" width="100%">
+							<?php foreach ($kegiatan as $key_kegiatan => $value_kegiatan): ?>
+								<tr>
+									<td><?php echo $value_kegiatan->nama_kegiatan ?></td>
+									<td><?php echo $value_kegiatan->nama_kegiatan ?></td>
+
+									<!-- <td>
+										<table>
+
+										</table>
+									</td> -->
+								</tr>
+							<?php endforeach; ?>
+						</table>
+					</td>
+					<!-- </td>
+					<td></td>
+					<td></td> -->
 				</tr>
+			<?php endforeach; ?>
+		</tbody>
+	</table>
+
+
+
+
+
+
+
+	<table border="1" width="100%">
+		<thead>
+			<center>
+				<h3>RENCANA KEGIATAN DAN ANGGARAN SEKOLAH (RKAS)</h3>
+				<h3>TAHUN <?php echo $periode ?></h3>
+			</center>
+
+			<h5>Nama Sekolah			: <?php echo $this->session->nama_sekolah; ?></h5>
+			<h5>Desa / Kecamatan	: <?php echo $this->session->kecamatan ?></h5>
+			<h5>Kabupaten / Kota	: Kota Batu</h5>
+			<h5>Provinsi					: Jawa Timur</h5>
+			<h5>Triwulan					: I-IV</h5>
+			<h5>Sumber Dana				: BOS REGULER</h5>
+			<h5> </h5>
+			<tr>
+				<th>No Urut</th>
+				<th>No Kode</th>
+				<th>Uraian</th>
+				<th>Jumlah (Rp)</th>
+			</tr>
+		</thead>
+		<tbody>
+			<?php foreach ($jenis_kegiatan as $key_jenis_kegiatan => $value_jenis_kegiatan): ?>
 				<tr>
-					<th>1</th>
-					<th>2</th>
-					<th>3</th>
-					<th>4</th>
-					<th>5</th>
+					<td><?php echo $key_jenis_kegiatan+1 ?></td>
+					<tr>
+
+					</tr>
+					<?php foreach ($kegiatan as $key_kegiatan => $value_jenis_kegiatan): ?>
+						<td><?php echo $key_kegiatan+1 ?></td>
+						<td><?php echo $value->nama_jenis_kegiatan ?></td>
+
+					<?php endforeach; ?>
+
+					<!-- <td><?php echo $key+1 ?></td>
+					<td><?php echo $key+1 ?></td>
+					<td><?php echo $key+1 ?></td> -->
 				</tr>
-			</thead>
-			
-			<tbody>
-				<?php foreach ($pemasukkan as $key => $value) { ?>
-				<tr>
-					<td><?php echo $value->tanggal; ?></td>
-					<td><?php echo $this->session->npsn."/".($key+1)."/D/".$nama."/".date("M",strtotime($value->tanggal))."/".$tahun?></td>
-					<td><?php echo $value->nama_pemasukkan ?></td>
-					<?php $jumlah = $value->saldo_awal+$value->saldo_bank+$value->saldo_kas_tunai-($value->saldo_bank*$value->bunga_bank) ?>
-					<td><?php echo "Rp. ".$jumlah; $saldo+=$jumlah; $masuk=$saldo; ?></td>
-					<td><?php echo "Rp. ".$saldo ?></td>
-				</tr>
-				
-				
-				
-				<?php }  ?>
-				<tr>
-					<td colspan="4" align="center">Total Jumlah Pemasukan Bulan <?php echo $bulanAwal.' - '.$bulanAkhir.' '.$tahun ?> </td>
-					<th><?php echo "Rp. ".$saldo ?></th>
-				</tr>
-			</tbody>
-		</table>
-		<table border="1" width="100%">
-			<thead>
-				<center> <h4>LAPORAN PENGELUARAN </h4> </center>
-				<tr>
-					<th>Tanggal</th>
-					<th>No. Bukti</th>
-					<th>Uraian</th>
-					<th>Pengeluaran(Kredit)</th>
-					<th>Saldo</th>
-				</tr>
-				<tr>
-					<th>1</th>
-					<th>2</th>
-					<th>3</th>
-					<th>4</th>
-					<th>5</th>
-				</tr>
-			</thead>
-			
-			<tbody>
-				<?php foreach ($pengeluaran as $key => $value) { ?>
-				<tr>
-					<td><?php echo $value->tanggal; ?></td>
-					<td><?php echo $this->session->npsn."/".($key+1)."/K/".$nama."/".date("M",strtotime($value->tanggal))."/".$tahun?></td>
-					<td><?php echo $value->nama_pengeluaran ?></td>
-					<td><?php echo "Rp. ".$value->jumlah; $saldo-= $value->jumlah; $keluar+=$value->jumlah; ?></td>
-					<td><?php echo "Rp. ".$saldo ?></td>
-				</tr>
-				<?php }  ?>
-				<tr>
-					<td colspan="4" align="center">Jumlah Pemasukkan </td>
-					<th><?php echo "Rp. ".$masuk ?></th>
-				</tr>
-				<tr>
-					<td colspan="4" align="center">Jumlah Pengeluaran </td>
-					<th><?php echo "Rp. ".$keluar ?></th>
-				</tr>
-				<tr>
-					<td colspan="4" align="center">Sisa Saldo <?php echo $bulanAwal.' - '.$bulanAkhir.' '.$tahun ?> </td>
-					<th><?php echo "Rp. ".$saldo ?></th>
-				</tr>
-			</tbody>
-		</table>
-		
+			<?php endforeach; ?>
+		</tbody>
+		<tr>
+			<th colspan="4">TOTAL</th>
+			<th>Rp. <?php echo $jumlahA; ?></th>
+		</tr>
+	</table>
 </body>
 </html>

@@ -47,8 +47,8 @@ class Laporan extends CI_Controller {
 		$monthAkhir = date("m",strtotime($akhir));
 
 		$monthList = array(	'01' => 'Januari', '02' => 'Februari', '03' => 'Maret', '04' => 'April',
-							'05' => 'Mei', '06' => 'Juni', '07' => 'Juli', '08' => 'Agustus',
-							'09' => 'September', '10' => 'Oktober', '11' => 'November', '12' => 'Desember');
+		'05' => 'Mei', '06' => 'Juni', '07' => 'Juli', '08' => 'Agustus',
+		'09' => 'September', '10' => 'Oktober', '11' => 'November', '12' => 'Desember');
 
 		$data['tahun'] = $this->input->post('tahun');
 		$data['triwulan'] = $this->laporan_model->cetakBos04($this->session->id_sekolah,$awal,$akhir);
@@ -63,33 +63,24 @@ class Laporan extends CI_Controller {
 		if($action == 'unduh') {
 			$this->load->view('laporan/bos04', $data);
 		}
-
 	}
-
-	public function exportBosK2($id)
-	{
-		if($this->input->post('triwulan') == 'semua'){
-			$tgl = '1/1/'.$this->input->post('tahun');
-			$awal = date('Y-d-m',strtotime($tgl));
-			$akhir = date('Y-m-d',strtotime($awal.'+1 year -1 day'));
-
-		}else{
-			$awal = date('Y-d-m',strtotime($this->input->post('tahun')));
-			$akhir = date('Y-m-d',strtotime($awal.'+3 month -1 day'));
-		}
-
-		$data['triwulan'] = $this->laporan_model->cetakBosK2($this->session->id_sekolah,$awal,$akhir);
-		$data['periode'] = date('d-m-Y',strtotime($awal)).' S/D '.date('d-m-Y',strtotime($akhir));
 
 	public function exportBosK2($id)
 	{
 		$data['periode'] = $this->input->post('tahun');
 		$data['jenis_kegiatan'] = $this->jenis_kegiatan_model->get();
 		$data['kegiatan'] = $this->kegiatan_model->get($this->session->id_sekolah);
-		// $data['detail_kegiatan'] = $this->kegiatan_model->get($this->session->id_sekolah, $data['periode']);
+		$data['detail_kegiatan'] = $this->kegiatan_model->get($this->session->id_sekolah, $data['periode']);
 		// $data['detail_kegiatan'] = $this->laporan_model->cetakK2($this->session->id_sekolah, $data['periode']);
 
-		$this->load->view('laporan/k2', $data);
+		$action = $this->input->post('action');
+		if($action == 'lihat') {
+			$this->load->view('laporan/lhtk2', $data);
+		}
+		if($action == 'unduh') {
+			$this->load->view('laporan/k2', $data);
+		}
+
 	}
 
 	public function exportk3($id)
@@ -109,10 +100,10 @@ class Laporan extends CI_Controller {
 		$monthAkhir = date("m",strtotime($akhir));
 
 		$dayList = array(	'Sun' => 'Minggu', 'Mon' => 'Senin', 'Tue' => 'Selasa', 'Wed' => 'Rabu',
-							'Thu' => 'Kamis', 'Fri' => 'Jumat', 'Sat' => 'Sabtu');
+		'Thu' => 'Kamis', 'Fri' => 'Jumat', 'Sat' => 'Sabtu');
 		$monthList = array(	'01' => 'Januari', '02' => 'Februari', '03' => 'Maret', '04' => 'April',
-							'05' => 'Mei', '06' => 'Juni', '07' => 'Juli', '08' => 'Agustus',
-							'09' => 'September', '10' => 'Oktober', '11' => 'November', '12' => 'Desember');
+		'05' => 'Mei', '06' => 'Juni', '07' => 'Juli', '08' => 'Agustus',
+		'09' => 'September', '10' => 'Oktober', '11' => 'November', '12' => 'Desember');
 
 
 		$data['pemasukkan'] = $this->laporan_model->cetakK3($this->session->id_sekolah,$awal,$akhir);
