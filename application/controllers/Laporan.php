@@ -136,7 +136,46 @@ class Laporan extends CI_Controller {
 		if($action == 'unduh') {
 			$this->load->view('laporan/k3', $data);
 		}
+	}
 
-		$this->load->view('laporan/lhtk3', $data);
+	public function exportk7($value='')
+	{
+		$tgl = '1/1/'.$this->input->post('tahun');
+		$awal = date('Y-d-m',strtotime($tgl));
+		$akhir = date('Y-m-d',strtotime($awal.'+1 year -1 day'));
+		$monthAwal = date("m",strtotime($awal));
+		$monthAkhir = date("m",strtotime($akhir));
+
+		$monthList = array(	'01' => 'Januari', '02' => 'Februari', '03' => 'Maret', '04' => 'April',
+		'05' => 'Mei', '06' => 'Juni', '07' => 'Juli', '08' => 'Agustus',
+		'09' => 'September', '10' => 'Oktober', '11' => 'November', '12' => 'Desember');
+
+		$data['msktriwulan1'] = $this->laporan_model->sumMasuk($this->session->id_sekolah,date('Y-m-d',strtotime($awal)), date('Y-m-d',strtotime($awal.'+3 month -1 day')));
+		$data['msktriwulan2'] = $this->laporan_model->sumMasuk($this->session->id_sekolah,date('Y-m-d',strtotime($awal.'+3 month')), date('Y-m-d',strtotime($awal.'+6 month -1 day')));
+		$data['msktriwulan3'] = $this->laporan_model->sumMasuk($this->session->id_sekolah,date('Y-m-d',strtotime($awal.'+6 month')), date('Y-m-d',strtotime($awal.'+9 month -1 day')));
+		$data['msktriwulan4'] = $this->laporan_model->sumMasuk($this->session->id_sekolah,date('Y-m-d',strtotime($awal.'+9 month')), date('Y-m-d',strtotime($awal.'+1 year -1 day')));
+
+		$data['klrtriwulan1'] = $this->laporan_model->sumKeluar($this->session->id_sekolah,date('Y-m-d',strtotime($awal)), date('Y-m-d',strtotime($awal.'+3 month -1 day')));
+		$data['klrtriwulan2'] = $this->laporan_model->sumKeluar($this->session->id_sekolah,date('Y-m-d',strtotime($awal.'+3 month')), date('Y-m-d',strtotime($awal.'+6 month -1 day')));
+		$data['klrtriwulan3'] = $this->laporan_model->sumKeluar($this->session->id_sekolah,date('Y-m-d',strtotime($awal.'+6 month')), date('Y-m-d',strtotime($awal.'+9 month -1 day')));
+		$data['klrtriwulan4'] = $this->laporan_model->sumKeluar($this->session->id_sekolah,date('Y-m-d',strtotime($awal.'+9 month')), date('Y-m-d',strtotime($awal.'+1 year -1 day')));
+
+
+		$data['sumMasuk'] = $this->laporan_model->sumMasuk($this->session->id_sekolah,$awal,$akhir);
+		$data['sumKeluar'] = $this->laporan_model->sumKeluar($this->session->id_sekolah,$awal,$akhir);
+		$data['nama'] = $this->session->nama_sekolah;
+		$data['kepala_sekolah'] = $this->session->kepala_sekolah;
+		$data['alamat'] = $this->session->alamat;
+		$data['bulanAwal'] = $monthList[$monthAwal];
+		$data['bulanAkhir'] = $monthList[$monthAkhir];
+		$data['tahun'] = $this->input->post('tahun');
+
+		$action = $this->input->post('action');
+		if($action == 'lihat') {
+			$this->load->view('laporan/lhtspj', $data);
+		}
+		if($action == 'unduh') {
+			$this->load->view('laporan/spj', $data);
+		}
 	}
 }

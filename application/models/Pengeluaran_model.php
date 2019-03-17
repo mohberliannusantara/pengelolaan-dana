@@ -7,9 +7,10 @@ class Pengeluaran_model extends CI_Model {
 	public function get($id_sekolah)
 	{
 		$this->db->order_by('tanggal', 'ASC');
-		$this->db->where('pengeluaran.id_sekolah', $id_sekolah, FALSE);
-		$this->db->join('jenis_pengeluaran','pengeluaran.id_jenis_pengeluaran = jenis_pengeluaran.id_jenis_pengeluaran');
-		$query = $this->db->get('pengeluaran');
+		$this->db->where('status', 'keluar');
+		$this->db->where('keluar_masuk_dana.id_sekolah', $id_sekolah, FALSE);
+		$this->db->join('jenis_dana_kegiatan','keluar_masuk_dana.id_jenis_dana_kegiatan = jenis_dana_kegiatan.id_jenis_dana_kegiatan');
+		$query = $this->db->get('keluar_masuk_dana');
 
 		return $query->result();
 	}
@@ -17,23 +18,24 @@ class Pengeluaran_model extends CI_Model {
 	public function create()
 	{
 		$data = array(
-			'nama_pengeluaran' => $this->input->post('nama_pengeluaran'),
+			'nama_kegiatan' => $this->input->post('nama_pengeluaran'),
 			'nama_toko' => $this->input->post('toko'),
-			'id_jenis_pengeluaran' => $this->input->post('jenis_pengeluaran'),
+			'id_jenis_dana_kegiatan' => $this->input->post('jenis_pengeluaran'),
 			'jumlah' => $this->input->post('jumlah'),
 			'id_sekolah' => $this->session->id_sekolah,
 			'tanggal' => $this->input->post('tanggal'),
 			'gambar' => $this->upload->data('file_name'),
+			'status' => "keluar",
 		);
 
-		$this->db->insert('pengeluaran', $data);
+		$this->db->insert('keluar_masuk_dana', $data);
 	}
 
 	public function getPengeluaranById($id)
 	{
-		$this->db->where('pengeluaran.id_pengeluaran', $id);
-		$this->db->join('jenis_pengeluaran','pengeluaran.id_jenis_pengeluaran = jenis_pengeluaran.id_jenis_pengeluaran');
-		$query = $this->db->get('pengeluaran');
+		$this->db->where('keluar_masuk_dana.id_keluar_masuk_dana', $id);
+		$this->db->join('jenis_dana_kegiatan','keluar_masuk_dana.id_jenis_dana_kegiatan = jenis_dana_kegiatan.id_jenis_dana_kegiatan');
+		$query = $this->db->get('keluar_masuk_dana');
 
 		return $query->result();
 	}
@@ -42,9 +44,9 @@ class Pengeluaran_model extends CI_Model {
 	{
 		if ($this->upload->data('file_name')==null) {
 			$data = array(
-			'nama_pengeluaran' => $this->input->post('nama_pengeluaran'),
+			'nama_kegiatan' => $this->input->post('nama_pengeluaran'),
 			'nama_toko' => $this->input->post('toko'),
-			'id_jenis_pengeluaran' => $this->input->post('jenis_pengeluaran'),
+			'id_jenis_dana_kegiatan' => $this->input->post('jenis_pengeluaran'),
 			'jumlah' => $this->input->post('jumlah'),
 			'id_sekolah' => $this->session->id_sekolah,
 			'tanggal' => $this->input->post('tanggal'),
@@ -53,16 +55,16 @@ class Pengeluaran_model extends CI_Model {
 			$this->db->update('pengeluaran', $data);		
 		}else{
 			$data = array(
-			'nama_pengeluaran' => $this->input->post('nama_pengeluaran'),
+			'nama_kegiatan' => $this->input->post('nama_pengeluaran'),
 			'nama_toko' => $this->input->post('toko'),
-			'id_jenis_pengeluaran' => $this->input->post('jenis_pengeluaran'),
+			'id_jenis_dana_kegiatan' => $this->input->post('jenis_pengeluaran'),
 			'jumlah' => $this->input->post('jumlah'),
 			'id_sekolah' => $this->session->id_sekolah,
 			'tanggal' => $this->input->post('tanggal'),
 			'gambar' => $this->upload->data('file_name'),
 			);
-			$this->db->where('id_pengeluaran', $id);
-			$this->db->update('pengeluaran', $data);
+			$this->db->where('id_keluar_masuk_dana', $id);
+			$this->db->update('keluar_masuk_dana', $data);
 		}
 		
 	}
@@ -70,23 +72,23 @@ class Pengeluaran_model extends CI_Model {
 	public function editPic($id)
 	{
 		$data = array(
-			'nama_pengeluaran' => $this->input->post('nama_pengeluaran'),
+			'nama_kegiatan' => $this->input->post('nama_pengeluaran'),
 			'nama_toko' => $this->input->post('toko'),
-			'id_jenis_pengeluaran' => $this->input->post('jenis_pengeluaran'),
+			'id_jenis_dana_kegiatan' => $this->input->post('jenis_pengeluaran'),
 			'jumlah' => $this->input->post('jumlah'),
 			'id_sekolah' => $this->session->id_sekolah,
 			'tanggal' => $this->input->post('tanggal'),
 			'gambar' => $this->upload->data('file_name'),
 		);
 
-		$this->db->where('id_pengeluaran', $id);
-		$this->db->update('pengeluaran', $data);
+		$this->db->where('id_keluar_masuk_dana', $id);
+		$this->db->update('keluar_masuk_dana', $data);
 	}
 
 	public function delete($id)
 	{
-		$this->db->where('id_pengeluaran', $id);
-		$this->db->delete('pengeluaran');
+		$this->db->where('id_keluar_masuk_dana', $id);
+		$this->db->delete('keluar_masuk_dana');
 	}
 
 	

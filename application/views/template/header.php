@@ -47,6 +47,12 @@
               <i class="material-icons">dashboard</i>
               <p>Beranda</p>
             </a>
+          </li><li class="nav-item <?php echo ($this->uri->segment(1) == 'rencanakegiatank1') ? 'active':''; ?>">
+            <a class="nav-link" href="<?php echo site_url('rencanapenerimaank1') ?>">
+              <i class="material-icons">content_paste</i>
+              <!-- <i class="material-icons">assessment</i> -->
+              <p>RKAS K1</p>
+            </a>
           </li>
           <li class="nav-item <?php echo ($this->uri->segment(1) == 'sumberdana') ? 'active':''; ?>">
             <a class="nav-link" href="<?php echo site_url('sumberdana') ?>">
@@ -65,6 +71,12 @@
             <a class="nav-link" href="<?php echo site_url('kegiatan')?>">
               <i class="material-icons">directions_run</i>
               <p>Kegiatan</p>
+            </a>
+          </li>
+          <li class="nav-item <?php echo ($this->uri->segment(1) == 'penggunaan' ) ? 'active':''; ?> ">
+            <a class="nav-link" href="<?php echo site_url('penggunaan')?>">
+              <i class="material-icons">directions_run</i>
+              <p>Penggunaan</p>
             </a>
           </li>
           <li class="nav-item <?php echo ($this->uri->segment(1) == 'laporan') ? 'active':''; ?>">

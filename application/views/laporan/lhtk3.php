@@ -42,50 +42,12 @@ $saldo = 0;
 		</table>
 		<table border="1" width="100%">
 			<thead>
-				<center> <h4>LAPORAN PEMASUKKAN </h4></center>
+				<center> <h4>LAPORAN </h4> </center>
 				<tr>
 					<th>Tanggal</th>
 					<th>No. Bukti</th>
 					<th>Uraian</th>
 					<th>Pemasukkan(Debit)</th>
-					<th>Saldo</th>
-				</tr>
-				<tr>
-					<th>1</th>
-					<th>2</th>
-					<th>3</th>
-					<th>4</th>
-					<th>5</th>
-				</tr>
-			</thead>
-			
-			<tbody>
-				<?php foreach ($pemasukkan as $key => $value) { ?>
-				<tr>
-					<td><?php echo $value->tanggal; ?></td>
-					<td><?php echo $this->session->npsn."/".($key+1)."/D/".$nama."/".date("M",strtotime($value->tanggal))."/".$tahun?></td>
-					<td><?php echo $value->nama_pemasukkan ?></td>
-					<?php $jumlah = $value->saldo_awal+$value->saldo_bank+$value->saldo_kas_tunai-($value->saldo_bank*$value->bunga_bank) ?>
-					<td><?php echo "Rp. ".$jumlah; $saldo+=$jumlah; $masuk=$saldo; ?></td>
-					<td><?php echo "Rp. ".$saldo ?></td>
-				</tr>
-				
-				
-				
-				<?php }  ?>
-				<tr>
-					<td colspan="4" align="center">Total Jumlah Pemasukan Bulan <?php echo $bulanAwal.' - '.$bulanAkhir.' '.$tahun ?> </td>
-					<th><?php echo "Rp. ".$saldo ?></th>
-				</tr>
-			</tbody>
-		</table>
-		<table border="1" width="100%">
-			<thead>
-				<center> <h4>LAPORAN PENGELUARAN </h4> </center>
-				<tr>
-					<th>Tanggal</th>
-					<th>No. Bukti</th>
-					<th>Uraian</th>
 					<th>Pengeluaran(Kredit)</th>
 					<th>Saldo</th>
 				</tr>
@@ -95,6 +57,7 @@ $saldo = 0;
 					<th>3</th>
 					<th>4</th>
 					<th>5</th>
+					<th>6</th>
 				</tr>
 			</thead>
 			
@@ -103,8 +66,13 @@ $saldo = 0;
 				<tr>
 					<td><?php echo $value->tanggal; ?></td>
 					<td><?php echo $this->session->npsn."/".($key+1)."/K/".$nama."/".date("M",strtotime($value->tanggal))."/".$tahun?></td>
-					<td><?php echo $value->nama_pengeluaran ?></td>
+				<?php if ($value->status == 'keluar') { ?>
+					<td><?php echo $value->nama_kegiatan ?></td>
+					<td>0</td>
 					<td><?php echo "Rp. ".$value->jumlah; $saldo-= $value->jumlah; $keluar+=$value->jumlah; ?></td>
+				<?php }else{ ?>
+
+				<?php } ?>
 					<td><?php echo "Rp. ".$saldo ?></td>
 				</tr>
 				<?php }  ?>

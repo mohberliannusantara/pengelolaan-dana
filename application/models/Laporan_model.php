@@ -8,7 +8,7 @@ class Laporan_model extends CI_Model {
 		$this->db->where('id_sekolah', $id);
 		$this->db->where('tanggal BETWEEN "'.$awal.'" AND "'.$akhir.'"');
 		$this->db->order_by('tanggal', 'ASC');
-		$query=$this->db->get('pengeluaran');
+		$query=$this->db->get('keluar_masuk_dana');
 		return $query->result();
 	}
 
@@ -29,7 +29,7 @@ class Laporan_model extends CI_Model {
 		$this->db->where('id_sekolah', $id);
 		$this->db->where('tanggal BETWEEN "'.$awal.'" AND "'.$akhir.'"');
 		$this->db->order_by('tanggal', 'ASC');
-		$query=$this->db->get('sumber_dana');
+		$query=$this->db->get('keluar_masuk_dana');
 		return $query->result();
 	}
 
@@ -43,7 +43,8 @@ class Laporan_model extends CI_Model {
 		$this->db->select_sum('jumlah');
 		$this->db->where('id_sekolah', $id);
 		$this->db->where('tanggal BETWEEN "'.$awal.'" AND "'.$akhir.'"');
-		$query=$this->db->get('sumber_dana');
+		$this->db->where('status', 'masuk');
+		$query=$this->db->get('keluar_masuk_dana');
 		return $query->row()->jumlah;
 	}
 
@@ -52,7 +53,8 @@ class Laporan_model extends CI_Model {
 		$this->db->select_sum('jumlah');
 		$this->db->where('id_sekolah', $id);
 		$this->db->where('tanggal BETWEEN "'.$awal.'" AND "'.$akhir.'"');
-		$query=$this->db->get('pengeluaran');
+		$this->db->where('status', 'keluar');
+		$query=$this->db->get('keluar_masuk_dana');
 		if($query->row()->jumlah == null){
 			return "0";
 		}else{

@@ -71,7 +71,7 @@
         <div class="card card-profile">
           <div class="card-body">
             <h4 class="card-title">BOS-K7</h4>
-            <a href="pengguna/create" class="btn btn-success">Unduh</a>
+            <a href="#" class="btn btn-success" data-toggle="modal" data-target="#BOS-k7">Cek Laporan</a>
             <p class="card-category">Realisasi Penggunaan Dana Tiap Jenis Anggaran</p>
           </div>
           <div class="card-footer">
@@ -136,8 +136,8 @@
       <div class="col-md-4">
         <div class="card card-profile">
           <div class="card-body">
-            <h4 class="card-title">BOS-04</h4>
-            <a href="pengguna/create" class="btn btn-danger">Unduh</a>
+            <h4 class="card-title">Surat Pertanggung Jawaban</h4>
+            <a href="#" class="btn btn-success" data-toggle="modal" data-target="#spj">Cek Laporan</a>
             <p class="card-category">Laporan Penggunaan Dana BOS</p>
           </div>
           <div class="card-footer">
@@ -251,6 +251,33 @@
             <div class="invalid-feedback">Masukkan Triwulan yang ingin di Lihat</div>
           </div>
 
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+          <button type="submit" name='action' value="lihat" class="btn btn-primary">Lihat</button>
+          <button type="submit" name='action' value="unduh" class="btn btn-primary">Unduh</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Modal k7-->
+<div class="modal fade" id="spj" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Surat Pertanggung Jawaban</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="<?php echo base_url().'Laporan/exportk7/'.$this->session->id_sekolah ?>" method='post' target="_blank">
+          <div class="form-group">
+            <label for="" class="label">Tahun: </label>
+            <input type="number" name="tahun" class="form-control" min="2017" value="2017" autofocus required>
+          </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
