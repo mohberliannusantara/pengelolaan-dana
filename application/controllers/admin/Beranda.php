@@ -18,12 +18,14 @@ class Beranda extends CI_Controller {
 	public function index()
 	{
 		$data['page'] = 'Beranda';
+
+		$data['sekolah'] = $this->sekolah_model->get();
 		$datauser['sdnegeri'] = count($this->sekolah_model->get_by_status('1','1'));
 		$datauser['sdswasta'] = count($this->sekolah_model->get_by_status('1','2'));
 		$datauser['smpnegeri'] = count($this->sekolah_model->get_by_status('1','1'));
 		$datauser['smpswasta'] = count($this->sekolah_model->get_by_status('2','2'));
+
 		$this->load->view('admin/template/header', $data);
-		// $this->load->view('2',$datauser);
 		$this->load->view('admin/beranda/index',$datauser);
 		$this->load->view('admin/template/footer');
 	}

@@ -20,7 +20,7 @@ class Kegiatan extends CI_Controller {
 	public function index()
 	{
 		$data['page'] = 'Rencana Kegiatan Sekolah';
-		$data['kegiatan'] = $this->jenis_kegiatan_model->get();
+		// $data['kegiatan'] = $this->jenis_kegiatan_model->get();
 
 		$this->load->view('admin/template/header', $data);
 		$this->load->view('admin/kegiatan/index', $data);

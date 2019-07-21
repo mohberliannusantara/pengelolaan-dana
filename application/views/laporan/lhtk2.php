@@ -71,20 +71,12 @@ $saldo = 0;
 							<?php foreach ($kegiatan as $key_kegiatan => $value_kegiatan): ?>
 								<tr>
 									<td><?php echo $value_kegiatan->nama_kegiatan ?></td>
-									<td><?php echo $value_kegiatan->nama_kegiatan ?></td>
-
-									<!-- <td>
-										<table>
-
-										</table>
-									</td> -->
 								</tr>
 							<?php endforeach; ?>
 						</table>
 					</td>
-					<!-- </td>
 					<td></td>
-					<td></td> -->
+					<td></td>
 				</tr>
 			<?php endforeach; ?>
 		</tbody>

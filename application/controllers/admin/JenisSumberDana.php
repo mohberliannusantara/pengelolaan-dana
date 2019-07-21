@@ -24,7 +24,7 @@ class JenisSumberDana extends CI_Controller {
 		$data['jenissumberdana'] = $this->sumberdana_model->getJenisSumberDana();
 
 		$this->load->view('admin/template/header', $data);
-		$this->load->view('admin/jenissumberdana/index', $data);
+		$this->load->view('admin/jenissumberdana/index2', $data);
 		$this->load->view('admin/template/footer');
 	}
 
