@@ -9,6 +9,12 @@ class jenis_kegiatan_model extends CI_Model
     parent::__construct();
   }
 
+  public function get()
+  {
+    $query = $this->db->get('jenis_kegiatan');
+    return $query->result();
+  }
+
   public function sumKegiatan($id)
   {
   	$query = "SELECT SUM(jumlah) as jumlah from detail_kegiatan as d INNER JOIN kegiatan as k ON d.id_kegiatan=k.id_kegiatan INNER join jenis_kegiatan as j ON k.id_jenis_kegiatan=j.id_jenis_kegiatan WHERE j.id_jenis_kegiatan=$id ";

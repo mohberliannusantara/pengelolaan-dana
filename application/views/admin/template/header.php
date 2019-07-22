@@ -86,14 +86,8 @@
         </li>
         <li class="nav-item <?php echo ($this->uri->segment(2) == 'kegiatan') ? 'active':''; ?> ">
           <a class="nav-link" href="<?php echo site_url('admin/kegiatan')?>">
-            <i class="material-icons">content_paste</i>
+            <i class="material-icons">directions_run</i>
             <p>Kegiatan Sekolah</p>
-          </a>
-        </li>
-        <li class="nav-item <?php echo ($this->uri->segment(2) == 'penerimaan') ? 'active':''; ?> ">
-          <a class="nav-link" href="<?php echo site_url('admin/penerimaan')?>">
-            <i class="material-icons">content_paste</i>
-            <p>Penerimaan Sekolah</p>
           </a>
         </li>
         <li class="nav-item <?php echo ($this->uri->segment(2) == 'sekolah') ? 'active':''; ?> ">

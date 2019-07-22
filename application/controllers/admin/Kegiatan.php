@@ -20,7 +20,7 @@ class Kegiatan extends CI_Controller {
 	public function index()
 	{
 		$data['page'] = 'Rencana Kegiatan Sekolah';
-		// $data['kegiatan'] = $this->jenis_kegiatan_model->get();
+		$data['kegiatan'] = $this->jenis_kegiatan_model->get();
 
 		$this->load->view('admin/template/header', $data);
 		$this->load->view('admin/kegiatan/index', $data);
@@ -37,7 +37,7 @@ class Kegiatan extends CI_Controller {
 			echo validation_errors();
 		}else{
 			$this->jenis_kegiatan_model->create();
-			echo "<script>alert('Successfully Added'); </script>";
+			echo "<script>alert('Berhasil Ditambahkan'); </script>";
 			redirect('admin/kegiatan','refresh');
 		}
 
@@ -58,7 +58,7 @@ class Kegiatan extends CI_Controller {
 		}else{
 			// $this->load->model('sekolah_model');
 			$this->jenis_kegiatan_model->edit($id);
-			echo "<script>alert('Successfully Edited'); </script>";
+			echo "<script>alert('Berhasil Diubah'); </script>";
 			redirect('admin/kegiatan','refresh');
 		}
 
@@ -70,7 +70,7 @@ class Kegiatan extends CI_Controller {
 	public function delete($id)
 	{
 		$this->jenis_kegiatan_model->delete($id);
-		echo "<script>alert('Successfully Deleted'); </script>";
+		echo "<script>alert('Berhasil Dihapus'); </script>";
 		redirect('admin/kegiatan','refresh');
 	}
 }

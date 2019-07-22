@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-md-12">
         <div class="card">
-          <div class="card-header card-header-info">
+          <div class="card-header card-header-warning">
             <h4 class="card-title ">Edit Data Sumber Dana Sekolah</h4>
             <p class="card-category">menambahkan informasi data Sumber sekolah</p>
           </div>
@@ -12,7 +12,8 @@
 
               <div class="form-group">
                 <label for="id_sekolah">Jenis Sumber Dana</label>
-                <input type="text" class="form-control" name="nama_jenis_sumber_dana" value="<?php echo $jenissumberdana->nama_jenis_sumber_dana ?>" required>
+                <br>
+                <input type="text" class="form-control" name="nama_jenis_sumber_dana" value="<?php echo $jenissumberdana->nama_jenis_sumber_dana ?>" required autofocus>
                 <div class="invalid-feedback">Nama Jenis Sumber Dana</div>
               </div>
 

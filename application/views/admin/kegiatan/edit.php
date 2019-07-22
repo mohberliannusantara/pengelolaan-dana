@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-md-12">
         <div class="card">
-          <div class="card-header card-header-info">
+          <div class="card-header card-header-warning">
             <h4 class="card-title ">Tambah Data Jenis Kegiatan Sekolah</h4>
             <p class="card-category">menambahkan jenis kegiatan sekolah</p>
           </div>
@@ -12,7 +12,8 @@
 
              <div class="form-group">
                 <label for="saldo_awal">Jenis Kegiatan</label>
-                <input type="text" min="0" class="form-control" name="nama_jenis_kegiatan" value="<?php echo $kegiatan->nama_jenis_kegiatan ?>" required>
+                <br>
+                <input type="text" min="0" class="form-control" name="nama_jenis_kegiatan" value="<?php echo $kegiatan->nama_jenis_kegiatan ?>" required autofocus>
                 <div class="invalid-feedback">Jenis Kegiatan</div>
               </div>
 

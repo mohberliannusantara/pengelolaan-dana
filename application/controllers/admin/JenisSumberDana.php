@@ -24,7 +24,7 @@ class JenisSumberDana extends CI_Controller {
 		$data['jenissumberdana'] = $this->sumberdana_model->getJenisSumberDana();
 
 		$this->load->view('admin/template/header', $data);
-		$this->load->view('admin/jenissumberdana/index2', $data);
+		$this->load->view('admin/jenissumberdana/index', $data);
 		$this->load->view('admin/template/footer');
 	}
 
@@ -40,7 +40,7 @@ class JenisSumberDana extends CI_Controller {
 		}else{
 			$this->sumberdana_model->createJenis();
 			echo "<script>alert('Successfully Added'); </script>";
-			redirect('admin/jenissumberdana','refresh');
+			redirect('admin/jenisSumberDana','refresh');
 		}
 
 		$this->load->view('admin/template/header', $data);
@@ -61,7 +61,7 @@ class JenisSumberDana extends CI_Controller {
 			// $this->load->model('sekolah_model');
 			$this->sumberdana_model->editJenis($id);
 			echo "<script>alert('Successfully Edited'); </script>";
-			redirect('admin/jenissumberdana','refresh');
+			redirect('admin/jenisSumberDana','refresh');
 		}
 
 		$this->load->view('admin/template/header', $data);
@@ -73,13 +73,13 @@ class JenisSumberDana extends CI_Controller {
 	{
 		$this->sumberdana_model->deleteJenis($id);
 		echo "<script>alert('Successfully Deleted'); </script>";
-		redirect('admin/jenissumberdana','refresh');
+		redirect('admin/jenisSumberDana','refresh');
 	}
 
 	public function get($id)
 	{
 		$data['sumberdana'] = $this->sumberdana_model->get_by_id($id);
-		$this->load->view('admin/jenissumberdana/show', $data);
+		$this->load->view('admin/jenisSumberDana/show', $data);
 	}
 
 }

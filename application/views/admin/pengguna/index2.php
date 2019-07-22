@@ -5,51 +5,57 @@
         <div class="card card-pricing card-raised">
           <div class="card-body">
             <h6 class="card-category">Tambah Data</h6>
-            <a href="<?php echo base_url('admin/jenisSumberDana/create') ?>">
+            <a href="<?php echo base_url('admin/kegiatan/create') ?>">
               <div class="card-icon icon-rose">
                 <i class="material-icons">add</i>
               </div>
             </a>
-            <h3 class="card-title">Jenis Sumber Dana</h3>
+            <h3 class="card-title">Jenis Kegiatan</h3>
             <p class="card-description">
-              Tambahkan data jenis sumber dana kedalam daftar
+              Tambahkan data jenis kegiatan sekolah kedalam daftar
             </p>
-            <a href="<?php echo base_url('admin/jenisSumberDana/create') ?>" class="btn btn-rose btn-round">Tambah</a>
+            <a href="<?php echo base_url('admin/kegiatan/create') ?>" class="btn btn-rose btn-round">Tambah</a>
           </div>
         </div>
       </div>
       <div class="col-md-9">
         <div class="card">
-          <div class="card-header card-header-warning card-header-icon">
+          <div class="card-header card-header-primary card-header-icon">
             <div class="card-icon">
-              <i class="material-icons">money</i>
+              <i class="material-icons">directions_run</i>
             </div>
-            <h4 class="card-title">Daftar Jenis Sumber Dana</h4>
+            <h4 class="card-title">Daftar Pengguna</h4>
           </div>
           <div class="card-body">
             <div class="material-datatables">
-              <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
+              <table id="dtBasicExample" class="table table-striped table-bordered" cellspacing="0" width="100%">
                 <thead class="text-primary">
                   <tr>
                     <th class="th-sm">No
                     </th>
-                    <th class="th-sm">Nama Jenis Sumber Dana
+                    <th class="th-sm">Nama Pengguna
                     </th>
-                     <th class="th-sm">Aksi
+                    <th class="th-sm">Username
+                    </th>
+                    <th class="th-sm">Aksi
                     </th>
                   </tr>
                 </thead>
                 <tbody>
-                  <?php foreach ($jenissumberdana as $key => $value): ?>
+                  <?php foreach ($pengguna as $key => $value): ?>
                     <tr>
                       <td><?php echo $key+1 ?></td>
-                      <td><?php echo $value->nama_jenis_sumber_dana ?></td>
+                      <td><?php echo $value->nama_pengguna ?></td>
+                      <td><?php echo $value->username ?></td>
                       <td>
-                        <a href="<?php echo base_url('admin/jenisSumberDana/edit/') . $value->id_jenis_sumber_dana ?>" rel="tooltip" title="Ubah" class="btn btn-sm btn-warning">
+                        <a href="#" onclick="openModal(<?php echo $value->id_pengguna; ?>)" rel="tooltip" title="Lihat" class="btn btn-sm btn-success">
+                          <i class="material-icons">zoom_out_map</i>
+                        </a>
+                        <a href="<?php echo base_url('admin/pengguna/edit/') . $value->id_pengguna ?>" rel="tooltip" title="Ubah Informasi" class="btn btn-sm btn-warning">
                           <i class="material-icons">edit</i>
                         </a>
-                        <a href="<?php echo base_url('admin/jenisSumberDana/delete/') . $value->id_jenis_sumber_dana ?>" rel="tooltip" title="Delete" class="btn btn-sm btn-danger">
-                          <i class="material-icons">delete</i>
+                        <a href="<?php echo base_url('admin/pengguna/resetPass/') . $value->username ?>" rel="tooltip" title="Reset Password" class="btn btn-sm btn-danger" onclick="return confirm('Ingin mereset password? Password akan di set sama dengan username akun')">
+                          <i class="material-icons">warning</i>
                         </a>
                       </td>
                     </tr>
@@ -57,11 +63,13 @@
                 </tbody>
                 <tfoot class="text-primary">
                   <tr>
-                    <th>No
+                    <th class="th-sm">No
                     </th>
-                    <th>Nama Jenis Sumber Dana
+                    <th class="th-sm">Nama Pengguna
                     </th>
-                    <th>Aksi
+                    <th class="th-sm">Username
+                    </th>
+                    <th class="th-sm">Aksi
                     </th>
                   </tr>
                 </tfoot>

@@ -3,8 +3,8 @@
 
 <head>
 	<meta charset="utf-8" />
-	<link rel="apple-touch-icon" sizes="76x76" href="<?php echo base_url() ?>assets/img/logo.png">
-	<link rel="icon" type="image/png" href="<?php echo base_url('assets/img/logo.png') ?>">
+	<link rel="apple-touch-icon" sizes="76x76" href="<?php echo base_url() ?>assets/img/favicon.png">
+	<link rel="icon" type="image/png" href="<?php echo base_url('assets/img/favicon.png') ?>">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 	<title>
     Pengelolaan Dana | Dinas Pendidikan Kota Batu
@@ -49,6 +49,7 @@
 		<div class="content-center">
 			<div class="col-md-10 ml-auto mr-auto">
 				<div class="brand">
+					<img src="<?php echo base_url('assets/img/favicon.png') ?>" alt="" style="width:100px; height:100%">
 					<h1 class="title">Pengelolaan Dana</h1>
 					<h3 class="description">Memantau pengelolaan dana dengan lebih mudah dan cepat</h3>
 					<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#exampleModalCenter">

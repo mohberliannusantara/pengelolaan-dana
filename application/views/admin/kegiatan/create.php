@@ -12,12 +12,13 @@
 
              <div class="form-group">
                 <label for="saldo_awal">Jenis Kegiatan</label>
-                <input type="text" min="0" class="form-control" name="nama_jenis_kegiatan" required>
+                <br>
+                <input type="text" min="0" class="form-control" name="nama_jenis_kegiatan" required autofocus>
                 <div class="invalid-feedback">Jenis Kegiatan</div>
               </div>
 
                 <div class="form-group">
-                  <input class="btn btn-warning" type="submit" value="Simpan">
+                  <input class="btn btn-info" type="submit" value="Simpan">
                 </div>
               </form>
             </div>

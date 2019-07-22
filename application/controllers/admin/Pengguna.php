@@ -24,7 +24,7 @@ class Pengguna extends CI_Controller {
 		$data['pengguna'] = $this->pengguna_model->get();
 
 		$this->load->view('admin/template/header', $data);
-		$this->load->view('admin/pengguna/index', $data);
+		$this->load->view('admin/pengguna/index2', $data);
 		$this->load->view('admin/template/footer');
 	}
 

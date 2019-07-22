@@ -19,7 +19,7 @@ class Dana extends CI_Controller {
 
 	public function index()
 	{
-		$data['page'] = 'Kelola Dana';
+		$data['page'] = 'Kelola Laporan Dana';
 		$data['sekolah'] = $this->sekolah_model->get();
 
 		$this->load->view('admin/template/header', $data);
